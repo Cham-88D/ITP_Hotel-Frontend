@@ -129,5 +129,5 @@ fabric.properties
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
-
+README.md
 # End of https://www.toptal.com/developers/gitignore/api/intellij
