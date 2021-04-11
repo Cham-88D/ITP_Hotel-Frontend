@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MenuItemService from '../services/MenuItemService'
 
 class MenuItemList extends Component {
     constructor(props){
@@ -8,6 +9,13 @@ class MenuItemList extends Component {
                 menuItems:[]
         }
     }
+
+    componentDidMount(){
+        MenuItemService.getMenuItems().then((res)=>{
+            this.setState({ menuItems :res.data});
+        })
+    }
+
     render() {
         return (
             <div>
