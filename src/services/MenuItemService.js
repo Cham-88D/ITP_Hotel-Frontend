@@ -8,6 +8,10 @@ class MenuItemService  {
    getMenuItems(){
        return axios.get(Menu_Item_Base_URL);
    }
+
+   addMenuItem(menuItem){
+       return axios.post(Menu_Item_Base_URL, menuItem);
+   }
 }
 
 export default new MenuItemService()
