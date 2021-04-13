@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import MenuItemService from '../services/MenuItemService'
+import MenuItemService from '../services/MenuItemService';
+import AddMenuItem from '../components/AddMenuItem';
 
 class MenuItemList extends Component {
     constructor(props){
@@ -8,6 +9,7 @@ class MenuItemList extends Component {
         this.state= {
                 menuItems:[]
         }
+        this.addMenu = this.addMenu.bind(this);
     }
 
     componentDidMount(){
@@ -16,11 +18,18 @@ class MenuItemList extends Component {
         })
     }
 
+    addMenu(){
+        this.props.history.push('/add menu items');
+    }
+
     render() {
         return (
             <div>
                 
             <h2 className="text-center">Menu Item List</h2>
+            <div className="row">
+                <button className="btn1 btn-primary " onClick={this.addMenu}>Add Menu Item</button>
+            </div>
              <div className="row">
                 <table className="table table-striped table-bordered">
 
@@ -32,7 +41,7 @@ class MenuItemList extends Component {
                            <th>Unit Price </th> 
                            <th>Description </th> 
                            <th>Discount </th> 
-                           <th>Available Status </th> 
+                          
                            <th>Edit </th>
                         </tr>
 
@@ -49,7 +58,7 @@ class MenuItemList extends Component {
                                     <td>{menuitem.unitPrice}</td>
                                     <td>{menuitem.description}</td>
                                     <td>{menuitem.discount}</td>
-                                    <td>{menuitem.availableStatus}</td>
+                                    
 
 
 
