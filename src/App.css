@@ -74,4 +74,16 @@ hr{
   
 }
 
-
+.btn{
+  margin-bottom: 25px;
+}
+.btn1{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.card{
+  margin-top:25px;
+}
+#reset{
+  margin-left:260px;
+}
