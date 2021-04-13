@@ -12,6 +12,10 @@ class MenuItemService  {
    addMenuItem(menuItem){
        return axios.post(Menu_Item_Base_URL, menuItem);
    }
+
+   getMenuItemById(menuItemId){
+            return axios.get(Menu_Item_Base_URL + '/' + menuItemId);
+   }
 }
 
 export default new MenuItemService()
