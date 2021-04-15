@@ -1,7 +1,7 @@
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    background-image: linear-gradient(to left bottom, #040912, #150e1d, #270f1f, #380f17, #401601);
     height: 80px;
     display: flex;
     justify-content: center;
@@ -51,7 +51,7 @@ button {
 }
 
 .nav-links:hover {
-    background-color: #1888ff;
+    color: #f18438;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -101,7 +101,7 @@ button {
     }
 
     .nav-links:hover {
-        background-color: #1888ff;
+        background-color: transparent;
         border-radius: 0;
     }
 
@@ -134,7 +134,7 @@ button {
         margin: 2rem auto;
         border-radius: 4px;
         width: 80%;
-        background: #1888ff;
+        background: #ff8418;
         text-decoration: none;
         color: #fff;
         font-size: 1.5rem;
@@ -142,7 +142,7 @@ button {
 
     .nav-links-mobile:hover {
         background: #fff;
-        color: #1888ff;
+        color: #ea6f1b;
         transition: 250ms;
     }
 
