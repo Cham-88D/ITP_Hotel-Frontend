@@ -1,10 +1,10 @@
 import React from 'react'
+import AddAttendForm from '../components/AddAttendForm'
 
 function Manage_Attendance() {
     return (
-        <div className='manage_attendance'>
-            <h1>Manage Attendance</h1>
-            
+        <div >
+            <AddAttendForm/>
         </div>
     )
 }

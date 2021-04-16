@@ -7,38 +7,38 @@ import* as CgIcons from "react-icons/cg";
 export const SidebarData=[
     {
         title:'Main',
-        path:'/',
+        path:'/main',
         icon:<CgIcons.CgProfile/>,
         cName:'nav-text'
     },
 
     {
         title:'Manage Employee',
-        path:'/',
+        path:'/manageEmployee',
         icon:<BsIcons.BsFillPersonLinesFill/>,
         cName:'nav-text'
     },
     {
         title:'Manage Attendance',
-        path:'/',
+        path:'/manageAttendance',
         icon:<BsIcons.BsCardList/>,
         cName:'nav-text'
     },
     {
         title:'Manage Salary',
-        path:'/',
+        path:'/manageSalary',
         icon:<MdIcons.MdPayment/>,
         cName:'nav-text'
     },
     {
         title:'Calculate Salary',
-        path:'/',
+        path:'/calculateSalary',
         icon:<BiIcons.BiCalculator/>,
         cName:'nav-text'
     },
     {
         title:'View Salary',
-        path:'/',
+        path:'/viewSalary',
         icon:<BiIcons.BiDetail/>,
         cName:'nav-text'
     },
