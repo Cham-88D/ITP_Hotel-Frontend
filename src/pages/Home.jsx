@@ -1,11 +1,18 @@
 import React from 'react';
-import '../App.css';
+import CarouselPage from "../components/Slide";
+
+
+
 
 
 function Home() {
   return (
-      <>
-      </>
+
+   <div>
+       <CarouselPage/>
+   </div>
+
+
   );
 }
 
