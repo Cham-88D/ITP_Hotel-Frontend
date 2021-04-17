@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AttendanceService from '../adapters/AttendanceService';
 import './AddAttend.css';
 export default class ViewAttendance extends Component {
     constructor(props){
@@ -7,6 +8,20 @@ export default class ViewAttendance extends Component {
         this.state={
             attendances:[]
         }
+        this.deleteAttendance=this.deleteAttendance.bind(this);
+
+    }
+
+    deleteAttendance(id){
+           AttendanceService.deleteAttendance(id).then(res=>{
+                this.setState({attendances:this.state.attendances.filter(attendance=>attendance.attendanceId!==id )});
+           }) ;
+    }
+    componentDidMount(){
+        AttendanceService.getAllDaily_Attendance().then((res)=>{
+            this.setState({attendances:res.data});
+
+        });
     }
     render() {
         return (
@@ -16,12 +31,15 @@ export default class ViewAttendance extends Component {
                     <table className="attend-table">
                         <thead>
                             <tr>
-                                <th>Employee ID</th>
+                                <th>Attendance ID</th>
                                 <th>Date</th>
                                 <th>In Time</th>
                                 <th>Out Time</th>
                                 <th>OT Hour</th>
                                 <th>Type</th>
+                                <th>Employee ID</th>
+                                <th>Actions</th>
+                                
                             </tr>
                         </thead>
 
@@ -29,13 +47,19 @@ export default class ViewAttendance extends Component {
                             {
                                 this.state.attendances.map(
                                     attendance=>
-                                    <tr key={attendance.id}>
-                                        <td>{attendance.employeeId}</td>
+                                    <tr key={attendance.attendanceId}>
+                                        <td>{attendance.attendanceId}</td>
                                         <td>{attendance.date}</td>
-                                        <td>{attendance.inTime}</td>
-                                        <td>{attendance.outTime}</td>
-                                        <td>{attendance.otHour}</td>
-                                        <td>{attendance.type}</td>
+                                        <td>{attendance.in_Time}</td>
+                                        <td>{attendance.out_Time}</td>
+                                        <td>{attendance.otHours}</td>
+                                        <td>{attendance.atte_type}</td>
+                                        <td>{attendance.employee.id}</td>
+                                        
+                                        <td>
+                                            <button onClick='' className="btnbtn-info">Update</button>
+                                            <button style={{marginLeft:"10px"}} onClick={()=>this.deleteAttendance(attendance.attendanceId)} className="btnbtn-danger">Delete</button>
+                                        </td>
                                     </tr>
 
                                 )
