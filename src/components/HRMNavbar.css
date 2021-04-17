@@ -5,12 +5,15 @@
     justify-content: start;
     align-items: center;
 }
-
 .menu-bars{
-    margin-left: 15px;
-    font-size: 1.6rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
     background: none;
 }
+.menu-bar{
+    font-size: 1.1rem;
+}
+
 
 .nav-menu{
     background-color: #6677d4;

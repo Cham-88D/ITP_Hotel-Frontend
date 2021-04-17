@@ -17,6 +17,7 @@ export const SidebarData=[
         path:'/manageEmployee',
         icon:<BsIcons.BsFillPersonLinesFill/>,
         cName:'nav-text'
+        
     },
     {
         title:'Manage Attendance',
