@@ -8,7 +8,7 @@
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #595959;
+    background-color: #ffffff;
   }
   
   .close-btn {
@@ -49,8 +49,10 @@
   }
   
   .form h3 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-align: start;
+    font-family: ' Calibri';
+    font-weight: bold;
     width: 92%;
     padding-left: 10px;
     margin-bottom: 1rem;
@@ -59,7 +61,7 @@
     background: linear-gradient(
         90deg,
         rgb(39, 176, 255) 0%,
-        rgb(59, 59, 59) 100%
+        rgb(207, 201, 201) 100%
       );
   }
   
@@ -78,17 +80,18 @@
     display: inline-block;
     font-size: 0.8rem;
     margin-bottom: 6px;
-    color: #fff;
+    color: rgb(3, 3, 3);
   }
   
   .form-input {
     display: block;
     padding-left: 10px;
-    outline: none;
+    border: 1px solid black;
+    /* outline: 1px; */
     border-radius: 2px;
     height: 30px;
     width: 250px;
-    border: none;
+    /* border: none; */
   }
   
   .form-input::placeholder {
@@ -151,7 +154,7 @@
 
   .attend-table {
    border-collapse: collapse;
-   margin:25px ;
+   margin-left: 25%;
    font-size: 0.9em;
    min-width: 400px;
   }
@@ -178,6 +181,23 @@
     }
     .attend-table tbody tr:last-of-type{
       border-bottom: 2px solid #969090;
+    }
+
+    .btnbtn-info{
+      background-color: #60a0dd;
+      border-radius: 4px;
+      border-color:#3b7ebd ;
+      color: #ffffff;
+      height: 30px;
+      width: 70px;
+    }
+    .btnbtn-danger{
+      background-color: #e60e0e;
+      border-radius: 4px;
+      border-color: #e60e0e;
+      color: #ffffff;
+      height: 30px;
+      width: 70px;
     }
   /* .form-input-login {
     font-size: 0.8rem;
