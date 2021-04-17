@@ -1,6 +1,9 @@
 import React from 'react';
-import '../App.css';
 
-export default function Room() {
-  return <h1>SERVICES</h1>;
+
+function Room() {
+  return (
+      <h1>Room</h1>
+  );
 }
+export default Room;

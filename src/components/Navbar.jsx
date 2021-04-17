@@ -61,7 +61,7 @@ class Navigation extends React.Component {
             <div>
                 <header>
 
-                        <MDBNavbar fixed="top" dark expand="md" scrolling color={"black"}>
+                        <MDBNavbar fixed="top" dark expand="md" scrolling color={"black"} >
                             <MDBNavbarBrand href="/">
                                 <MDBAnimation type="slideInLeft" >
                                 <strong style={{ color: this.state.change ? "#e97b2c":"white"}}>
@@ -71,16 +71,16 @@ class Navigation extends React.Component {
                             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                             <MDBCollapse isOpen={this.state.collapse} navbar >
                                 <MDBNavbarNav right>
-                                    <MDBNavItem active>
+                                    <MDBNavItem active style={{marginLeft:"20px" }}>
                                         <MDBNavLink to="/" style={{color:"#e97b2c"}}>Home</MDBNavLink>
                                     </MDBNavItem>
-                                    <MDBNavItem>
+                                    <MDBNavItem style={{marginLeft:"20px" }}>
                                         <MDBNavLink to="/gallery">Gallery</MDBNavLink>
                                     </MDBNavItem>
-                                    <MDBNavItem>
+                                    <MDBNavItem style={{marginLeft:"20px" }}>
                                         <MDBNavLink to="/contact-us">Contact-us</MDBNavLink>
                                     </MDBNavItem>
-                                    <MDBNavItem>
+                                    <MDBNavItem style={{marginRight:"440px",marginLeft:"20px" }}>
                                         <MDBDropdown>
                                             <MDBDropdownToggle nav caret>
                                                 <div className="d-none d-md-inline" >Booking</div>
@@ -91,16 +91,13 @@ class Navigation extends React.Component {
                                             </MDBDropdownMenu>
                                         </MDBDropdown>
                                     </MDBNavItem>
-                                    <MDBNavItem style={{marginRight:"480px" }}>
-                                        <MDBNavLink to="#">Account</MDBNavLink>
-                                    </MDBNavItem>
-                                    <MDBNavItem>
-                                        <MDBBtn outline color="deep-orange" style={{padding:"1px"}}>Sign-Up</MDBBtn>
+                                    <MDBNavItem style={{marginLeft:"20px" }}>
+                                        <MDBBtn outline color="deep-orange" style={{padding:"1px"}} href="/sign-up">Sign-Up</MDBBtn>
                                     </MDBNavItem>
                                 </MDBNavbarNav>
                             </MDBCollapse>
                         </MDBNavbar>
-                </header>
+                </header >
 
 
             </div>

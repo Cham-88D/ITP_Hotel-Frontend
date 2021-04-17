@@ -1,0 +1,13 @@
+body{
+    background-image: linear-gradient(to bottom, #ffffff, #ddd7d7, #e7e5e5, #d2c5c5, #d9c6bf);
+}
+
+#row1:hover,#row2:hover{
+  color: #5f3726;
+}
+#change2:hover{
+    color: #d79f3b;
+}
+#img1{
+    filter:brightness(80%);
+}

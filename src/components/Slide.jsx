@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import a from "../images/photo4.jpg";
+import a from "../images/photo3.jpg";
 import b from  "../images/photo2.jpg";
 import c from  "../images/photo1.jpeg";
 import {Carousel} from "react-bootstrap";
