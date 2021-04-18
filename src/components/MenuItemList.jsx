@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MenuItemService from '../services/MenuItemService';
-import AddMenuItem from '../components/AddMenuItem';
+
 
 class MenuItemList extends Component {
     constructor(props){
@@ -8,14 +8,33 @@ class MenuItemList extends Component {
 
         this.state= {
                 menuItems:[]
+              
         }
         this.addMenu = this.addMenu.bind(this);
+        this.editMenuItem = this.editMenuItem.bind(this);
+        this.removeMenuItem = this.removeMenuItem.bind(this);
+       
+    }
+
+    removeMenuItem(id){
+        MenuItemService.deleteMenu(id).then( res =>{
+
+                this.setState({ menuItems: this.state.menuItems.filter(menuItem => menuItem.menu_item_id!==id)});
+        });
+
+    }
+
+    editMenuItem(id){
+            this.props.history.push(`/update menu items/${id}`);
+     
     }
 
     componentDidMount(){
         MenuItemService.getMenuItems().then((res)=>{
-            this.setState({ menuItems :res.data});
+            this.setState({ menuItems: res.data});
+            console.log(this.state.menuItems);
         })
+       
     }
 
     addMenu(){
@@ -51,13 +70,19 @@ class MenuItemList extends Component {
 
                         {
                             this.state.menuItems.map(
-                                menuitem =>
-                                <tr key={menuitem.id}>
-                                    <td>{menuitem.menuItemType}</td>
-                                    <td>{menuitem.menuItemName}</td>
-                                    <td>{menuitem.unitPrice}</td>
-                                    <td>{menuitem.description}</td>
-                                    <td>{menuitem.discount}</td>
+                                menuItem =>
+                                <tr key={menuItem.menu_item_id}>
+                                    <td>{menuItem.menuItemType}</td>
+                                    <td>{menuItem.menuItemName}</td>
+                                    <td>{menuItem.unitPrice}</td>
+                                    <td>{menuItem.description}</td>
+                                    <td>{menuItem.discount}</td>
+                                    <td>
+                                    
+                                            <button onClick ={() => this.editMenuItem(menuItem.menu_item_id)}  className="btn btn-info">Update</button>
+                                            <button style={{marginLeft: "20px"}} onClick ={() => this.removeMenuItem(menuItem.menu_item_id)}  className="btn btn-danger">Delete</button>
+
+                                    </td>
                                     
 
 
