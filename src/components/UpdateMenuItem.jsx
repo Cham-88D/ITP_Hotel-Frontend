@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import MenuItemService from '../services/MenuItemService';
 
+
+
+
 class UpdateMenuItem extends Component {
 
     constructor(props){
@@ -9,12 +12,19 @@ class UpdateMenuItem extends Component {
 
         this.state= {
 
-            id: this.props.match.params.id,
+           // id: this.props.match.params.id,
+           id: this.props.match.params.id,
             menuItemType:'',
             menuItemName:'',
             unitPrice:'',
             description:'',
-            discount:''
+            discount:'',
+            menuItemTypeError:'',
+            menuItemNameError:'',
+            unitPriceError:'',
+            descriptionError:'',
+            discountError:''
+
         }
 
         this.changeMenuItemTypeHandler = this.changeMenuItemTypeHandler.bind(this);
@@ -28,25 +38,60 @@ class UpdateMenuItem extends Component {
 
     componentDidMount(){
         MenuItemService.getMenuItemById(this.state.id).then((res) =>{
-            let menuItem= res.data;
-            this.setState({menuItemType: menuItem.menuItemType,
-                menuItemName: menuItem.menuItemName,
-                unitPrice: menuItem.unitPrice,
-                description: menuItem.description,
-                discount: menuItem.discount
+            let menuitem= res.data;
+            this.setState({menuItemType:  menuitem.menuItemType,
+                menuItemName:  menuitem.menuItemName,
+                unitPrice: menuitem.unitPrice,
+                description:  menuitem.description,
+                discount: menuitem.discount
             });
         });
 
         
     }
 
+    validateUpdateMenuItemForm =() =>{
+       // let menuItemTypeError="";
+        let menuItemNameError="";
+        let unitPriceError="";
+        let descriptionError="";
+        let discountError="";
+
+        if(!this.state.unitPrice){
+            unitPriceError = "unit price canot be null";
+        }
+        if(!this.state.description){
+            descriptionError= "description canot be null";
+        }
+        if(!this.state.discount){
+            discountError = "discount canot be null";
+        }
+       if(!this.state.menuItemName){
+           menuItemNameError = "item name canot be null";
+       }
+       if(menuItemNameError ||  unitPriceError || descriptionError || discountError){
+        this.setState({menuItemNameError,unitPriceError,descriptionError,discountError});
+        return false;
+    }
+    return true;
+    };
+
            
     updateMenuItem = (e) =>{
         e.preventDefault();
+        const isValid = this.validateUpdateMenuItemForm();
+        if(isValid){
 
         let menuItem ={menuItemType: this.state.menuItemType, menuItemName: this.state.menuItemName, unitPrice: this.state.unitPrice, description: this.state.description, discount: this.state.discount};
         console.log('menuItem => '+ JSON.stringify(menuItem));
+        
 
+        MenuItemService.updateMenu(menuItem, this.state.id).then(res =>{
+            this.props.history.push('/menu items');
+        });
+         
+    }
+         
        
     }
 
@@ -81,7 +126,7 @@ class UpdateMenuItem extends Component {
                  
             <div className="container">
                     <div className="row"> 
-                            <div className="card col-md-6 offset-md-3 offset-md-3">
+                            <div className="card col-md-6 offset-md-3 offset-md-3" style={{boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}}>
                                 <h3 className="text-center">Update Menu Item</h3>
                                 <div className="card-body">
 
@@ -89,29 +134,33 @@ class UpdateMenuItem extends Component {
                                     <div class="form-row">
                                     <div class="form-group col-md-6">
                                             <label for="menu_item_type">Menu Item Type</label>
-                                             <input type="text" class="form-control"   id="menu_item_type" value={this.state. menuItemType} onChange={this.changeMenuItemTypeHandler}/>
+                                             <input type="text" class="form-control"   id="menu_item_type" value={this.state.menuItemType} onChange={this.changeMenuItemTypeHandler}  disabled/>
                                             
                                             
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="menu_item_name">Menu Item Name</label>
-                                            <input type="text" class="form-control" id="menu_item_name"  value={this.state.menuItemName} onChange={this.changeMenuItemNameHandler}/>
+                                            <input type="text" class="form-control" id="menu_item_name"  value={this.state.menuItemName} onChange={this.changeMenuItemNameHandler}  required/>
+                                            <div style={{fontSize:12, color:"red"}}>{this.state.menuItemNameError}</div>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group  col-md-6">
                                             <label for="unit_price">Unit Price</label>
-                                            <input type="text" class="form-control" id="unit_price"  value={this.state.unitPrice} onChange={this.changeUnitPriceHandler}/>
+                                            <input type="text" class="form-control" id="unit_price"  value={this.state.unitPrice} onChange={this.changeUnitPriceHandler}   required/>
+                                            <div style={{fontSize:12, color:"red"}}>{this.state.unitPriceError}</div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea class="form-control" id="description" value={this.state.description} onChange={this.changeDescriptionHandler}/>
+                                            <textarea class="form-control" id="description" value={this.state.description} onChange={this.changeDescriptionHandler}  required/>
+                                            <div style={{fontSize:12, color:"red"}}>{this.state.descriptionError}</div>
                                     </div>
-                                    <div class="form-row">
+                                    <div className="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="discount">Discount</label>
-                                            <input type="text" class="form-control" id="discount" value={this.state.discount} onChange={this.changeDiscountHandler}/>
+                                            <input type="text" class="form-control" id="discount" value={this.state.discount} onChange={this.changeDiscountHandler}  required />
+                                            <div style={{fontSize:12, color:"red"}}>{this.state.discountError}</div>
                                         </div>
                                    
                                      </div>
@@ -144,5 +193,6 @@ class UpdateMenuItem extends Component {
     }
 
 }
+
 
 export default UpdateMenuItem;
