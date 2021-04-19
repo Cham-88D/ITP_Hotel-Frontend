@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import AttendanceService from '../adapters/AttendanceService';
-import 'AddAttend.css';
+import '/AddAttend.css';
 
 
  class AddAttendForm extends Component {
