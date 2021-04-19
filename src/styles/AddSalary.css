@@ -1,12 +1,12 @@
 .form-container {
     /* margin: 100px auto; */
-    margin-left: 330px;
+    margin-left: 60px;
     margin-top: 50px;
     width: 300px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     position: relative;
     border-radius: 10px;
-    height: 500px;
+    height: 570px;
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -96,10 +96,6 @@
     width: 250px;
     /* border: none; */
   }
-  .inputError{
-    color:red;
-    font-size: 11px;
-  }
   .form-input:hover{
     border-color: rgb(20, 20, 165);
   } 
@@ -167,7 +163,7 @@
   .attend-table {
    border-collapse: collapse;
    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-   margin-left: 50px;
+   margin-left: 330px;
    font-size: 0.9em;
    min-width: 450px;
   }
@@ -217,12 +213,12 @@
       text-align: start;
       font-family: ' Calibri';
       font-weight: bold;
-      width: 840px;
+      width: 790px;
       border-radius: 5px;
       padding-left: 10px;
       margin-bottom: 1rem;
       margin-top: 50px;
-      margin-left: 35px;
+      margin-left: 315px;
       color: rgb(36, 23, 23);
       background: linear-gradient(
           90deg,
