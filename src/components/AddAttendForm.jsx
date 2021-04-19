@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import AttendanceService from '../adapters/AttendanceService';
-import './AddAttend.css';
+import '..styles/AddAttend.css';
 
 
  class AddAttendForm extends Component {
@@ -10,12 +10,14 @@ import './AddAttend.css';
          super(props)
 
          this.state={
-            employeeId:'',
-            inTime:'',
-            outTime:'',
-            otHour:'',
-            type:''
+            
+            employee:{id:''},
+            in_Time:'',
+            out_Time:'',
+            otHours:'',
+            atte_type:''
          }
+         
          this.changeEmployeeIdHandler=this.changeEmployeeIdHandler.bind(this);
          this.changeInTimeHandler=this.changeInTimeHandler.bind(this);
          this.changeOutTimeHandler=this.changeOutTimeHandler.bind(this);
@@ -24,31 +26,34 @@ import './AddAttend.css';
          this.saveAttendance=this.saveAttendance.bind(this);
 
      }
+     
 
      saveAttendance=(e)=>{
         e.preventDefault();
-        let attendance={employeeId:this.state.employeeId,type:this.state.type,inTime:this.state.inTime,otHour:this.state.otHour,
-         outTime:this.state.outTime };
+        let attendance={atte_type:this.state.atte_type,in_Time:this.state.in_Time,otHours:this.state.otHours,
+         out_Time:this.state.out_Time,employee:{id:this.state.employee.id} };
         console.log('attendance=>'+JSON.stringify(attendance));
         AttendanceService.insertAttendance(attendance).then(res=>{
-                this.props.history.push('/dailyAttendance');
+           
+                
+                //  this.props.history.push('/manageSalary');
         });
 
     }
      changeEmployeeIdHandler=(event)=>{
-         this.setState({employeeId:event.target.value});
+         this.setState({employee:{id:event.target.value}});
      }
      changeInTimeHandler=(event)=>{
-        this.setState({inTime:event.target.value});
+        this.setState({in_Time:event.target.value});
     }
     changeOutTimeHandler=(event)=>{
-        this.setState({outTime:event.target.value});
+        this.setState({out_Time:event.target.value});
     }
     changeOTHourHandler=(event)=>{
-        this.setState({otHour:event.target.value});
+        this.setState({otHours:event.target.value});
     }
     changeTypeHandler=(event)=>{
-        this.setState({type:event.target.value});
+        this.setState({atte_type:event.target.value});
     }
     render() {
         return (
@@ -63,10 +68,10 @@ import './AddAttend.css';
                         <input 
                             id='employeeId'
                             type="text" 
-                            name='employeeId'
+                            name='id'
                             className='form-input'
                             placeholder='Employee ID'
-                            value={this.state.employeeId}
+                            value={this.state.employee.id}
                             onChange={this.changeEmployeeIdHandler}/>
                             {/* {errors.employeeId && <p>{errors.employeeId}</p>} */}
                     </div>
@@ -79,10 +84,10 @@ import './AddAttend.css';
                         <input 
                             id='inTime'
                             type="text" 
-                            name='inTime'
+                            name='in_Time'
                             className='form-input'
                             placeholder='In Time'
-                            value={this.state.inTime}
+                            value={this.state.in_Time}
                             onChange={this.changeInTimeHandler}/>
                             {/* {errors.inTime && <p>{errors.inTime}</p>} */}
                     </div>
@@ -93,10 +98,10 @@ import './AddAttend.css';
                         <input 
                             id='outTime'
                             type="text" 
-                            name='outTime'
+                            name='out_Time'
                             className='form-input'
                             placeholder='Out Time'
-                            value={this.state.outTime}
+                            value={this.state.out_Time}
                             onChange={this.changeOutTimeHandler}/>
                             {/* {errors.outTime && <p>{errors.outTime}</p>} */}
                     </div>
@@ -107,10 +112,10 @@ import './AddAttend.css';
                         <input 
                             id='otHour'
                             type="text" 
-                            name='otHour'
+                            name='otHours'
                             className='form-input'
                             placeholder='OT Hour'
-                            value={this.state.otHour}
+                            value={this.state.otHours}
                             onChange={this.changeOTHourHandler}/>
                             {/* {errors.otHour && <p>{errors.otHour}</p>} */}
                     </div>
@@ -121,10 +126,10 @@ import './AddAttend.css';
                         <input 
                             id='type'
                             type="text" 
-                            name='type'
+                            name='atte_type'
                             className='form-input'
                             placeholder='Type'
-                            value={this.state.type}
+                            value={this.state.atte_type}
                             onChange={this.changeTypeHandler}/>
                             {/* {errors.type && <p>{errors.type}</p>} */}
                     </div>

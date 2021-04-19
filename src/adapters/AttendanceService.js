@@ -10,6 +10,9 @@ class AttendanceService{
         deleteAttendance(attendanceId){
             return axios.delete(ATTENDANCE_API_BASE_URL + '/'+ attendanceId);
         }
+        insertAttendance(attendance){
+            return axios.post(ATTENDANCE_API_BASE_URL,attendance);
+        }
 }
 
 export default new AttendanceService()

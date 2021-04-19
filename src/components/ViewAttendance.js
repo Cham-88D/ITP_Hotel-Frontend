@@ -26,7 +26,7 @@ export default class ViewAttendance extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Employee Attendance</h2>
+                <h3 className="table-heading">Employee Attendance</h3>
                 <div className="row">
                     <table className="attend-table">
                         <thead>
@@ -57,8 +57,8 @@ export default class ViewAttendance extends Component {
                                         <td>{attendance.employee.id}</td>
                                         
                                         <td>
-                                            <button onClick='' className="btnbtn-info">Update</button>
-                                            <button style={{marginLeft:"10px"}} onClick={()=>this.deleteAttendance(attendance.attendanceId)} className="btnbtn-danger">Delete</button>
+                                            <button onClick='' className="table-input-btn2">Update</button>
+                                            <button style={{marginLeft:"10px"}} onClick={()=>this.deleteAttendance(attendance.attendanceId)} className="table-input-btn1">Delete</button>
                                         </td>
                                     </tr>
 
