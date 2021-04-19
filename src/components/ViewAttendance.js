@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AttendanceService from '../adapters/AttendanceService';
-import './AddAttend.css';
+import '../styles/AddAttend.css';
 export default class ViewAttendance extends Component {
     constructor(props){
         super(props)
