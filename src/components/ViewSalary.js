@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SalaryServices from '../adapters/SalaryServices'
-import './AddAttend.css';
+import '../styles/AddSalary.css';
 export default class ViewSalary extends Component {
     constructor(props){
         super(props)
@@ -25,7 +25,7 @@ export default class ViewSalary extends Component {
     render() {
         return (
                     <div>
-                        <h2 className="text-center">Salary Details</h2>
+                        <h3 className="table-heading">Salary Details</h3>
                         <div className="row">
                             <table className="attend-table">
                                 <thead>
@@ -58,8 +58,8 @@ export default class ViewSalary extends Component {
                                                 <td>{salary.employee.id}</td>
                                                 
                                                 <td>
-                                                    <button onClick='' className="btnbtn-info">Reset</button>
-                                                    <button style={{marginLeft:"10px"}} onClick={()=>this.deleteSalaryDetail(salary.salaryId)} className="btnbtn-danger">Save</button>
+                                                    <button onClick='' className="table-input-btn2">Reset</button>
+                                                    <button style={{marginLeft:"10px"}} onClick={()=>this.deleteSalaryDetail(salary.salaryId)} className="table-input-btn1">Save</button>
                                                 </td>
                                             </tr>
         
