@@ -1,0 +1,32 @@
+
+
+.striped-border::before {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    z-index: -1;
+    background: repeating-linear-gradient(-45deg, #f60000 0, #e36008 10px, #efbe0c 10px, #56e30c 20px, #0eb4e3 20px, #103ad6 30px, #7d09d0 30px, #d90cc1 40px);
+    animation: anime 10s linear infinite;
+}
+
+@keyframes anime {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 489px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .striped-border {
+        width: 206px;
+        height: 160px;
+    }
+    .striped-border h1 {
+        font-size: 2rem;
+    }
+}
