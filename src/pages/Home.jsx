@@ -24,22 +24,37 @@ function Home() {
 
   return (
 
-   <div>
+   <div >
        <CarouselPage/>
 
-       <MDBContainer fluid style={{marginTop:"100px",marginBottom:"100px"}}>
+       <MDBContainer id="row2" fluid style={{marginTop:"200px",marginBottom:"100px",    boxShadow:" rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
+           <MDBRow>
+               <MDBCol md="7">
+                   <MDBCardImage id="img1" className="img-fluid" src={d} waves />
+               </MDBCol>
+               <MDBCol >
+                   <h2 className="h1 display-3 text-center">Welcome !</h2>
+                   <p className="lead">
+                       Located in Hikkaduwa, Villa Acres Green offers homely and comfortable accommodation with free WiFi access in its public areas. This self-catering property features an outdoor pool, beautifully-landscaped gardens and free parking on site.
+                   </p>
+                   <MDBBtn color="orange" href="/service">Find More</MDBBtn>
+           </MDBCol>
+
+           </MDBRow>
+           <br/>
+           </MDBContainer>
+
+
+       <MDBContainer fluid style={{marginTop:"100px",marginBottom:"100px"}} >
 
            <MDBRow id="row1" style={{boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",marginBottom:"9px"}}>
                <MDBCol>
                    <h3 className="h3-responsive display-4" style={{textAlign:"center"}}>Rooms</h3>
                </MDBCol>
                <MDBCol>
-               <p className="lead font-italic text-justify ">
-                   This is a simple hero unit, a simple Jumbotron-style component for
-                   calling extra attention to featured content or information.
-                   This is a simple hero unit, a simple Jumbotron-style component for
-                   calling extra attention to featured content or information.
-               </p>
+                   <p className="lead font-italic text-justify ">
+                       Tastefully-furnished, spacious air-conditioned villas come with a dining area and a living room with flat-screen TV. The kitchen is equipped with a stove, fridge, a microwave, electric kettle and kitchenware. The en suite bathrooms include shower facility
+                   </p>
                </MDBCol>
            </MDBRow>
 
@@ -54,7 +69,7 @@ function Home() {
                </MDBCol>
                <MDBCol md="4" >
                    <MDBCardImage  src={c} alt="MDBCard image cap" top hover
-                                 overlay="white-slight" style={{maxHeight:"600px",maxWidth:"600px"}}/>
+                                  overlay="white-slight" style={{maxHeight:"600px",maxWidth:"600px"}}/>
                </MDBCol>
            </MDBRow>
 
@@ -62,35 +77,15 @@ function Home() {
 
 
 
-       <MDBContainer id="row2" fluid style={{marginTop:"200px",marginBottom:"100px",    boxShadow:" rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
-           <MDBRow>
-               <MDBCol md="7">
-                   <MDBCardImage id="img1" className="img-fluid" src={d} waves />
-               </MDBCol>
-               <MDBCol >
-                   <h2 className="h1 display-3 text-center">Hello, world!</h2>
-                   <p className="lead">
-                       This is a simple hero unit, a simple Jumbotron-style component for
-                       calling extra attention to featured content or information.
-                       This is a simple hero unit, a simple Jumbotron-style component for
-                       calling extra attention to featured content or information.
-                   </p>
-                   <MDBBtn color="orange">Find More</MDBBtn>
-           </MDBCol>
-
-           </MDBRow>
-           <br/>
-           </MDBContainer>
 
 
 
-       <MDBContainer fluid style={{marginTop:"80px",marginBottom:"100px"}}>
+       <MDBContainer fluid style={{marginTop:"80px"}}>
            <MDBRow>
                <MDBCol>
                    <h3 className="h3-responsive display-4" style={{textAlign:"center"}}>Events</h3>
                    <p className="lead" style={{textAlign:"center"}}>
-                       This is a simple hero unit, a simple Jumbotron-style component for
-                       calling extra attention to featured content or information.
+
                    </p>
                </MDBCol>
            </MDBRow>
@@ -102,8 +97,7 @@ function Home() {
                    <MDBCardBody>
                        <MDBCardTitle tag="h5" className="font-weight-bold text-center">Weddings</MDBCardTitle>
                        <MDBCardText>
-                           Some quick example text to build on the card title and make up
-                           the bulk of the card's content.
+
                        </MDBCardText>
                    </MDBCardBody>
                </MDBCard>
@@ -114,8 +108,7 @@ function Home() {
                    <MDBCardBody>
                        <MDBCardTitle tag="h5" className="font-weight-bold text-center">Parties</MDBCardTitle>
                        <MDBCardText>
-                           Some quick example text to build on the card title and make up
-                           the bulk of the card's content.
+
                        </MDBCardText>
                    </MDBCardBody>
                </MDBCard>
@@ -126,20 +119,12 @@ function Home() {
                    <MDBCardBody>
                        <MDBCardTitle tag="h5" className="font-weight-bold text-center">Get Togethers</MDBCardTitle>
                        <MDBCardText>
-                           Some quick example text to build on the card title and make up
-                           the bulk of the card's content.
+
                        </MDBCardText>
                    </MDBCardBody>
                </MDBCard>
            </MDBCardGroup>
        </MDBContainer>
-
-
-
-
-
-
-
 
 
    </div>

@@ -11,26 +11,30 @@ import {
     MDBDropdown,
     MDBDropdownToggle,
     MDBDropdownItem,
-    MDBDropdownMenu, MDBBtn,
+    MDBDropdownMenu, MDBBtn, MDBLink,
 } from 'mdbreact';
 
 
+import AuthService from "../adapters/AuthService";
 import 'mdbreact/dist/css/mdb.css'
 import 'bootstrap-css-only/css/bootstrap.min.css';
 
 
 
 
+
 class Navigation extends React.Component {
+
     constructor(props) {
         super(props);
+
         this.state = {
             collapse: false,
             isWideEnough: false,
             change: false,
-
         };
         this.onClick = this.onClick.bind(this);
+        this.onLogout = this.onLogout.bind(this);
     }
 
 
@@ -48,7 +52,9 @@ class Navigation extends React.Component {
             this.setState({ change: true });
         }
     }
+
     onClick() {
+
         this.setState({
             collapse: !this.state.collapse,
 
@@ -56,7 +62,24 @@ class Navigation extends React.Component {
         });
     }
 
+    onLogout (){
+         AuthService.logout();
+
+    }
+
+
+
     render() {
+        let button;
+        if ( AuthService.getCurrentUser()  !== null) {
+            button =   <MDBBtn outline color="deep-orange" style={{padding:"1px"}} onClick={this.onLogout} >Log-Out</MDBBtn>
+        }
+        else
+        {
+            button =  <MDBBtn outline color="deep-orange" style={{padding:"1px"}} href="/login">Sign-Up</MDBBtn>
+        }
+
+
         return (
             <div>
                 <header>
@@ -86,13 +109,15 @@ class Navigation extends React.Component {
                                                 <div className="d-none d-md-inline" >Booking</div>
                                             </MDBDropdownToggle>
                                             <MDBDropdownMenu className="dropdown-default">
-                                                <MDBDropdownItem href="/room">Room</MDBDropdownItem>
-                                                <MDBDropdownItem href="/event">Event</MDBDropdownItem>
+                                                <MDBLink to="/room">   <MDBDropdownItem > Room </MDBDropdownItem></MDBLink>
+                                                <MDBLink to="/event"> <MDBDropdownItem >Event</MDBDropdownItem></MDBLink>
                                             </MDBDropdownMenu>
                                         </MDBDropdown>
                                     </MDBNavItem>
                                     <MDBNavItem style={{marginLeft:"20px" }}>
-                                        <MDBBtn outline color="deep-orange" style={{padding:"1px"}} href="/sign-up">Sign-Up</MDBBtn>
+                                        <div>
+                                            {button}
+                                        </div>
                                     </MDBNavItem>
                                 </MDBNavbarNav>
                             </MDBCollapse>

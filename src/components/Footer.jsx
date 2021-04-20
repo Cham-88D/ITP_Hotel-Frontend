@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import {MDBCol, MDBContainer, MDBRow, MDBFooter, MDBLink} from "mdbreact";
 import { faEnvelope,faPhone} from '@fortawesome/free-solid-svg-icons'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { faFacebookF,faWhatsapp,faFacebookMessenger } from '@fortawesome/free-brands-svg-icons'
@@ -9,7 +9,7 @@ import '../styles/Footer.css'
 
 const Footer = () => {
     return (
-        <MDBFooter color="black" className="font-small pt-4 mt-4" >
+        <MDBFooter color="black" className="font-small pt-4 mt-4"  >
             <MDBContainer fluid className="text-center text-md-left">
                 <MDBRow>
                     <MDBCol md="4" style={{marginLeft:"5px"}}>
@@ -39,16 +39,13 @@ const Footer = () => {
 
 
                     <MDBCol md="3">
-                        <h5 className="title">Links</h5>
+                        <h5 className="title" style={{marginLeft:"20px"}}>Links</h5>
                         <ul >
                             <li className="list-unstyled">
-                                <a href="/service" style={{color:"gray"}}>Services</a>
+                                <MDBLink to="/service" style={{color:"gray"}}>Services</MDBLink>
                             </li>
                             <li className="list-unstyled">
-                                <a href="/terms" style={{color:"gray"}}>Terms and Conditions</a>
-                            </li>
-                            <li className="list-unstyled">
-                                <a href="/about-us" style={{color:"gray"}}>About Us</a>
+                                <MDBLink to="/about-us" style={{color:"gray"}}>About Us</MDBLink>
                             </li>
                         </ul>
                     </MDBCol>
@@ -59,7 +56,7 @@ const Footer = () => {
                         <h5 className="title">Location</h5>
                         <ul style={{color:"gray"}}>
                             <li className="list-unstyled">
-                                <a href="/map" style={{color:"gray"}}>Map</a>
+                                <MDBLink to="/map" style={{color:"gray"}}>Map</MDBLink>
                             </li>
 
                         </ul>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 
 import a from "../images/photo3.jpg";
 import b from  "../images/photo2.jpg";
@@ -8,6 +8,7 @@ import {Carousel} from "react-bootstrap";
 
 
 const CarouselPage = () => {
+
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex) => {
@@ -15,7 +16,7 @@ const CarouselPage = () => {
     };
 
     return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel activeIndex={index} onSelect={handleSelect} >
             <Carousel.Item>
                 <img
                     className="d-block w-100 "

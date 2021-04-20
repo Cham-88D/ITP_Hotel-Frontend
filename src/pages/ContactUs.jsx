@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import {
   MDBCard,
-  MDBCardBody,
+  MDBCardBody, MDBCardImage,
   MDBCardTitle,
   MDBCol,
   MDBContainer,
@@ -13,16 +13,18 @@ import '../styles/Contact.css'
 
 function ContactUs() {
   return (
-      <MDBCol style={{ maxWidth: "80rem" ,marginTop:"170px",marginLeft:"130px",marginBottom:"200px"}}>
+      <MDBCol style={{ maxWidth: "800px" ,marginTop:"170px",marginLeft:"390px",marginBottom:"200px" }}>
         <MDBCard className="striped-border" >
 
-          <MDBCardBody>
+          <MDBCardBody style={{height:"700px"}}>
             <MDBCardTitle className='font-weight-bolder text-center text-black-50'>Contact-Us</MDBCardTitle>
-            <MDBContainer style={{marginTop:"40px"}}>
+            <MDBContainer style={{marginTop:"20px"}}>
               <MDBRow>
-                <MDBCol  className='font-weight-bolder text-center'>If you have any questions or queries a member of staff will always be happy to help. Feel free to contact us by telephone or email and we will be sure to get back to you as soon as possible.</MDBCol>
+                <MDBCol  className='font-weight-bolder text-center'>
+                  <MDBCardImage  className="img-fluid h-75 w-75" style={{marginLeft:"100px"}} src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" waves />
+                </MDBCol>
               </MDBRow>
-              <MDBRow style={{marginTop:"50px"}}>
+              <MDBRow style={{marginTop:"30px"}}>
                 <MDBCol>
                   <p className='font-weight-bolder text-center'>Address</p>
                 </MDBCol>
@@ -57,7 +59,10 @@ function ContactUs() {
               </MDBContainer>
           </MDBCardBody>
         </MDBCard>
+
       </MDBCol>
+
+
   );
 }
 export default ContactUs;
