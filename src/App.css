@@ -16,4 +16,62 @@ html {
 }
 
 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header{
+
+  padding: 30px;
+  text-align: center;
+  color: white;
+  background: black;
+  font-size: 30px;
+
+}
+
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    text-align: center;
+    color: white;
+
+}
+
+hr{
+  border-top: 2px dashed black;
+}
+#sa{
+  width: 50%; 
+  display: table-cell;
+   background: #ebebe0;
+}
+#ja{
+  display: table-cell;
+   background: #e1e1d0;
+  
+}
+#ff{
+  margin-bottom: 10px;
+}
+#bt1{
+  background-color: #bd9660; /* Green */
+  border: none;
+  color: white;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  
+}
+
 
