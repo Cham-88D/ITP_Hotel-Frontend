@@ -1,13 +1,10 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import BevComponents from './components/BevComponents';
-import FooterComponents from './components/FooterComponents';
-import HeaderComponent from './components/HeaderComponent';
-import CreateBeverageComponent from './components/CreateBeverageComponent';
-import UpdateBeverageComponent from './components/UpdateBeverageComponent';
+import BevComponents from './components/beverage/BevComponents';
+import CreateBeverageComponent from './components/beverage/CreateBeverageComponent';
+import UpdateBeverageComponent from './components/beverage/UpdateBeverageComponent';
 import Navbar from './components/Navbar';
-import  BevOrderComponent from './components/BevOrderComponent';
-import ViewBeverageComponent from './components/ViewBeverageComponent';
+import  BevOrderComponent from './components/order/BevOrderComponent';
 
 
 
@@ -25,7 +22,7 @@ function App() {
                    <Route path="/beverages" component={BevComponents}></Route>
                    <Route path="/add-beverages" component={CreateBeverageComponent}></Route>
                    <Route path="/update-beverages/:bev_ID" component={UpdateBeverageComponent}></Route>
-                   <Route path="/order-beverages" component={BevOrderComponent}></Route>
+                   <Route path="/orders" component={BevOrderComponent}></Route>
                    {/* <Route path="/view-beverages/:bev_ID" component={ViewBeverageComponent}></Route> */}
                  
                </Switch>

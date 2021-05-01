@@ -1,0 +1,9 @@
+.view-all-beverage-component .btn-container{
+        padding: 20px;
+        flex-grow: 1;
+}
+
+.view-all-beverage-component .main-btn-wrapper{
+    display: flex;
+    flex-grow: 1;
+}

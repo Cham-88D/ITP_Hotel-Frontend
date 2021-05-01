@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import BeverageService from '../services/BeverageService';
+import BeverageService from '../../services/BeverageService';
+
+import "./styles.css";
 
 class BevComponents extends Component {
 
@@ -12,6 +14,7 @@ class BevComponents extends Component {
         this.addBeverage = this.addBeverage.bind(this);
         this.editBeverage = this.editBeverage.bind(this);
         this.deleteBeverage=this.deleteBeverage.bind(this);
+        this.createOrder = this.createOrder.bind(this);
         // this.viewBeverage=this.viewBeverage.bind(this);
     }
     deleteBeverage(bev_ID){
@@ -37,19 +40,35 @@ componentDidMount(){
     BeverageService.getBeverage().then((res) => {
                 this.setState({beverages:res.data});
     });
+    BeverageService.getBevType().then((res)=>{
+        console.log(
+            res
+        )
+    })
 }
 addBeverage(){
     this.props.history.push('/add-beverages');
 }
 
+createOrder(){
+    this.props.history.push('/orders');
+}
 
     render() {
         return (
-            <div>
+            <div className="view-all-beverage-component">
                 <center>
                 <h2 className="text-center">Beverage List</h2>
                 <div className= "row">
+                    <div className="main-btn-wrapper">
+                    <div className="btn-container">
                     <button style={{background:"#bd9660"}} className="btn btn-primary" onClick={this.addBeverage}>Add Beverage</button>
+                    </div>
+                    <div className="btn-container">
+                    <button style={{background:"#bd9660"}} className="btn btn-primary" onClick={this.createOrder}>Create Order</button>
+                    </div>
+                    </div>
+                    
                 </div>
                     <div className= "row">
                             <table className="table table-striped table-bordered">
@@ -79,7 +98,7 @@ addBeverage(){
                                             <td>{beverage.description}</td>
                                             <td>
                                                 <button style={{background:"#bd9660"}} onClick={()=> this.editBeverage(beverage.bev_ID) } className="btn btn-info">Update</button>
-                                                <button style={{marginLeft:"0px",marginTop:"5px"}} onClick={()=> this.deleteBeverage(beverage.bev_ID)} className="btn btn-danger">Delete</button>
+                                                <button style={{marginLeft:"5px"}} onClick={()=> this.deleteBeverage(beverage.bev_ID)} className="btn btn-danger">Delete</button>
                                                 {/* <button style={{marginLeft:"10px"}} onClick={()=> this.viewBeverage(beverage.bev_ID)} className="btn btn-info">View</button> */}
                                             </td>
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import BeverageService from '../services/BeverageService';
-import axios from 'axios';
+import BeverageService from '../../services/BeverageService';
 
 class CreateBeverageComponent extends Component {
 
@@ -9,7 +8,8 @@ class CreateBeverageComponent extends Component {
         
         this.state={
             Btype:[],
-           
+            bev_category:"",
+
             b_Type:'',
             b_Name:'',
             unit_Price:'',
@@ -22,7 +22,7 @@ class CreateBeverageComponent extends Component {
 
 
         }
-        this.changeBeverageTypeHandler = this.changeBeverageTypeHandler.bind(this);
+        this.onChangeBevType = this.onChangeBevType.bind(this);
         this.changeBeverageNameHandler = this.changeBeverageNameHandler.bind(this);
         this.changeUnitPriceHandler = this.changeUnitPriceHandler.bind(this);
         this.changeDiscountHandler = this.changeDiscountHandler.bind(this);
@@ -31,18 +31,9 @@ class CreateBeverageComponent extends Component {
         this.saveBeverage = this.saveBeverage.bind(this);
         this.changeBeverageTypeHandler=this.changeBeverageTypeHandler.bind(this);
         this.saveBevType=this.saveBevType.bind(this);
-        
-        
-
-        // this.sendType=this.sendType.bind(this);
-        
-        
     }
+
     validate =() => {
-        let nameError='';
-        let priceError='';
-        let discountError='';
-        let descriptionError='';
     }
     handleSubmit = event =>{
         event.preventDefault();
@@ -70,7 +61,7 @@ class CreateBeverageComponent extends Component {
      }
     saveBeverage =(e)=>{
         e.preventDefault();
-        let beverage ={b_Type: this.state.b_Type,b_Name: this.state.b_Name,unit_Price: this.state.unit_Price,Discount: this.state.Discount,description: this.state.description};
+        let beverage ={b_Type: this.state.b_Type, b_Name: this.state.b_Name, unit_Price: this.state.unit_Price, discount: parseFloat(this.state.discount), description: this.state.description};
         console.log('beverage =>' + JSON.stringify(beverage));
 
          BeverageService.createBeverage(beverage).then(res=>{
@@ -85,7 +76,7 @@ class CreateBeverageComponent extends Component {
 
         console.log("2");
 
-        let beverage ={b_Type: this.state.b_Type};
+        let beverage ={b_Type: this.state.bev_category};
         console.log(beverage);
         console.log("1");
         console.log('beverage => '+ JSON.stringify(beverage));
@@ -102,21 +93,25 @@ class CreateBeverageComponent extends Component {
         this.setState({BevType: event.target.value});
     }
 
+    onChangeBevType =(event)=>{
+        this.setState({...this.state,b_Type: event.target.value});
+    }
+
     changeBeverageTypeHandler = (event)=>{
-        this.setState({b_Type: event.target.value});
+        this.setState({...this.state,bev_category: event.target.value});
     }
 
     changeBeverageNameHandler = (event)=>{
-        this.setState({b_Name: event.target.value});
+        this.setState({...this.state,b_Name: event.target.value});
     }
     changeUnitPriceHandler =(event) =>{
-        this.setState({unit_Price: event.target.value});
+        this.setState({...this.state,unit_Price: event.target.value});
     }
     changeDiscountHandler =(event) =>{
-        this.setState({discount: event.target.value});
+        this.setState({...this.state,discount: event.target.value});
     }
     changeDescriptionHandler=(event) =>{
-        this.setState({description: event.target.value});
+        this.setState({...this.state,description: event.target.value});
     }
     cancel(){
         this.props.history.push('/beverages');
@@ -127,6 +122,7 @@ class CreateBeverageComponent extends Component {
 
     render() {
 
+        const {Btype} = this.state;
     //    function sendType (){
     //         const newType={
                     
@@ -144,7 +140,7 @@ class CreateBeverageComponent extends Component {
 
          function AddCategoryBar() {
              const x = document.getElementById("add-new-cat").style.display;
-            if (x == "none") {
+            if (x === "none") {
                  document.getElementById('add-new-cat').style.display = "block";
                document.getElementById('bt1').style.display = "none";
     
@@ -163,13 +159,16 @@ class CreateBeverageComponent extends Component {
                         <div className="card col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center">Add Beverages</h3>
 
-                            <button id="bt1" style={{width:20}} onClick={AddCategoryBar} style={{ display: "block" }}>Add Category</button>
+                            
+                            <button id="bt1" style={{display: "block"}} onClick={AddCategoryBar}>Add Category</button>
+                            
+                            
 
                             <div id="add-new-cat" style={{ display: "none" }}> 
                             <div className="form-group">
                                             <label>Beverage Type</label>
                                             <input type="text" placeholder="Beverage Type" name="b_Type" className="form-control" 
-                                                        value={this.state.b_Type} onChange={this.changeBeverageTypeHandler} />
+                                                        value={this.state.bev_category} onChange={this.changeBeverageTypeHandler} />
                                             </div>
                             {/* <input type="text" placeholder="Beverage Type" name="BevType"  value={this.state.BevType} onChange={this.changeBeverageCategoryTypeHandler} /> */}
                             {/* <input type="text" value={this.state.BevType} onChange={this.changeBeverageCategoryTypeHandler} /> */}
@@ -188,16 +187,12 @@ class CreateBeverageComponent extends Component {
                                             </div> */}
                                         <div className="form-group">
                                         <label for="beverage type">Beverage Type</label>
-                                        <select id="b_Type" class="form-control" value={this.state.b_Type} onChange={this.changeBeverageTypeHandler}>
-                                           {
-                                            this.state.Btype.map(Btype =>(<option key={Btype.id} >
-                                                {Btype.b_Type}
-                                                </option>
-                                                ))
-                                             
-
-                                           }
-                                            </select>
+                                        <select id="b_Type" class="form-control" value={this.state.b_Type} onChange={this.onChangeBevType}>
+                                            <option selected>Choose...</option>
+                                            {Btype.map(({b_Type})=>{
+                                                return (<option value={b_Type}>{b_Type}</option>)
+                                            })}
+                                        </select>
                                         </div>
                                     
                                             <div className="form-group">
