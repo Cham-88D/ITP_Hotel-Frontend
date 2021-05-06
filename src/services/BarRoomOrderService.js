@@ -20,6 +20,10 @@ class BarRoomOrderService{
     getBeverageOrdersByBarRoomOrderId(id){
         return axios.get("http://localhost:8080/api/v1/bev_order_by_order_id/"+id);
     }
+
+    getAllOrders(query){
+        return axios.get(BEV_ORDER_API_BASE_URL+'/'+"view",{params:query});
+    }
 }
 
 export default new BarRoomOrderService()

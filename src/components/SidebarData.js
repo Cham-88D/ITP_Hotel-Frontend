@@ -21,7 +21,7 @@ export const SidebarData = [
     },
     {
         title: 'Beverage Order Managment',
-        path:'/order-beverages',
+        path:'/orders',
         icon: <FaIcon.FaMoneyBillAlt/>,
         cName:'nav-text'
     },
