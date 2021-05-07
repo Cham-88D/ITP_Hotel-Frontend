@@ -166,10 +166,10 @@ class UpdateMenuItem extends Component {
                                      </div>
                                      <div class="form-row">
                                         <div class="form-group col-md-4">
-                                             <button type="submit" id="submit" class="btn btn-primary" onClick={this.updateMenuItem}>Update</button>
+                                             <button type="submit" id="submit" class="btn " style={{background: "#bd9660",color:"white"}} onClick={this.updateMenuItem}>Update</button>
                                          </div>
                                          <div class="form-group col-md-4">
-                                             <button  id="cancel" class="btn btn-primary"  onClick={this.cancel.bind(this)} >Cancel</button>
+                                             <button  id="cancel" class="btn btn-primary" style={{background: "#bd9660",color:"white"}} onClick={this.cancel.bind(this)} >Cancel</button>
                                          </div>
                                     </div>
 

@@ -38,6 +38,9 @@ class MenuItemService  {
     
     
    }
+   getMenuItemByType(menuItemType){
+    return axios.get(Menu_Item_Base_URL + '/' + menuItemType);
+}
   
 
 }

@@ -15,7 +15,9 @@ export const SidebarData = [
         title: ' Beverage Management',
         path:'/beverages',
         icon: <IoIcon.IoFastFoodSharp/>,
+       
         cName:'nav-text'
+
     },
     {
         title: 'Beverage Order Managment',

@@ -42,6 +42,7 @@ class AddMenuItem extends Component {
         this.changeDiscountHandler = this.changeDiscountHandler.bind(this);
         this.saveMenuItem = this.saveMenuItem.bind(this);
         this.saveMenuType = this.saveMenuType.bind(this);
+      
   
            
     }
@@ -76,19 +77,19 @@ class AddMenuItem extends Component {
        let descriptionError="";
        let discountError="";
         if(!this.state.type){
-           TypeError = "should select item type";
+           TypeError = "Should select item type";
         }
         if(!this.state.unitPrice){
-            unitPriceError = "unit price canot be null";
+            unitPriceError = "Unit price canot be null";
         }
         if(!this.state.description){
-            descriptionError= "description canot be null";
+            descriptionError= "Description canot be null";
         }
         if(!this.state.discount){
-            discountError = "discount canot be null";
+            discountError = "Discount canot be null";
         }
        if(!this.state.menuItemName){
-           menuItemNameError = "item name canot be null";
+           menuItemNameError = "Item name canot be null";
        }
 
        if(menuItemNameError || TypeError || unitPriceError || descriptionError || discountError){
@@ -110,7 +111,7 @@ class AddMenuItem extends Component {
         return true;
 
      };
-           
+     
     saveMenuItem = (e) =>{
         e.preventDefault();
 
@@ -169,6 +170,8 @@ class AddMenuItem extends Component {
     cancel(){
         this.props.history.push('/menu items');
     }
+
+   
     
 
     render() {
@@ -198,11 +201,11 @@ class AddMenuItem extends Component {
 
   
 
-                                <Button variant="btn btn-primary" id="submit" type="submit" onClick={this.saveMenuType} style={{marginRight:"40px"}}>
+                                <Button variant="btn " id="submit" type="submit" onClick={this.saveMenuType} style={{marginRight:"40px",background: "#bd9660",color:"white"}}>
                                          Submit
                                  </Button>
 
-                                 <Button  variant="btn1 btn-primary" type="reset"  id="cancel" >
+                                 <Button  variant="btn1 " type="reset" style={{background: "#bd9660",color:"white"}}  id="cancel" >
                                          Reset
                                  </Button>
                         </Form>
@@ -263,11 +266,14 @@ class AddMenuItem extends Component {
                                    
                                      </div>
                                      <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                             <button type="submit" id="submit" class="btn btn-primary" onClick={this.saveMenuItem}>Submit</button>
+                                        <div class="form-group col-md-4" >
+                                             
+                                             <button type="submit" id="submit" class="btn " style={{background: "#bd9660",color:"white"}} onClick={this.saveMenuItem}>Submit</button>
+                                             
                                          </div>
                                          <div class="form-group col-md-4">
-                                             <button  id="cancel" class="btn btn-primary"  onClick={this.cancel.bind(this)} >Cancel</button>
+                                             <button  id="cancel" class="btn " style={{background: "#bd9660",color:"white"}} onClick={this.cancel.bind(this)} > Cancel
+                                            </button>
                                          </div>
                                     </div>
 
