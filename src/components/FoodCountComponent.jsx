@@ -15,11 +15,36 @@ class FoodCountComponent extends Component {
     }
 
     deleteFoodCount(count_id){
-        FoodCountService.deleteFoodCount(count_id).then( res => {
-            this.setState({foodCount: this.state.foodCount.filter(foodcounts => foodcounts.count_id !== count_id)});
-        });
+        var confirmtext;
+        if(window.confirm("Are You Sure Want to Delete !")){
+            FoodCountService.deleteFoodCount(count_id).then(res=>{
+                this.setState({foodCount: this.state.foodCount.filter(foodcounts => foodcounts.count_id !== count_id)});
+                confirmtext="You Succesfully deleted attendance";
+           }) ;
+        }else{
+            confirmtext="You pressed cancel Try again";
+         }
+
+
+        // FoodCountService.deleteFoodCount(count_id).then( res => {
+        //     this.setState({foodCount: this.state.foodCount.filter(foodcounts => foodcounts.count_id !== count_id)});
+        // });
 
     }
+
+    deleteoldfoodcount(){
+        var confirmtext;
+        if(window.confirm("Are You Sure Want to Delete !")){
+            FoodCountService.deleteoldfoodcount().then(res=>{
+               
+          }) ;
+          confirmtext="You Succesfully deleted attendance";
+
+        }else{
+           confirmtext="You presed cansel Try again";
+        }
+          
+   }
 
     viewFoodCount(count_id){
         this.props.history.push(`/view-foodCount/${count_id}`)
