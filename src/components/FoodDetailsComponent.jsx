@@ -16,11 +16,36 @@ class FoodDetailsComponent extends Component {
     }
 
     deleteFoodDetail(food_Id){
-        FoodDetailService.deleteFoodDetail(food_Id).then( res => {
-            this.setState({foodDetails: this.state.foodDetails.filter(foodDetails => foodDetails.food_Id !== food_Id)});
-        });
+        var confirmtext;
+        if(window.confirm("Are You Sure Want to Delete !")){
+            FoodDetailService.deleteFoodDetail(food_Id).then(res=>{
+                this.setState({foodDetails: this.state.foodDetails.filter(foodDetails => foodDetails.food_Id !== food_Id)});
+                confirmtext="You Succesfully deleted food count";
+           }) ;
+        }else{
+            confirmtext="You pressed cancel Try again";
+         }
+
+
+        // FoodDetailService.deleteFoodDetail(food_Id).then( res => {
+        //     this.setState({foodDetails: this.state.foodDetails.filter(foodDetails => foodDetails.food_Id !== food_Id)});
+        // });
 
     }
+
+    deleteoldfooddetails(){
+        var confirmtext;
+        if(window.confirm("Are You Sure Want to Delete !")){
+            FoodDetailService.deleteoldfooddetails().then(res=>{
+               
+          }) ;
+          confirmtext="You Succesfully deleted food detail";
+
+        }else{
+           confirmtext="You pressed cancel Try again";
+        }
+          
+   }
 
     editFoodDetail(food_Id){
         this.props.history.push(`/add-foodDetails/${food_Id}`);
