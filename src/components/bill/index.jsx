@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router'
 
 import BillService from '../../services/BillService';
 import BarRoomOrderService from "../../services/BarRoomOrderService";
@@ -66,6 +65,7 @@ class Bill extends Component {
         let total = 0;
         beverageOrderLines.map((item) => {
             total = item[3] + total
+            return null;
         })
         let discountedPrice = total * discountPerOrder / 100;
         let totalAfterDiscount = total - discountedPrice;
@@ -100,6 +100,7 @@ class Bill extends Component {
         let total = 0;
         beverageOrderLines.map((item) => {
             total = item[3] + total
+            return null;
         })
         return total.toFixed(2)
     }
@@ -109,6 +110,7 @@ class Bill extends Component {
         let total = 0;
         beverageOrderLines.map((item) => {
             total = item[3] + total
+            return null;
         })
         let discountedPrice = total * discountPerOrder / 100;
         let totalAfterDiscount = total - discountedPrice;
@@ -124,24 +126,11 @@ class Bill extends Component {
     }
 
     render() {
-        const { beverages, bevTypes, quantity, bev_type, rate, discount, beverageOrderLines, bev_ID, localNotification, isLoading, redirectToBill, discountPerOrder, notificationType } = this.state;
-        // let beverageOptions = [];
-        // if (beverages !== undefined && beverages.length > 0) {
-        //     let beverageRelatedToCategory = beverages.filter((item) => {
-        //         return item.b_Type === bev_type;
-        //     })
-        //     beverageOptions = beverageRelatedToCategory.map(({ bev_ID, b_Name }) => {
-        //         return { name: b_Name, value: bev_ID }
-        //     })
-        // }
-        // if(redirectToBill){
-        //  return   <Redirect to="/bill"/>
-        // }
-
+        const {  beverageOrderLines,  localNotification, isLoading, discountPerOrder, notificationType } = this.state;
         return (
             <div className="container">
                 <div className="row">
-                    <div className="card col-md-10 offset-md-4 offset-md-2">
+                    <div className="card" style={{width:"100%"}}>
                         {isLoading ? (<Loader
                             type="Puff"
                             color="#00BFFF"
@@ -192,11 +181,11 @@ class Bill extends Component {
                                     <div style={{ display: "flex" }}>
                                         <span>Discount (%)</span>
                                         <div style={{ marginLeft: "65px" }}>
-                                            <input type="number" className="form-control" value={discountPerOrder} onChange={(event) => { this.onChangeFormFeild({ discountPerOrder: event.target.value }) }} min="0" />
+                                            <input type="number" className="form-control" value={discountPerOrder} onChange={(event) => { this.onChangeFormFeild({ discountPerOrder: event.target.value }) }} min="0" max="100"/>
                                         </div>
                                     </div>
-                                    <div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
-                                        <span style={{ marginRight: "95px", borderBottom: "2px dashed black", fontWeight: "800" }}>{this.totalAfterDiscountApplied().toFixed(2)}</span>
+                                    <div style={{ width: "87%", display: "flex", justifyContent: "flex-end" }}>
+                                        <span style={{  borderBottom: "2px dashed black", fontWeight: "800" }}>{this.totalAfterDiscountApplied().toFixed(2)}</span>
                                     </div>
                                     <div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
                                         <button className="btn btn-success" style={{ background: "#bd9660", marginTop: "15px", marginBottom: "15px", marginRight: "15px" }} onClick={this.onClickSaveBill}>Save</button>

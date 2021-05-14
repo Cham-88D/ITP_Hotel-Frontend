@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import OrderManagement from "./components/order/index";
 import Bill from "./components/bill/index";
 import BevOrderComponent from "./components/order/BevOrderComponent";
+import Auth from "./components/auth/index";
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Navbar></Navbar>
         <div className="container">
           <Switch> localhost:3000/update-beverages/1
-                   <Route path="/" exact component={BevComponents}></Route>
+                   <Route path="/" exact component={Auth}></Route>
             <Route path="/beverages" component={BevComponents}></Route>
             <Route path="/add-beverages" component={CreateBeverageComponent}></Route>
             <Route path="/update-beverages/:bev_ID" component={UpdateBeverageComponent}></Route>

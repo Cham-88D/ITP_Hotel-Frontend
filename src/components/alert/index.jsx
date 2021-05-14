@@ -5,11 +5,6 @@ import ALERT_TYPES from "../../constants/AlertTypes";
 import "./styles.css";
 
 class Alert extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-
     render() {
         const { type,message } = this.props;
 

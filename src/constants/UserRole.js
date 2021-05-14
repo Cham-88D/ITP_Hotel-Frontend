@@ -1,4 +1,3 @@
-export default  {
-BAR_MANAGER : "manager",
-BAR_ATTENDENT :"attendent"
-}
+  const userRoles = ["Bar Manager","Bar Attendent"]
+
+  export default userRoles;

@@ -209,7 +209,7 @@ class BevOrderComponent extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="card col-md-10 offset-md-4 offset-md-2">
+                    <div className="card" style={{width:"100%"}}>
                         <h3 className="text-center" >Create Order</h3>
                         {localNotification !== "" && localNotification !== null ? (<Alert message={localNotification} type={notificationType} />) : null}
                         {isLoading ? (<Loader

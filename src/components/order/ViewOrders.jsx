@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,Fragment } from "react";
 import { Redirect } from 'react-router';
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import OrderPDF from "./orderDetailsPdf";
@@ -8,7 +8,6 @@ import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
 import BarRoomOrderService from "../../services/BarRoomOrderService";
 import BillService from "../../services/BillService";
-import { Fragment } from "react";
 
 class ViewOrders extends Component {
     constructor(props) {
@@ -119,7 +118,7 @@ class ViewOrders extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="card col-md-10 offset-md-4 offset-md-2">
+                    <div className="card" style={{width:"100%"}}>
                         <h3 className="text-center" >View Orders and Generate Reports</h3>
                         {localNotification !== "" && localNotification !== null ? (<Alert message={localNotification} type={notificationType} />) : null}
                         {isLoading ? (
@@ -134,7 +133,7 @@ class ViewOrders extends Component {
                             <div className="card-body" style={{ width: "100%" }}>
                                 <form >
                                     <div className="form-group">
-                                        <label for="beverage type">Beverage Type</label>
+                                        <label for="beverage type">Order Status</label>
                                         <select id="b_Type" class="form-control" value={orderStatus} onChange={(event) => { this.onChangeFormFeild({ orderStatus: event.target.value }) }}>
                                             <option value="parked">PARKED</option>
                                             <option value="completed">COMPLETED</option>

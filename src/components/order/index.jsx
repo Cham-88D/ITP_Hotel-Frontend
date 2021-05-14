@@ -10,7 +10,7 @@ class OrderManagement extends Component {
         super(props)
 
         this.state ={
-            userRole:USER_ROLES.BAR_MANAGER
+            userRole:localStorage.getItem("role")
         }
     }
 
@@ -22,7 +22,7 @@ class OrderManagement extends Component {
         const {userRole} = this.state;
         return(
             <Fragment>
-                {userRole === USER_ROLES.BAR_MANAGER ? (
+                {userRole === USER_ROLES[0] ? (
                     <ViewOrders/>
                 ):(
                     <BevOrderComponent/>

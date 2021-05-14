@@ -22,6 +22,7 @@ class BarRoomOrderService{
     }
 
     getAllOrders(query){
+        // eslint-disable-next-line
         return axios.get(BEV_ORDER_API_BASE_URL+'/'+"view",{params:query});
     }
 }
