@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 import BillService from '../../services/BillService';
 import BarRoomOrderService from "../../services/BarRoomOrderService";
@@ -19,7 +20,8 @@ class Bill extends Component {
             isLoading: false,
             localNotification: null,
             billCreatedSuccess: false,
-            notificationType: null
+            notificationType: null,
+            isBillSavedSuccess: false
         }
 
         this.onChangeFormFeild = this.onChangeFormFeild.bind(this);
@@ -82,7 +84,8 @@ class Bill extends Component {
                     billCreatedSuccess: true,
                     isLoading: false,
                     localNotification: "Bill saved!",
-                    notificationType: ALERT_TYPES.SUCCESS
+                    notificationType: ALERT_TYPES.SUCCESS,
+                    isBillSavedSuccess: true
                 })
             }
         }).catch(() => {
@@ -126,11 +129,15 @@ class Bill extends Component {
     }
 
     render() {
-        const {  beverageOrderLines,  localNotification, isLoading, discountPerOrder, notificationType } = this.state;
+        const { beverageOrderLines, localNotification, isLoading, discountPerOrder, notificationType, isBillSavedSuccess } = this.state;
+        if (isBillSavedSuccess) {
+            return <Redirect to="/create-order" />
+
+        }
         return (
             <div className="container">
                 <div className="row">
-                    <div className="card" style={{width:"100%"}}>
+                    <div className="card" style={{ width: "100%" }}>
                         {isLoading ? (<Loader
                             type="Puff"
                             color="#00BFFF"
@@ -181,11 +188,11 @@ class Bill extends Component {
                                     <div style={{ display: "flex" }}>
                                         <span>Discount (%)</span>
                                         <div style={{ marginLeft: "65px" }}>
-                                            <input type="number" className="form-control" value={discountPerOrder} onChange={(event) => { this.onChangeFormFeild({ discountPerOrder: event.target.value }) }} min="0" max="100"/>
+                                            <input type="number" className="form-control" value={discountPerOrder} onChange={(event) => { this.onChangeFormFeild({ discountPerOrder: event.target.value }) }} min="0" max="100" />
                                         </div>
                                     </div>
                                     <div style={{ width: "87%", display: "flex", justifyContent: "flex-end" }}>
-                                        <span style={{  borderBottom: "2px dashed black", fontWeight: "800" }}>{this.totalAfterDiscountApplied().toFixed(2)}</span>
+                                        <span style={{ borderBottom: "2px dashed black", fontWeight: "800" }}>{this.totalAfterDiscountApplied().toFixed(2)}</span>
                                     </div>
                                     <div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
                                         <button className="btn btn-success" style={{ background: "#bd9660", marginTop: "15px", marginBottom: "15px", marginRight: "15px" }} onClick={this.onClickSaveBill}>Save</button>

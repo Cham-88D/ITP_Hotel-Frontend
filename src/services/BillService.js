@@ -11,6 +11,10 @@ class BillService{
     getBillByOrderId(orderId){
         return axios.get(BILL_API_BASE_URL +'/'+ orderId);
     }
+
+    getAllBills(){
+        return axios.get(BILL_API_BASE_URL);
+    }
 }
 
 export default new BillService()
