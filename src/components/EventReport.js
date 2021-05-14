@@ -37,7 +37,6 @@ const Example = () => {
         </div>
     );
 };
-
 render(<Example />, document.querySelector("#root"));
 //generate Report   */ 
 

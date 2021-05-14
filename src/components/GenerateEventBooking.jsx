@@ -13,7 +13,6 @@ class GenerateEventBooking extends Component {
         this.addEventBooking = this.addEventBooking.bind(this);
         this.addEventModificationRequest = this.addEventModificationRequest.bind(this);
         
-
     }
 
     
