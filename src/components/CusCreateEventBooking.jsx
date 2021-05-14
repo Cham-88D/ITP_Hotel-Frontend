@@ -316,7 +316,6 @@ class CusCreateEventBooking extends Component {
                                 </tr><br/>
                                 <br/>
                                 
-
                                 <tr>
                                     <td>S001(Special)</td>
                                     <td>A- Pre-Shoot Includes food and 1 room </td>
