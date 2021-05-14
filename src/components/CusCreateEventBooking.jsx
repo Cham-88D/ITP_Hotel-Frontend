@@ -244,7 +244,7 @@ class CusCreateEventBooking extends Component {
                                         </div>
                                         <button className="btn btn-success" onClick={this.saveEventBooking}>Save</button>
                                         <button className="btn btn-danger" onClick={this} style={{marginLeft:"10px"}}>Reset</button>
-                                        <button className="btn btn-info" onClick={<a href="http://localhost:3000/payments"></a>} style={{marginLeft:"10px"}}>Next</button>
+                                        {/*<button className="btn btn-info" onClick={<a href="http://localhost:3000/payments"></a>} style={{marginLeft:"10px"}}>Next</button>*/}
                                     </form>
                                 </div>
                         </div>
