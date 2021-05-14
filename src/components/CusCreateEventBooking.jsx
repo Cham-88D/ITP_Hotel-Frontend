@@ -128,6 +128,7 @@ class CusCreateEventBooking extends Component {
         this.setState({timeOut: event.target.value});
     }
 
+    
     cancel(){
         this.props.history.push('/cus-page-bookings');
     }
