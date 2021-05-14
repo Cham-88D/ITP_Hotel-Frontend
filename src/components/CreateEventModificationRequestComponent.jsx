@@ -70,16 +70,16 @@ class CreateEventModificationRequestComponent extends Component {
         if(isValid){
             let eventModificationRequest = {booking:this.state.booking, email:this.state.email, reason:this.state.reason, days_Remain_Booking:this.state.daysRemainBooking, message:this.state.message};
             console.log('eventModificationRequest => ' + JSON.stringify(eventModificationRequest));
-           this.setState(initialState);
+            this.setState(initialState);
             EventModificationRequestService.createEv_Modification_Request(eventModificationRequest).then(res =>{
                 this.props.history.push('/event-modification-request');
             });
             // this.setState(initialState);
         }
     }
-    changeCustomerIDHandler= (event) =>{
-        this.setState({customer: event.target.value});
-    }
+    // changeCustomerIDHandler= (event) =>{
+    //     this.setState({customer: event.target.value});
+    // }
 
     changeBookingIDHandler= (event) =>{
         this.setState({booking: event.target.value});

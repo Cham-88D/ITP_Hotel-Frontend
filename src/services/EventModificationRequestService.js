@@ -10,9 +10,9 @@ class EventModificationRequestService {
         return x;
     
     }
-    createEv_Modification_Request(eventModificationRequests){
+    createEv_Modification_Request(eventModificationRequest){
         // console.log(eventModificationRequest)
-        return axios.post(EVENT_MODIFICATION_REQUEST_API_BASE_URL, eventModificationRequests);
+        return axios.post(EVENT_MODIFICATION_REQUEST_API_BASE_URL, eventModificationRequest);
     }
     getEv_Modification_RequestById(Ev_M_ID){
         return axios.get(EVENT_MODIFICATION_REQUEST_API_BASE_URL + '/' + Ev_M_ID);
