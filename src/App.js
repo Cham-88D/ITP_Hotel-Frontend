@@ -51,6 +51,24 @@ import CreateFoodDetailComponent from './components/CreateFoodDetailForm-IT19176
 import FoodReport from './components/FoodDetailsReport-IT19176116';
 import FoodCountReport from './components/FoodCountReport-IT19176116';
 
+import ListEventBookingsComponentIT19067148 from "./components/ListEventBookingsComponentIT19067148";
+import ListEventsComponentIT19067148 from "./components/ListEventsComponentIT19067148";
+import PageEventBookingIT19067148 from "./components/PageEventBookingIT19067148";
+import PageCusEventBookingIT19067148 from "./components/PageCusEventBookingIT19067148";
+import EventsPageIT19067148 from "./components/EventsPageIT19067148";
+import CusCreateEventBookingIT19067148 from "./components/CusCreateEventBookingIT19067148";
+import CusEventModificationRequestIT19067148 from "./components/CusEventModificationRequestIT19067148";
+import CreateEventBookingComponentIT19067148 from './components/CreateEventBookingComponentIT19067148';
+import CreateEventComponentIT19067148 from './components/CreateEventComponentIT19067148';
+import UpdateEventComponentIT19067148 from './components/UpdateEventComponentIT19067148';
+import UpdateEventBookingComponentIT19067148 from './components/UpdateEventBookingComponentIT19067148';
+import ViewEventBookingComponentIT19067148 from './components/ViewEventBookingComponentIT19067148';
+import ViewEventComponentIT19067148 from './components/ViewEventComponentIT19067148';
+import CreateEventModificationRequestComponentIT19067148 from './components/CreateEventModificationRequestComponentIT19067148';
+import ListEventModificationRequestComponentIT19067148 from './components/ListEventModificationRequestComponentIT19067148';
+import ViewEventModificationRequestComponentIT19067148 from './components/ViewEventModificationRequestComponentIT19067148';
+import EventReportIT19067148 from './components/EventReportIT19067148';
+
 function App() {
   return (
     <div>
@@ -107,6 +125,24 @@ function App() {
             <Route path = "/add-foodDetails/:food_Id" component = {CreateFoodDetailComponent}></Route>
             <Route path = "/generateReport" component = {FoodReport}></Route>
             <Route path = "/generateFoodCountReport" component = {FoodCountReport}></Route>
+
+            <Route path = "/page-bookings" component={PageEventBookingIT19067148}></Route>
+            <Route path = "/event-report" component={EventReportIT19067148}></Route>
+            <Route path = "/cus-page-bookings" component={PageCusEventBookingIT19067148}></Route>
+            <Route path = "/events-page" component={EventsPageIT19067148}></Route>
+            <Route path = "/cus-event-bookings" component={CusCreateEventBookingIT19067148}></Route>
+            <Route path = "/cus-event-modification-request" component={CusEventModificationRequestIT19067148}></Route>
+            <Route path = "/bookings" component={ListEventBookingsComponentIT19067148}></Route>
+            <Route path = "/events" component={ListEventsComponentIT19067148}></Route>
+            <Route path = "/event-modification-request" component={ListEventModificationRequestComponentIT19067148}></Route>
+            <Route path = "/add-event-booking" component={CreateEventBookingComponentIT19067148}></Route>
+            <Route path = "/update-event-booking/:Booking_Id" component={UpdateEventBookingComponentIT19067148}></Route>
+            <Route path = "/view-event-booking/:Booking_Id" component={ViewEventBookingComponentIT19067148}></Route>
+            <Route path = "/add-event" component={CreateEventComponentIT19067148}></Route>
+            <Route path = "/update-event/:Event_Id" component={UpdateEventComponentIT19067148}></Route>
+            <Route path = "/view-event/:Event_Id" component={ViewEventComponentIT19067148}></Route>
+            <Route path = "/add-event-modification-request" component={CreateEventModificationRequestComponentIT19067148}/>
+            <Route path = "/view-event-modification-request/:ev_M_ID" component={ViewEventModificationRequestComponentIT19067148}></Route>
           </Switch>
 
         </div>
