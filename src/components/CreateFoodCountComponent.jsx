@@ -87,11 +87,11 @@ class CreateFoodCountComponent extends Component {
             if(this.state.count_id === '_add'){
                 FoodCountService.createFoodCount(foodcount).then(res =>{
                     this.props.history.push('/foodCount')
-                });
+                }).catch(error=>{alert("Count Not Available")});
             }else{
                 FoodCountService.updateFoodCount(foodcount, this.state.count_id).then( res => {
                     this.props.history.push('/foodCount');
-                });
+                }).catch(error=>{alert("Count Not Available")});
             }
         }
 
