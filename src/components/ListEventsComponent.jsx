@@ -7,7 +7,8 @@ class ListEventsComponent extends Component {
         super(props)
 
         this.state={
-                events: []
+                events: [],
+                searchId:''
         }
         this.addEvent = this.addEvent.bind(this);
         this.editEvent = this.editEvent.bind(this);
@@ -20,10 +21,30 @@ class ListEventsComponent extends Component {
      }
     
      deleteEvent(event_Id){
+        var confirmtext;
+        if(window.confirm("Are You Sure Want to Delete !")){
         EventService.deleteEvent(event_Id).then( res => {
             this.setState({events: this.state.events.filter(event => event.event_Id !== event_Id)});
-        });
+            confirmtext="You Succesfully deleted attendance";
+        }) ;
+        }else{
+         confirmtext="You presed cansel Try again";
+        }
      }
+
+     deleteOldAttendance(){
+        var confirmtext;
+        if(window.confirm("Are You Sure Want to Delete !")){
+           EventService.deleteOldAttendance().then(res=>{
+               // this.setState({attendances:this.state.attendances.filter(attendance=>attendance.attendanceId!==id )});
+          }) ;
+          confirmtext="You Succesfully deleted attendance";
+
+        }else{
+           confirmtext="You presed cansel Try again";
+        }
+          
+   }
 
      addEvent(){
          this.props.history.push('/add-event');
@@ -33,6 +54,11 @@ class ListEventsComponent extends Component {
          this.props.history.push(`/update-event/${event_Id}`);
      }
 
+     searchEventId(event){
+        this.setState({ searchId: event.target.value.substr(0,
+            20)});
+    }
+
      componentDidMount(){
          EventService.getEvent().then( (res) =>{
         
@@ -41,8 +67,17 @@ class ListEventsComponent extends Component {
      }
 
     render() {
+        let filterEventId = this.state.events.filter((
+            event)=>{
+                return event.type.indexOf(this.state.
+                    searchId)!==-1;
+            }
+        );
         return (
             <div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" style={{marginLeft:80}} placeholder="Enter Event Type" value={this.state.searchId} onChange={this.searchEventId.bind(this)} />
+                </div>
                 <h2 className="tableheading"> Events List</h2> 
                 <div className="row">
                     <button className="btn btn-primary" onClick={this.addEvent}>Add Event </button>
@@ -62,8 +97,9 @@ class ListEventsComponent extends Component {
 
                     { <tbody>
                         {
-                            this.state.events.map(
-                                event =>
+                            filterEventId.map(event =>
+                            //this.state.events.map(
+                                //event =>
                                 <tr key= {event.event_Id}>
                                     <td> {event.package} </td>
                                     <td> {event.type} </td>
