@@ -32,11 +32,11 @@ class ListEventsComponent extends Component {
         }
      }
 
-     deleteOldAttendance(){
+     deleteOldEvent(){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
-           EventService.deleteOldAttendance().then(res=>{
-               // this.setState({attendances:this.state.attendances.filter(attendance=>attendance.attendanceId!==id )});
+           EventService.deleteOldEvent().then(res=>{
+             
           }) ;
           confirmtext="You Succesfully deleted attendance";
 
