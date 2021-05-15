@@ -37,7 +37,7 @@ class PageCusEventBooking extends Component {
                </header> 
                <div className="container">
                         <h2>Villa Acress Green looks forward to meet your Event Booking Plans!</h2>
-                        <h2 style={{color:"blue"}}>Join us to spend celebrate your special occations!</h2>
+                        <h2 style={{color:"blue"}}>Join us to celebrate your special occations!</h2>
                         <div id="EventBookingPage2" >
                             <p>Welcome to the Event Booking of Villa Acres Green</p>
                         </div>
