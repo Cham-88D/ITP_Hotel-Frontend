@@ -5,7 +5,7 @@ const initialState = {
     cusName:'',
     cusPhone:'',
     eventType:'',
-    eventPackage:'',
+    eventPackage:'A',
     eventDate:'',
     numOfParticipants:'',
     timeIn:'',
@@ -133,6 +133,7 @@ class CreateEventBookingComponent extends Component {
     }
 
     render() {
+        const {eventPackage} = this.state;
         return (
             <div>
                 <div className="container" style={{marginTop:20}}>
@@ -179,13 +180,13 @@ class CreateEventBookingComponent extends Component {
                                         <div className="form-group">
                                             <label>Event Package</label><br/>
                                             <input type="radio"  name="eventPackage" className="formcontrol"
-                                             value="A" onChange={this.changeEventPackageHandler} />
+                                             value="A" onChange={this.changeEventPackageHandler} checked={eventPackage === "A"}/>
                                              <span>A</span><br/>
                                              <input type="radio" name="eventPackage" className="formcontrol"
-                                             value="B" onChange={this.changeEventPackageHandler} />
+                                             value="B" onChange={this.changeEventPackageHandler} checked={eventPackage === "B"}/>
                                              <span>B</span> <br/>
                                              <input type="radio"  name="eventPackage" className="formcontrol"
-                                             value="C" onChange={this.changeEventPackageHandler} />
+                                             value="C" onChange={this.changeEventPackageHandler} checked={eventPackage === "C"}/>
                                              <span>C</span>
                                              <div style={{fontSize: 12, color: "red"}}>{this.state.eventPackageError}</div>
                                         </div>
