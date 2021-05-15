@@ -4,6 +4,25 @@ import { Col, Row, Container, Card, Form, Button } from 'react-bootstrap';
 
 class PrintRestBill extends Component {
 
+    constructor(props){
+        super(props)
+
+        this.calculateOrderTotalWithOutDiscountPolicy = this.calculateOrderTotalWithOutDiscountPolicy.bind(this);
+    }
+
+    calculateOrderTotalWithOutDiscountPolicy(){
+        const {orderLines} = this.props;
+
+        let total = 0;
+        orderLines.map((item)=>{
+            total= total+parseFloat(item[3]);
+            return null;
+        })
+
+        console.log("total",total)
+        return total.toFixed(2)
+    }
+
     render() {
         const {orderLines} = this.props;
         return (
@@ -44,6 +63,13 @@ class PrintRestBill extends Component {
                                                     <td><span>No Items Found</span></td>
                                                 </tr>
                                             )}
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>{this.calculateOrderTotalWithOutDiscountPolicy()}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
