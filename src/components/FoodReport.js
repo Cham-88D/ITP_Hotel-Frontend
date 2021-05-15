@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FoodDetailsreportgenerate from './FoodDetailsreportgenerate';
+import FoodDetailsReportGenerate from './FoodDetailsReportGenerate';
 import ReactToPrint from 'react-to-print';
 export default class example extends Component {
     render() {
@@ -15,7 +15,7 @@ export default class example extends Component {
                 }}
                 content={() => this.componentRef}
               />
-              <FoodDetailsreportgenerate ref={el => (this.componentRef = el)} />
+              <FoodDetailsReportGenerate ref={el => (this.componentRef = el)} />
             </div>
             </div>
         )

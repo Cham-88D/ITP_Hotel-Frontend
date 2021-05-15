@@ -116,10 +116,14 @@ class CreateFoodCountComponent extends Component {
 
     getTitle(){
         if(this.state.count_id === '_add'){
-            return <h3 className = "table-heading">Added and Consumed Food</h3>
+            return <h3 className="text-center" /*className = "table-heading"*/>Added and Consumed Food</h3>
         }else{
-            return <h3 className = "table-heading">Update Food Count</h3>
+            return <h3 className="text-center" /*className = "table-heading"*/>Update Food Count</h3>
         }
+    }
+
+    cancel(){
+        this.props.history.push('/foodCount');
     }
 
     render() {
@@ -127,7 +131,68 @@ class CreateFoodCountComponent extends Component {
         return (
             <div>
                 <br/>
-                    <div className = "form-container">
+                    <div className="container" style={{marginTop:20}}>
+                        <div className="row">
+                            <div className="card col-md-6 offset-md-3 offset-md-3" style={{boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}}>
+                                    {
+                                        this.getTitle()
+                                    }
+                                    <br></br>
+                                    <div className = "cardbody">
+                                        <form>
+                                            <div className = "form-group col-md-11" >
+                                                <lable> Food Name: </lable>
+                                                <br/>
+                                                <input placeholder="Food Name" name="name" className = "form-control" required
+                                                    value={this.state.name} onChange={this.changefoodnamehandler}/>
+
+                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.nameError}</div>
+
+                                            </div>
+                                            <div className = "form-group col-md-11">
+                                                <lable> Date: </lable>
+                                                <br/>
+                                                <input type="date" name="date" className = "form-control" 
+                                                    value={this.state.date} onChange={this.changedatehandler}/>
+
+                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.dateError}</div>
+
+                                            </div>
+                                            <div className = "form-group col-md-11">
+                                                <lable> Quantity: </lable>
+                                                <br/>
+                                                <input placeholder="Quantity" name="quantity" className = "form-control" required
+                                                    value={this.state.quantity} onChange={this.changequantityhandler}/>
+
+                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.quantityError}</div>
+
+                                            </div>
+                                            
+                                                
+                                            <div className = "form-group col-md-11">
+                                                <lable> Type (Add or Consumed): </lable>
+                                                <div>
+                                                <br/>
+                                                    <input type="radio" name="type" className="typemeth" style={{marginLeft:50}}
+                                                        value="Add" onChange={this.changetypehandler} checked={type === "Add"}/>
+                                                    <span className="typemeth" style={{marginRight:20}}> Add </span>
+                                                
+                                                    <input type="radio" name="type" className="typemeth"
+                                                        value="Consumed" onChange={this.changetypehandler} checked={type === "Consumed"}/>
+                                                    <span className="typemeth" > Consumed </span>
+
+                                                </div>
+                                            </div>
+                                             <button className="forminputbtn1" style={{marginBottom:30}} onClick={this.saveOrUpdatefoodcount}>Submit</button>
+                                             <button  class="btn " style={{marginLeft:30, background: "rgb(209, 83, 83)",color:"white"}} onClick={this.cancel.bind(this)} > Cancel</button>
+                                            
+                                        </form>
+                                    </div>    
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* <div className = "form-container">
                         <div className = "row1">
                             <div className = "form-add-count">
                                     {
@@ -185,7 +250,7 @@ class CreateFoodCountComponent extends Component {
                                         </form>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
             </div>
         );
     }

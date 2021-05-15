@@ -9,7 +9,7 @@ class FoodCountComponent extends Component {
         this.state = {
             foodCount: []
         }
-        // this.addFoodCount = this.addFoodCount.bind(this);
+         this.addFoodCount = this.addFoodCount.bind(this);
         this.editFoodCount = this.editFoodCount.bind(this);
         this.deleteFoodCount = this.deleteFoodCount.bind(this);
         this.generatepdf = this.generatepdf.bind(this)
@@ -62,9 +62,9 @@ class FoodCountComponent extends Component {
         });
     }
 
-    // addFoodCount(){
-    //     this.props.history.push('/add-foodCount/_add');
-    // }
+    addFoodCount(){
+        this.props.history.push('/add-foodCount/_add');
+    }
 
     generatepdf(){
         this.props.history.push('/generateFoodCountReport');
@@ -80,7 +80,7 @@ class FoodCountComponent extends Component {
                 </div> */}
 
                 <div className = "row">
-                    {/* <button style={{marginLeft:755}} className = "btn btn-primary" onClick={this.addFoodDetails}>Add Food Details</button> */}
+                    <button style={{marginLeft:755}} className = "btn btn-primary" onClick={this.addFoodCount}>Add FoodCount</button>
                     <button style={{marginLeft:10}} className="btn btn-info" onClick={this.generatepdf} type='submit'>Generate PDF</button>
                     
                 </div>
@@ -112,7 +112,7 @@ class FoodCountComponent extends Component {
                                         <td>
                                             <button style={{background: "rgb(197, 161, 60) 0%"}} onClick = { () => this.editFoodCount(foodcounts.count_id)} className="btn btn-info">Update</button>
                                             <button style={{marginLeft: "20px"}} onClick = { () => this.deleteFoodCount(foodcounts.count_id)} className="btn btn-danger">Delete</button>
-                                            <button style={{marginLeft: "20px"}} onClick = { () => this.viewFoodCount(foodcounts.count_id)} className="btn btn-info">View</button>
+                                            <button style={{background: "rgb(197, 161, 60)", marginLeft: "20px"}} onClick = { () => this.viewFoodCount(foodcounts.count_id)} className="btn btn-info">View</button>
                                         </td> 
                                     </tr>
                                 )

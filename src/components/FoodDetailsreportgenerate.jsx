@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FoodDetailService from '../services/FoodDetailService';
 import '../styles/table.css';
 
-class FoodDetailsreportgenerate extends Component {
+class FoodDetailsReportGenerate extends Component {
     constructor(props){
         super(props)
 
@@ -68,4 +68,4 @@ class FoodDetailsreportgenerate extends Component {
 }
 
 
-export default FoodDetailsreportgenerate;
+export default FoodDetailsReportGenerate;

@@ -123,10 +123,14 @@ class CreateFoodDetailComponent extends Component {
 
     getTitle(){
         if(this.state.food_Id === '_add'){
-            return <h3 className = "table-heading">Add Food Stock Details</h3>
+            return <h3 className="text-center" /*className = "table-heading"*/>Add Food Stock Details</h3>
         }else{
-            return <h3 className = "table-heading">Update Food Stock Details</h3>
+            return <h3 className="text-center" /*className = "table-heading"*/>Update Food Stock Details</h3>
         }
+    }
+
+    cancel(){
+        this.props.history.push('/foodDetails');
     }
 
     render() {
@@ -134,7 +138,73 @@ class CreateFoodDetailComponent extends Component {
         return (
             <div>
                 <br/>
-                    <div className = "form-container">
+                    <div className="container" style={{marginTop:20}}>
+                        <div className="row">
+                            <div className="card col-md-6 offset-md-3 offset-md-3" style={{boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}}>
+                                {
+                                     this.getTitle()
+                                }
+                                <div className="card-body">
+                                    <form>
+                                        <div className = "form-group" >
+                                                <lable> Food Name: </lable>
+                                                <br/>
+                                                <input placeholder="Food Name" name="food_Name" className = "form-control" 
+                                                    value={this.state.food_Name} onChange={this.changefoodnamehandler}/>
+                                                
+                                                <div style={{fontSize: 12, color: "red"}}>{this.state.nameError}</div>
+
+                                            </div>
+                                            <div className = "form-group">
+                                                <lable> Availability: </lable>
+                                                <br/>
+                                                <input placeholder="Availability" name="availability" className = "form-control" 
+                                                    value={this.state.availability} onChange={this.changeavailabilityhandler}/>
+
+                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.availabilityError}</div>
+                                            </div>
+                                            <div className = "form-group">
+                                                <lable> Unit Price: </lable>
+                                                <br/>
+                                                <input placeholder="Unit Price" name="unit_Price" className = "form-control" 
+                                                    value={this.state.unit_Price} onChange={this.changeunitpricehandler}/>
+
+                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.unitpriceError}</div>
+
+                                            </div>
+
+                                            <div className = "form-group">
+                                                <lable> Food Type: </lable>
+                                                <br/>
+                                                
+                                                <select placeholder = "Choose" name="food_Type" className = "form-control"
+                                                 value={this.state.food_Type} onChange={this.changetypehandler}>
+                                                     <option value="">Choose</option>
+                                                     <option value="Vegetable">Vegetable</option>
+                                                     <option value="Fruit">Fruit</option>
+                                                     <option value="DryFood">Dry Food</option>
+                                                     <option value="Meat">Meat</option>
+                                                     <option value="Diary">Diary</option>
+                                                     <option value="Leaves">Leaves</option>
+                                                     <option value="Bulbs">Bulbs</option>
+                                                     <option value="Seeds">Seeds</option>
+                                                     <option value="Other">Other</option>
+                                                 </select>
+
+                                                 <div style={{fontSize: 12, color: "red"}}>{this.state.foodtypeError}</div>
+
+                                            </div>
+
+                                            <button className="forminputbtn1" onClick={this.saveOrUpdatefooddetail}>Submit</button>
+                                            <button  class="btn " style={{marginLeft:30, background: "rgb(209, 83, 83)",color:"white"}} onClick={this.cancel.bind(this)} > Cancel</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    {/* <div className = "form-container">
                         <div className = "row1">
                             <div className = "form-add-count">
                                     {
@@ -181,7 +251,10 @@ class CreateFoodDetailComponent extends Component {
                                                      <option value="DryFood">Dry Food</option>
                                                      <option value="Meat">Meat</option>
                                                      <option value="Diary">Diary</option>
-                                                     <option value="Diary">Other</option>
+                                                     <option value="Leaves">Leaves</option>
+                                                     <option value="Bulbs">Bulbs</option>
+                                                     <option value="Seeds">Seeds</option>
+                                                     <option value="Other">Other</option>
                                                  </select>
 
                                                  <div style={{fontSize: 12, color: "red"}}>{this.state.foodtypeError}</div>
@@ -195,7 +268,7 @@ class CreateFoodDetailComponent extends Component {
                                         </form>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
             </div>
         );
     
