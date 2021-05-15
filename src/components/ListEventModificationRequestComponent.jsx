@@ -56,7 +56,7 @@ class ListEventModificationRequestComponent extends Component {
                     <thead>
                         <tr className="theartr">
                             <th>Event Modification Request ID</th>
-                            <th>Booking ID</th>
+                            {/* <th>Booking ID</th> */}
                             <th>EMAIL</th>
                             <th>REASON</th>
                             <th>DAYS REMAINING FOR THE EVENT</th>
@@ -72,7 +72,7 @@ class ListEventModificationRequestComponent extends Component {
                                 eventModificationRequest =>
                                 <tr key= {eventModificationRequest.ev_M_ID}>
                                     <td> {eventModificationRequest.ev_M_ID} </td>
-                                    <td> {eventModificationRequest.booking} </td>
+                                    {/* <td> {eventModificationRequest.booking} </td> */}
                                     <td> {eventModificationRequest.email} </td>
                                     <td> {eventModificationRequest.reason} </td>
                                     <td> {eventModificationRequest.days_Remain_Booking} </td>

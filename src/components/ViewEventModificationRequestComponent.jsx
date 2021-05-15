@@ -27,10 +27,10 @@ class ViewEventModificationRequestComponent extends Component {
                 <div className = "card col-md-6 offset-md-3">
                     <h3 className = "text-center">View Event Details</h3>
                     <div className = "card-body">
-                        <div className = "row">
+                        {/* <div className = "row">
                            <label>Booking ID:</label>
                            <div> {this.state.eventModificationRequest.booking} </div>
-                        </div>
+                        </div> */}
                         <div className = "row">
                            <label>Email:</label>
                            <div> {this.state.eventModificationRequest.email} </div>
