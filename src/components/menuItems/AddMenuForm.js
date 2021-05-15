@@ -1,5 +1,5 @@
 import React from 'react'
-import AddMenuItem from './AddMenuItem'
+import AddMenuItem from '../AddMenuItem'
 
 const AddMenuForm = () => {
     return (

@@ -30,9 +30,14 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+<<<<<<< HEAD
     "web-vitals": "^1.1.1",
     "yup": "^0.32.9",
     "react-to-print": "^2.12.4"
+=======
+    "react-to-print": "^2.12.4",
+    "web-vitals": "^1.1.1"
+>>>>>>> 296a823 (:sparkles:implement bill print,create order,policy)
   },
   "scripts": {
     "start": "react-scripts start",

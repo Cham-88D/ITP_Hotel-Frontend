@@ -26,6 +26,13 @@ export const SidebarData = [
         cName:'nav-text'
     },
     {
+        title: 'Policy Managment',
+        // path:'/restaurant order',
+        path:'/policy',
+        icon: <FaIcon.FaMoneyBillAlt/>,
+        cName:'nav-text'
+    },
+    {
         title: 'Sign Out',
         path:'/',
         icon: <GoIcon.GoSignOut/>,

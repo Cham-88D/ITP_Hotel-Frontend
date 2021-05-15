@@ -1,6 +1,6 @@
 
 import React, {useEffect, Component } from 'react';
-import MenuItemService from '../services/MenuItemService';
+import MenuItemService from '../../services/MenuItemService';
 
 
 class MenuItemList extends Component {
@@ -25,7 +25,7 @@ class MenuItemList extends Component {
          if (window.confirm("Are You Sure You Want To Delete!")) {
              MenuItemService.deleteMenu(id).then(res => {
 
-             this.setState({ menuItems: this.state.menuItems.filter(menuItem => menuItem.menu_item_id !== id) });
+             this.setState({ ...this.state,menuItems: this.state.menuItems.filter(menuItem => menuItem.menu_item_id !== id) });
              });
                 txt = "You Succesfully Deleted Menu Item!";
          } else {
@@ -51,7 +51,7 @@ class MenuItemList extends Component {
 
     componentDidMount() {
         MenuItemService.getMenuItems().then((res) => {
-            this.setState({ menuItems: res.data });
+            this.setState({...this.state, menuItems: res.data });
             
             console.log(this.state.menuItems);
         })
@@ -61,7 +61,7 @@ class MenuItemList extends Component {
    
 
     addMenu() {
-        this.props.history.push('/add menu items');
+        this.props.history.push('/add-menuItems');
     }
 
     searchType(event){
@@ -73,12 +73,16 @@ class MenuItemList extends Component {
 
     render() {
 
-        let filterMenuType = this.state.menuItems.filter(
-            ( menuItem )=>{
-                return menuItem.menuItemType.toLowerCase().indexOf(this.state.
-                    search.toLowerCase())!==-1;
-            }
-        );
+        let filterMenuType = []
+        if(this.state.menuItems && this.state.menuItems.length>0){
+            filterMenuType=this.state.menuItems.filter(
+                ( menuItem )=>{
+                    return menuItem.menuItemType.toLowerCase().indexOf(this.state.
+                        search.toLowerCase())!==-1;
+                }
+            );
+        }
+        
         return (
             <div>
                
