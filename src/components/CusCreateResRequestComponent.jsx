@@ -209,21 +209,12 @@ class CusCreateResRequestComponent extends Component{
                                         <div style={{fontSize: 12, color: "red"}}>{this.state.r_ReasonError} </div>
                                     </div>
 
-                                   
-                                    <div className="form-group">
-                                    <label> Message : </label>
-                                    <input placeholder="Message" name="r_Message" className="formcontrol"
-                                        value={ this.state.r_Message} onChange={this.changer_MessageHandler} />
-                                     <div style={{fontSize: 12, color: "red"}}>{this.state.r_MessageError} </div>
-                                    </div>
-
                                     <div className="form-group">
                                     <label> Requested Date : </label>
                                     <input placeholder="Message" name="rm_Req_Date" className="formcontrol" type="date"
                                         value={ this.state.rm_Req_Date} onChange={this.changerm_Req_DateHandler} />
                                      <div style={{fontSize: 12, color: "red"}}>{this.state.rm_Req_DateError} </div>
                                     </div>
-
 
 
                                     <button className="btn btn-success" onClick={this.saveRes_Modification_Request}> Save </button>
