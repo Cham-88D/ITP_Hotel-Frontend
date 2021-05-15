@@ -77,6 +77,7 @@ function App() {
         <FooterComponent></FooterComponent>
       </Router>
     </div>
+  
   );
 }
 
