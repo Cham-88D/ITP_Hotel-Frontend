@@ -112,7 +112,7 @@ class AddNewPurchasedItem extends Component {
                 <div className="container">
                     <div className="row" className = "css">
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className = "text-center"><b>Add Purchased Item</b></h3>
+                            <h3 className = "text-center"><b>ADD PURCHASED ITEM</b></h3>
                             <div className = "card-body">
                                 <form  onSubmit ={this.handlesubmit}>
                                     <div className = "form-group">
@@ -171,8 +171,8 @@ class AddNewPurchasedItem extends Component {
                                     
                                     
 
-                                    <button type="submit" className = "btn btn-success"   /*onClick = {this.saveSupplier}*/>Create Account</button>
-                                    <button className = "btn btn-danger" type = "reset" /*onClick = {this.cancel.bind(this)}*/ style={{marginLeft: "10px"}}>Reset</button>
+                                    <button type="submit" className = "forminputbtn1"/* "btn btn-success"*/   /*onClick = {this.saveSupplier}*/>ADD ITEM</button>
+                                    <button className = "forminputbtn2"/*"btn btn-danger"*/ type = "reset" /*onClick = {this.cancel.bind(this)}*/ style={{marginLeft: "10px"}}>RESET</button>
                                 </form>
                             </div>
                         </div>
