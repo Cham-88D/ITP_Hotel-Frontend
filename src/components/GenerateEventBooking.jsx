@@ -44,7 +44,7 @@ class GenerateEventBooking extends Component {
                 
                <h2 className="tableheading "> Event Bookings List</h2> 
                <div className="row">
-                <table className="table table-striped table=bordered">
+                <table className="table table-striped table=bordered" style={{fontSize:"20px"}}>
                     <thead>
                         <tr >
                             <th>BOOKING ID</th>
