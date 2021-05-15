@@ -43,6 +43,7 @@ render(<Example />, document.querySelector("#root"));
 import React, { Component } from 'react'
 import GenerateEventBooking from './GenerateEventBooking';
 import ReactToPrint from 'react-to-print';
+import './Event.css';
 export default class example extends Component {
     render() {
         return (

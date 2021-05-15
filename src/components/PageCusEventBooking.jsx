@@ -7,7 +7,7 @@ class PageCusEventBooking extends Component {
             <div>
                 <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div><a href="https://javaguides.net" className="navbar-brand">Event booking Management</a></div> 
+                    <div><a href="https://javaguides.net" className="navbar-brand">Event Bookings</a></div> 
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navBarNav" aria-aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>   
@@ -33,6 +33,8 @@ class PageCusEventBooking extends Component {
 
                </header> 
                <div className="container">
+                        <h2>Villa Acress Green looks forward to meet your Event Booking Plans!</h2>
+                        <h2 style={{color:"blue"}}>Join us to spend celebrate your special occations!</h2>
                         <div id="EventBookingPage2" >
                             <p>Welcome to the Event Booking of Villa Acres Green</p>
                         </div>

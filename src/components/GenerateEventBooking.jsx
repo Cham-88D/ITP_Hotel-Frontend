@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
+import './Event.css';
 import EventBookingsService from '../services/EventBookingsService';
 
 class GenerateEventBooking extends Component {
@@ -45,7 +46,7 @@ class GenerateEventBooking extends Component {
                <div className="row">
                 <table className="table table-striped table=bordered">
                     <thead>
-                        <tr className="theartr">
+                        <tr >
                             <th>BOOKING ID</th>
                             <th>DATE</th>
                             <th>CUSTOMER NAME</th>
