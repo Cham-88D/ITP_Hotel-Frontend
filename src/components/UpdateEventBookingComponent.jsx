@@ -10,7 +10,7 @@ class UpdateEventBookingComponent extends Component {
                cusName:'',
                cusPhone:'',
                eventType:'',
-               eventPackage:'',
+               eventPackage:'A',
                eventDate:'',
                numOfParticipants:'',
                timeIn:'',
@@ -73,6 +73,7 @@ class UpdateEventBookingComponent extends Component {
     }
 
     render() {
+        const {eventPackage} = this.state;
         return (
             <div>
                 <div className="container">
@@ -115,13 +116,13 @@ class UpdateEventBookingComponent extends Component {
                                         <div className="form-group">
                                             <label>Event Package</label><br/>
                                             <input type="radio"  name="eventPackage" className="formcontrol"
-                                             value="A" onChange={this.changeEventPackageHandler} />
+                                             value="A" onChange={this.changeEventPackageHandler} checked={eventPackage === "A"}/>
                                              <span>A</span><br/>
                                              <input type="radio"  name="eventPackage" className="formcontrol"
-                                             value="B" onChange={this.changeEventPackageHandler} />
+                                             value="B" onChange={this.changeEventPackageHandler} checked={eventPackage === "B"}/>
                                              <span>B</span><br/>
                                              <input type="radio" name="eventPackage" className="formcontrol"
-                                             value="C" onChange={this.changeEventPackageHandler} />
+                                             value="C" onChange={this.changeEventPackageHandler} checked={eventPackage === "C"}/>
                                              <span>C</span>
                                         </div>
                                         <div className="form-group">
