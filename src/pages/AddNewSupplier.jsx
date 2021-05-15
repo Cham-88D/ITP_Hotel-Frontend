@@ -122,7 +122,7 @@ class AddNewSupplier extends Component {
                 <div className="container">
                     <div className="row" className = "css">
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className = "text-center"><b>Add Supplier</b></h3>
+                            <h3 className = "text-center"><b>ADD SUPPLIER</b></h3>
                             <div className = "card-body">
                                 <form  onSubmit ={this.handlesubmit}>
                                     <div className = "form-group">
@@ -173,8 +173,8 @@ class AddNewSupplier extends Component {
                                     </div>
                                     
 
-                                    <button type="submit" className = "btn btn-success"   /*onClick = {this.saveSupplier}*/>Create Account</button>
-                                    <button className = "btn btn-danger" type = "reset" /*onClick = {this.cancel.bind(this)}*/ style={{marginLeft: "10px"}}>Reset</button>
+                                    <button type="submit" style = {{width:150}}className = "forminputbtn1"/*"btn btn-success" */  /*onClick = {this.saveSupplier}*/>ADD SUPPLIER</button>
+                                    <button className = "forminputbtn2"/*"btn btn-danger"*/ type = "reset" /*onClick = {this.cancel.bind(this)}*/ style={{marginLeft: "10px"}}>RESET</button>
                                 </form>
                             </div>
                         </div>
