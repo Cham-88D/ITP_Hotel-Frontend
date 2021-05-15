@@ -104,8 +104,6 @@ class Policy extends Component {
             desError: null,
             discountError: null,
             minBillAmountError: null,
-
-            policies: []
         })
     }
 

@@ -140,10 +140,11 @@ export class AddOrder extends Component {
 
         let total = 0;
         orderLines.map((item)=>{
-            total= total+item.total;
+            total= total+parseFloat(item[3]);
             return null;
         })
 
+        console.log("total",total)
         return total.toFixed(2)
     }
 
@@ -154,7 +155,7 @@ export class AddOrder extends Component {
             menuItem: "",
             discount: 0,
             unitPrice: 0,
-            quantity: 0,
+            quantity: 1,
         })
     }
 
@@ -244,7 +245,7 @@ export class AddOrder extends Component {
                                                                         <input type="text" class="form-control" id="price" disabled value={unitPrice} />
 
                                                                         <label for="discount">Quantity</label>
-                                                                        <input type="text" class="form-control" id="qty" value={quantity} onChange={(e) => { this.onChangeFormFeild({ quantity: e.target.value }) }} />
+                                                                        <input type="number" class="form-control" id="qty" value={quantity} onChange={(e) => { this.onChangeFormFeild({ quantity: e.target.value }) }} min="1"/>
                                                                     </div>
                                                                 </div>
                                                                 </div>
