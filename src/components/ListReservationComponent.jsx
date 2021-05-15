@@ -103,9 +103,15 @@ class ListReservationComponent extends Component {
                                           
 
                                           <tb>
+<<<<<<< HEAD
                                               <button style={{background: "rgb(197, 161, 60) 0%"}} onClick= { () => this.updateReservation(reservation.res_Id)}  className="btn btn-info"> Update </button>
                                               <button style={{marginLeft: "1px" }} onClick= {() =>this.deleteReservation(reservation.res_Id)} className="btn btn-danger"> Delete </button>
                                               <button style={{background: "rgb(197, 161, 60) 0%"}} onClick= {() =>this.viewReservation(reservation.res_Id)} className="btn btn-info"> View </button>
+=======
+                                              <button onClick= { () => this.updateReservation(reservation.res_Id)}  className="btn btn-info"> Update </button>
+                                              <button style={{marginLeft: "1px" }} onClick= {() =>this.deleteReservation(reservation.res_Id)} className="btn btn-danger"> Delete </button>
+                                              <button onClick= {() =>this.viewReservation(reservation.res_Id)} className="btn btn-info"> View </button>
+>>>>>>> 7490e97 (Add Reservation Component)
                                               
                                           </tb>
                                       </tr>

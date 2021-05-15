@@ -200,7 +200,7 @@ render() {
                                 </div>
 
                                  
-                                <button style={{background: "rgb(197, 161, 60) 0%"}} className="btn btn-success" onClick={this.updateReservation}> Update </button>
+                                <button className="btn btn-success" onClick={this.updateReservation}> Update </button>
                                 <button className="btn btn-danger" style={{marginLeft: "10px" }} onClick={this.cancel.bind(this)}  > Cancel </button> 
                              </form>   
 
