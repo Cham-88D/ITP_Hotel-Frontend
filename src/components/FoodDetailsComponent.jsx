@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactToPrint from 'react-to-print';
 import FoodDetailService from '../services/FoodDetailService';
 import '../styles/table.css';
 
@@ -10,10 +11,13 @@ class FoodDetailsComponent extends Component {
             foodDetails: [],
             searchId:''
         }
-        // this.addFoodDetails = this.addFoodDetails.bind(this);
+         this.addFoodDetails = this.addFoodDetails.bind(this);
         this.editFoodDetail = this.editFoodDetail.bind(this);
         this.deleteFoodDetail = this.deleteFoodDetail.bind(this);
+        this.generatepdf = this.generatepdf.bind(this)
     }
+
+    
 
     deleteFoodDetail(food_Id){
         var confirmtext;
@@ -50,10 +54,16 @@ class FoodDetailsComponent extends Component {
     editFoodDetail(food_Id){
         this.props.history.push(`/add-foodDetails/${food_Id}`);
     }
+
+    generatepdf(){
+        this.props.history.push('/generateReport');
+    }
+
     
-    // addFoodDetails(){
-    //     this.props.history.push('/add-foodDetails/_add');
-    // }
+    
+    addFoodDetails(){
+        this.props.history.push('/add-foodDetails/_add');
+    }
 
     componentDidMount(){
         FoodDetailService.getFoodDetail().then((res) => {
@@ -86,6 +96,12 @@ class FoodDetailsComponent extends Component {
                     
                 </div>
                 <div className = "row">
+                    <button style={{marginLeft:755}} className = "btn btn-primary" onClick={this.addFoodDetails}>Add Food Details</button>
+                    <button style={{marginLeft:10}} className="btn btn-info" onClick={this.generatepdf} type='submit'>Generate PDF</button>
+                    
+                </div>
+                <br></br>
+                <div className = "row">
                     <table className="attendtable">
                         <thead>
                             <tr>
@@ -112,7 +128,7 @@ class FoodDetailsComponent extends Component {
                                         <td>{foodDetail.unit_Price}</td>
 
                                         <td>
-                                            <button onClick = { () => this.editFoodDetail(foodDetail.food_Id)} className="btn btn-info">Update</button>
+                                            <button style={{background: "rgb(197, 161, 60) 0%"}} onClick = { () => this.editFoodDetail(foodDetail.food_Id)} className="btn btn-info">Update</button>
                                             <button style={{marginLeft: "20px"}} onClick = { () => this.deleteFoodDetail(foodDetail.food_Id)} className="btn btn-danger">Delete</button>
                                             
                                         </td>
@@ -128,5 +144,6 @@ class FoodDetailsComponent extends Component {
         );
     }
 }
+
 
 export default FoodDetailsComponent;

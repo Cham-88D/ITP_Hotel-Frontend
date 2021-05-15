@@ -19,7 +19,7 @@ class FoodCountComponent extends Component {
         if(window.confirm("Are You Sure Want to Delete !")){
             FoodCountService.deleteFoodCount(count_id).then(res=>{
                 this.setState({foodCount: this.state.foodCount.filter(foodcounts => foodcounts.count_id !== count_id)});
-                confirmtext="You Succesfully deleted attendance";
+                confirmtext="You Succesfully deleted food count";
            }) ;
         }else{
             confirmtext="You pressed cancel Try again";
@@ -38,10 +38,10 @@ class FoodCountComponent extends Component {
             FoodCountService.deleteoldfoodcount().then(res=>{
                
           }) ;
-          confirmtext="You Succesfully deleted attendance";
+          confirmtext="You Succesfully deleted food count";
 
         }else{
-           confirmtext="You presed cansel Try again";
+           confirmtext="You pressed cansel Try again";
         }
           
    }
@@ -99,7 +99,7 @@ class FoodCountComponent extends Component {
                                         <td>{foodcounts.quantity}</td>
                                         <td>{foodcounts.type}</td>
                                         <td>
-                                            <button onClick = { () => this.editFoodCount(foodcounts.count_id)} className="btn btn-info">Update</button>
+                                            <button style={{background: "rgb(197, 161, 60) 0%"}} onClick = { () => this.editFoodCount(foodcounts.count_id)} className="btn btn-info">Update</button>
                                             <button style={{marginLeft: "20px"}} onClick = { () => this.deleteFoodCount(foodcounts.count_id)} className="btn btn-danger">Delete</button>
                                             <button style={{marginLeft: "20px"}} onClick = { () => this.viewFoodCount(foodcounts.count_id)} className="btn btn-info">View</button>
                                         </td> 
