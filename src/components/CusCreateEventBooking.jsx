@@ -156,6 +156,9 @@ class CusCreateEventBooking extends Component {
                             <li className="nav-item active">
                                 <a className="nav-link" href="http://localhost:3000/cus-event-modification-request" style={{color:'orange'}}>Event Modification Requests<span className="sr-only"></span></a>
                             </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-payments" style={{color:'orange'}}>Payment<span className="sr-only"></span></a>
+                            </li>
 
                         </ul>
 
@@ -244,7 +247,7 @@ class CusCreateEventBooking extends Component {
                                         </div>
                                         <button className="btn btn-success" onClick={this.saveEventBooking}>Save</button>
                                         <button className="btn btn-danger" onClick={this} style={{marginLeft:"10px"}}>Reset</button>
-                                        {/*<button className="btn btn-info" onClick={<a href="http://localhost:3000/payments"></a>} style={{marginLeft:"10px"}}>Next</button>*/}
+                                        <button className="btn btn-info" onClick={<a href="http://localhost:3000/payments"></a>} style={{marginLeft:"10px"}}>Next</button>
                                     </form>
                                 </div>
                         </div>

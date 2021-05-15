@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import EventModificationRequestService from '../services/EventModificationRequestService';
 const initialState = {
-              booking:'',
+            //   booking:'',
               email:'',
               reason:'',
               daysRemainBooking:'',
               message:'',
 
-              bookingError:'',
+            //   bookingError:'',
               emailError:'',
               reasonError:'',
               daysRemainBookingError:'',
@@ -19,7 +19,7 @@ class CusEventModificationRequest extends Component {
 
         this.state=initialState;
 
-        this.changeBookingIDHandler=this.changeBookingIDHandler.bind(this);
+        // this.changeBookingIDHandler=this.changeBookingIDHandler.bind(this);
         this.changeEmailHandler=this.changeEmailHandler.bind(this);
         this.changeReasonHandler=this.changeReasonHandler.bind(this);
         this.changeDaysRemainBookingHandler=this.changeDaysRemainBookingHandler.bind(this);
@@ -29,15 +29,15 @@ class CusEventModificationRequest extends Component {
     }
 
     validate = () => {
-        let bookingError='';
+        // let bookingError='';
         let emailError='';
         let reasonError='';
         let daysRemainBookingError='';
         let messageError='';
 
-        if(!this.state.booking){
-            bookingError="ID of your Booking is required "
-        }
+        // if(!this.state.booking){
+        //     bookingError="ID of your Booking is required "
+        // }
         if(!this.state.email.includes('@')){
             emailError="Invalid Type "
         }
@@ -56,8 +56,8 @@ class CusEventModificationRequest extends Component {
         if(!this.state.message){
             messageError="Message is required "
         }
-        if (bookingError || emailError|| reasonError || daysRemainBookingError || messageError) {
-            this.setState({ bookingError, emailError, reasonError, daysRemainBookingError, messageError});
+        if (emailError|| reasonError || daysRemainBookingError || messageError) {
+            this.setState({emailError, reasonError, daysRemainBookingError, messageError});
             return false;
         }
 
@@ -68,22 +68,22 @@ class CusEventModificationRequest extends Component {
         e.preventDefault();
         const isValid=this.validate();
         if(isValid){
-            let eventModificationRequest = {booking:this.state.booking, email:this.state.email, reason:this.state.reason, days_Remain_Booking:this.state.daysRemainBooking, message:this.state.message};
+            let eventModificationRequest = { email:this.state.email, reason:this.state.reason, days_Remain_Booking:this.state.daysRemainBooking, message:this.state.message};
             console.log('eventModificationRequest => ' + JSON.stringify(eventModificationRequest));
            
-            EventModificationRequestService.createEventModificationRequest(eventModificationRequest).then(res =>{
+            EventModificationRequestService.createEv_Modification_Request(eventModificationRequest).then(res =>{
                 this.props.history.push('/cus-page-bookings');
             });
             this.setState(initialState);
         }
     }
-    changeCustomerIDHandler= (event) =>{
-        this.setState({customer: event.target.value});
-    }
+    // changeCustomerIDHandler= (event) =>{
+    //     this.setState({customer: event.target.value});
+    // }
 
-    changeBookingIDHandler= (event) =>{
-        this.setState({booking: event.target.value});
-    }
+    // changeBookingIDHandler= (event) =>{
+    //     this.setState({booking: event.target.value});
+    // }
     changeEmailHandler= (event) =>{
         this.setState({email: event.target.value});
     }
@@ -123,6 +123,9 @@ class CusEventModificationRequest extends Component {
                             <li className="nav-item active">
                                 <a className="nav-link" href="http://localhost:3000/cus-event-modification-request" style={{color:'orange'}}>Event Modification Requests<span className="sr-only"></span></a>
                             </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-payments" style={{color:'orange'}}>Payment<span className="sr-only"></span></a>
+                            </li>
 
                         </ul>
 
@@ -136,17 +139,17 @@ class CusEventModificationRequest extends Component {
                         <div className="card col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center">Event Modification Request</h3>
                                 <div className="card-body">
-                                    <form>
-                                    <div className="form-group">
+                                <form  >
+                                    {/* <div className="form-group">
                                             <label>Booking ID</label>
                                             <input placeholder="Booking ID" name="booking" className="form-control"
                                              value={this.state.booking} onChange={this.changeBookingIDHandler}/>
                                             <div style={{fontSize: 12, color: "red"}}>{this.state.bookingError}</div>
-                                        </div>
+                                        </div> */}
                                         <div className="form-group">
                                             <label>Email</label>
                                             <input placeholder="Email" name="email" className="form-control"
-                                             value={this.state.email} onChange={this.changeEmailHandler}  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" required/>
+                                             value={this.state.email} onChange={this.changeEmailHandler}  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" />
                                              <div style={{fontSize: 12, color: "red"}}>{this.state.emailError}</div>
                                         </div>
                                         <div className="form-group">
@@ -171,6 +174,7 @@ class CusEventModificationRequest extends Component {
                                              value={this.state.message} onChange={this.changeMessageHandler}/>
                                              <div style={{fontSize: 12, color: "red"}}>{this.state.messageError}</div>
                                         </div>
+                                        {/* <button type = "submit" className="btn btn-success" /*onClick={this.saveEventModificationRequest}>Save</button> */}
                                         <button className="btn btn-success" onClick={this.saveEventModificationRequest}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
                                     </form>

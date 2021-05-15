@@ -25,6 +25,9 @@ class PageCusEventBooking extends Component {
                             <li className="nav-item active">
                                 <a className="nav-link" href="http://localhost:3000/cus-event-modification-request" style={{color:'orange'}}>Event Modification Requests<span className="sr-only"></span></a>
                             </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-payments" style={{color:'orange'}}>Payment<span className="sr-only"></span></a>
+                            </li>
 
                         </ul>
 
