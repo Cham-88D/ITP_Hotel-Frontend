@@ -17,28 +17,46 @@ class ViewFoodCountComponent extends Component {
         })
     }
 
+    back(){
+        this.props.history.push('/foodCount');
+    }
+
     render() {
         return (
             <div>
                 <br></br>
-                <div className = "card col-md-6 offset-md-3">
+                <div className="card col-md-5 offset-md-3 offset-md-3" style={{boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}}>
                     <h3 className = "text-center">View Food Count Details</h3>
                     <div className = "card-body">
                         <div className = "row">
-                            <lable> Food Name :</lable>
-                            <div> { this.state.foodCount.name } </div>
+                            <div style={{fontWeight:"bold"}}>
+                                <lable> Food Name :</lable>
+                            </div>
+                            <div style={{marginLeft:10}}> { this.state.foodCount.name } </div>
                         </div>
+                        <br></br>
                         <div className = "row">
-                            <lable> Quantity : </lable>
-                            <div> { this.state.foodCount.quantity } </div>
+                            <div style={{fontWeight:"bold"}}>
+                                <lable> Quantity : </lable>
+                            </div>
+                            <div style={{marginLeft:10}}> { this.state.foodCount.quantity } </div>
                         </div>
+                        <br></br>
                         <div className = "row">
-                            <lable> Date : </lable>
-                            <div> { this.state.foodCount.date } </div>
+                            <div style={{fontWeight:"bold"}}>
+                                <lable> Date : </lable>
+                            </div>
+                            <div style={{marginLeft:10}}> { this.state.foodCount.date } </div>
                         </div>
+                        <br></br>
                         <div className = "row">
-                            <lable> Type : </lable>
-                            <div> { this.state.foodCount.type } </div>
+                            <div style={{fontWeight:"bold"}}>
+                                <lable> Type : </lable>
+                            </div>
+                            <div style={{marginLeft:10}}> { this.state.foodCount.type } </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                                             <button  class="btn " style={{background: "#bd9660",color:"white",marginLeft:130,marginTop:20}}  onClick={this.back.bind(this)} >Back</button>
                         </div>
                     </div>
                 </div>

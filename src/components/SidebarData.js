@@ -53,7 +53,7 @@ export const SidebarData = [
     {
         title:'Main',
         path:'/main',
-        icon:<CgIcons.CgProfile/>,
+        icon:<AiIcon.AiFillHome/>,
         cName:'nav-text'
     },
     {
