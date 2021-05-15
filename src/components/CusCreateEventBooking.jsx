@@ -138,7 +138,7 @@ class CusCreateEventBooking extends Component {
             <div>
                 <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div><a href="https://javaguides.net" className="navbar-brand">Event booking Management</a></div> 
+                    <div><a href="https://javaguides.net" className="navbar-brand">Event Bookings</a></div> 
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navBarNav" aria-aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>   
