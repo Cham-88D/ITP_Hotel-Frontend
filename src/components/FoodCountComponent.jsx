@@ -12,6 +12,7 @@ class FoodCountComponent extends Component {
         // this.addFoodCount = this.addFoodCount.bind(this);
         this.editFoodCount = this.editFoodCount.bind(this);
         this.deleteFoodCount = this.deleteFoodCount.bind(this);
+        this.generatepdf = this.generatepdf.bind(this)
     }
 
     deleteFoodCount(count_id){
@@ -65,6 +66,10 @@ class FoodCountComponent extends Component {
     //     this.props.history.push('/add-foodCount/_add');
     // }
 
+    generatepdf(){
+        this.props.history.push('/generateFoodCountReport');
+    }
+
     render() {
         return (
             <div>
@@ -73,6 +78,12 @@ class FoodCountComponent extends Component {
                     <button className = "btn btn-primary" onClick={this.addFoodCount}>Add FoodCount</button>
                     
                 </div> */}
+
+                <div className = "row">
+                    {/* <button style={{marginLeft:755}} className = "btn btn-primary" onClick={this.addFoodDetails}>Add Food Details</button> */}
+                    <button style={{marginLeft:10}} className="btn btn-info" onClick={this.generatepdf} type='submit'>Generate PDF</button>
+                    
+                </div>
                 <br/>
                 <div className = "row">
                     <table className="attendtable">

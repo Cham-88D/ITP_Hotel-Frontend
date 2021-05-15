@@ -9,12 +9,9 @@ class FoodDetailsreportgenerate extends Component {
         this.state = {
             foodDetails: []
         }
-        // this.addFoodDetails = this.addFoodDetails.bind(this);
+        // this.addFoodDetails = this.addFoodDetails.bind(this);   
         
-        
-    }
-
-    
+    }   
 
 
     componentDidMount(){
@@ -24,12 +21,8 @@ class FoodDetailsreportgenerate extends Component {
     }
 
     
-
-    
     
     render() {
-
-        
 
         return (
             <div>
