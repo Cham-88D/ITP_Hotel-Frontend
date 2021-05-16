@@ -13,6 +13,12 @@ class AttendanceService{
         insertAttendance(attendance){
             return axios.post(ATTENDANCE_API_BASE_URL,attendance);
         }
+        getDailyAttendanceById(attendanceId){
+            return axios.get(ATTENDANCE_API_BASE_URL + '/'+ attendanceId);
+        }
+        updateDailyAttendance(attendance,attendanceId){
+            return axios.put(ATTENDANCE_API_BASE_URL + '/'+ attendanceId,attendance)
+        }
 }
 
 export default new AttendanceService()
