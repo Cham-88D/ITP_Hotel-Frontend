@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import FoodCountService from '../services/FoodCountService';
 import '../styles/form.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
+toast.configure()
 class CreateFoodCountComponent extends Component {
     constructor(props) {
         super(props)
@@ -46,6 +49,11 @@ class CreateFoodCountComponent extends Component {
         
     }
 
+    notify(){
+        toast.warn('Food Count Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+
+    }
+
     validate = () => {
         let nameError= '';
         let dateError= '';
@@ -86,6 +94,7 @@ class CreateFoodCountComponent extends Component {
             //step 5
             if(this.state.count_id === '_add'){
                 FoodCountService.createFoodCount(foodcount).then(res =>{
+                    this.notify();
                     this.props.history.push('/foodCount')
                 }).catch(error=>{alert("Count Not Available")});
             }else{

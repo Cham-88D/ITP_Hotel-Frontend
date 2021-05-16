@@ -9,7 +9,7 @@ class FoodDetailsReportGenerate extends Component {
         this.state = {
             foodDetails: []
         }
-        // this.addFoodDetails = this.addFoodDetails.bind(this);   
+        
         
     }   
 

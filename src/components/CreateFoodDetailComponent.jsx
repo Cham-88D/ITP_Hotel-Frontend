@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import FoodDetailService from '../services/FoodDetailService';
 import '../styles/form.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
+toast.configure()
 class CreateFoodDetailComponent extends Component {
     constructor(props) {
         super(props)
@@ -25,6 +28,11 @@ class CreateFoodDetailComponent extends Component {
         this.changeunitpricehandler = this.changeunitpricehandler.bind(this);
         this.changetypehandler = this.changetypehandler.bind(this);
         this.saveOrUpdatefooddetail = this.saveOrUpdatefooddetail.bind(this);
+    }
+
+    notify(){
+        toast.warn('Food Detail Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+
     }
 
     //step 3
@@ -92,6 +100,7 @@ class CreateFoodDetailComponent extends Component {
             //step 5
             if(this.state.food_Id === '_add'){
                 FoodDetailService.createFoodDetail(foodDetail).then(res =>{
+                    this.notify();
                     this.props.history.push('/foodDetails')
                 });
             }else{
