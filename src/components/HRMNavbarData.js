@@ -20,9 +20,15 @@ export const SidebarData=[
         
     },
     {
-        title:'Manage Attendance',
+        title:'Daily Attendance',
         path:'/manageAttendance',
         icon:<BsIcons.BsCardList/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Monthly Attendance',
+        path:'/monthlyAttendance',
+        icon:<BiIcons.BiCalculator/>,
         cName:'nav-text'
     },
     {
@@ -31,15 +37,10 @@ export const SidebarData=[
         icon:<MdIcons.MdPayment/>,
         cName:'nav-text'
     },
-    {
-        title:'Calculate Salary',
-        path:'/calculateSalary',
-        icon:<BiIcons.BiCalculator/>,
-        cName:'nav-text'
-    },
+   
     {
         title:'View Salary',
-        path:'/viewSalary',
+        path:'/payroll',
         icon:<BiIcons.BiDetail/>,
         cName:'nav-text'
     },

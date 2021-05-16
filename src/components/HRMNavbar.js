@@ -3,14 +3,14 @@ import* as FaIcons from "react-icons/fa";
 import* as IoIcons from "react-icons/io5";
 import{Link} from'react-router-dom';
 import{SidebarData} from './HRMNavbarData';
-import './HRMNavbar.css';
+import '../styles/HRMNavbar.css';
 import { IconContext } from 'react-icons/lib';
 function Navbar() {
     const [sidebar,setSidebar]=useState(false);
     const showSidebar=()=>setSidebar(!sidebar);
     return (
         <>
-        <IconContext.Provider value={{color:'#fff'}}>
+        <IconContext.Provider value={{color:'#fab84d'}}>
             <div className="navbar">
                 <Link to="#" className='menu-bar'>
                     <FaIcons.FaBars  onClick={showSidebar}/>
