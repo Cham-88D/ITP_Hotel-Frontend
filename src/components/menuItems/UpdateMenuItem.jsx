@@ -87,7 +87,7 @@ class UpdateMenuItem extends Component {
         
 
         MenuItemService.updateMenu(menuItem, this.state.id).then(res =>{
-            this.props.history.push('/menu items');
+            this.props.history.push('/menuItems');
         });
          
     }
