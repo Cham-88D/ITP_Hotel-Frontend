@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SupplierService from '../adapters/SupplierService'; 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const initialState = {
     supplierId:'',
@@ -18,7 +20,7 @@ const initialState = {
 }
 
 
-
+toast.configure()
 class AddNewSupplier extends Component {
     constructor(props){
         super(props)
@@ -33,6 +35,11 @@ class AddNewSupplier extends Component {
         this.changeCategoryHandler = this.changeCategoryHandler.bind(this);
 
         // this.saveSupplier = this.saveSupplier.bind(this);
+    }
+
+    notify(){
+        toast.warn('Supplier Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+
     }
     validate = () =>{
 
@@ -83,6 +90,7 @@ class AddNewSupplier extends Component {
             console.log('supplier => ' + JSON.stringify(supplier));
 
             SupplierService.addSupplier(supplier).then(res =>{
+                this.notify();
                 this.props.history.push('/view-supplier');
             });
         }
@@ -122,7 +130,8 @@ class AddNewSupplier extends Component {
                 <div className="container">
                     <div className="row" className = "css">
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className = "text-center"><b>ADD SUPPLIER</b></h3>
+                            <h3 className = "text-center"><b>ADD
+                                 SUPPLIER</b></h3>
                             <div className = "card-body">
                                 <form  onSubmit ={this.handlesubmit}>
                                     <div className = "form-group">
