@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Col, Row, Container, Card, Form, Button } from 'react-bootstrap';
+import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
@@ -24,7 +24,6 @@ const initialState = {
     unitPriceError: '',
     descriptionError: '',
     discountError: '',
-    TypeError: '',
 
     localNotification: null,
     isLoading: false,
@@ -69,7 +68,8 @@ class AddMenuItem extends Component {
     onChangeNewMenuItemType(type) {
         this.setState({
             ...this.state,
-            newMenuItemType: type
+            newMenuItemType: type,
+            newMenuItemTypeError: ""
         })
     }
 
@@ -95,13 +95,13 @@ class AddMenuItem extends Component {
     }
 
     validateMenuItemForm = () => {
-        let TypeError = "";
+        let menuItemTypeError = "";
         let menuItemNameError = "";
         let unitPriceError = "";
         let descriptionError = "";
         let discountError = "";
-        if (!this.state.type) {
-            TypeError = "Should select item type";
+        if (!this.state.menuItemType) {
+            menuItemTypeError = "Should select item type";
         }
         if (!this.state.unitPrice) {
             unitPriceError = "Unit price canot be null";
@@ -116,8 +116,8 @@ class AddMenuItem extends Component {
             menuItemNameError = "Item name canot be null";
         }
 
-        if (menuItemNameError || TypeError || unitPriceError || descriptionError || discountError) {
-            this.setState({ menuItemNameError, TypeError, unitPriceError, descriptionError, discountError });
+        if (menuItemNameError || menuItemTypeError || unitPriceError || descriptionError || discountError) {
+            this.setState({ menuItemNameError, menuItemTypeError, unitPriceError, descriptionError, discountError });
             return false;
         }
         return true;
@@ -256,11 +256,9 @@ class AddMenuItem extends Component {
                                             </Form.Group>
                                         </Form.Row>
                                         <Button variant="btn " id="submit" type="submit" onClick={this.saveMenuType} style={{ marginRight: "40px", background: "#bd9660", color: "white" }}>
-                                            Submit
-             </Button>
+                                            Submit</Button>
                                         <Button variant="btn1 " type="reset" style={{ background: "#bd9660", color: "white" }} id="cancel" >
-                                            Reset
-             </Button>
+                                            Reset</Button>
                                     </Form>
                                 </div>
                             </Col>
@@ -274,7 +272,7 @@ class AddMenuItem extends Component {
                                                     <div class="form-group col-md-6">
                                                         <label for="menu_item_type">Menu Item Type</label>
                                                         <select id="menu_item_type" class="form-control" value={this.state.menuItemType} onChange={this.changeMenuItemTypeHandler} >
-                                                            <option>choose...</option>
+                                                            <option value="">choose...</option>
                                                             {menuTypeOptions.map((item) => {
                                                                 return (<option value={item}>{item}</option>)
                                                             })}

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
-import { Col, Row, Container, Card, Form, Button } from 'react-bootstrap';
+import { Col, Container, Form, Button } from 'react-bootstrap';
 import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 import PolicyService from "../../adapters/policyService";
 
@@ -33,6 +35,7 @@ class Policy extends Component {
         this.resetFormErrors = this.resetFormErrors.bind(this);
         this.resetForm = this.resetForm.bind(this);
         this.deletePolicy = this.deletePolicy.bind(this);
+        this.onclickDeleteButton = this.onclickDeleteButton.bind(this);
     }
 
     componentDidMount(){
@@ -54,6 +57,23 @@ class Policy extends Component {
                 notificationType: ALERT_TYPES.ERROR
             })
         })
+    }
+
+    onclickDeleteButton(id){
+        confirmAlert({
+            title: 'Confirm to Delete',
+            message: 'Are you sure to delete this policy',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => this.deletePolicy(id)
+              },
+              {
+                label: 'No',
+                onClick: () => alert('Click No')
+              }
+            ]
+          });
     }
 
     deletePolicy(id){
@@ -285,7 +305,7 @@ class Policy extends Component {
                                                         <td>{policy.description}</td>
                                                         <td>{policy.min_bill_amount}</td>
                                                         <td>{policy.discount}</td>
-                                                        <td><Button onClick={()=>{this.deletePolicy(policy.id)}}>Delete</Button></td>
+                                                        <td><Button onClick={()=>{this.onclickDeleteButton(policy.id)}}>Delete</Button></td>
                                                     </tr>
                                                 )
                                             })

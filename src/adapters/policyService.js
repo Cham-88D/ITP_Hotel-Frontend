@@ -15,6 +15,10 @@ class PolicyService  {
        return axios.delete(POLICY_Base_URL+"/"+id);
    }
 
+   getApplicablePolicies(total){
+    return axios.get(`http://localhost:8080/api/v1/policies-applicable/${total}`);
+   }
+
 }
 
 export default new PolicyService()

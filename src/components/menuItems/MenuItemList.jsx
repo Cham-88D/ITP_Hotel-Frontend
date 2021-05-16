@@ -1,5 +1,5 @@
 
-import React, {useEffect, Component } from 'react';
+import React, {Component } from 'react';
 import MenuItemService from '../../services/MenuItemService';
 
 
@@ -77,8 +77,7 @@ class MenuItemList extends Component {
         if(this.state.menuItems && this.state.menuItems.length>0){
             filterMenuType=this.state.menuItems.filter(
                 ( menuItem )=>{
-                    return menuItem.menuItemType.toLowerCase().indexOf(this.state.
-                        search.toLowerCase())!==-1;
+                    return menuItem.menuItemType.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1;
                 }
             );
         }

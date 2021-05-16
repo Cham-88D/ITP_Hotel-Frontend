@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Col, Row, Container, Card, Form, Button } from 'react-bootstrap';
+import { Col, Row, Container, Button } from 'react-bootstrap';
 
 import Loader from "react-loader-spinner";
 import Alert from "../alert";
@@ -7,6 +7,7 @@ import ALERT_TYPES from "../../constants/AlertTypes";
 import ResOrderService from '../../adapters/ResOrderService';
 import MenuItemService from "../../services/MenuItemService";
 import MenuResOrderService from "../../adapters/MenuResOrder";
+import PolicyService from "../../adapters/policyService";
 
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import PrintRestBill from "./pdf";
@@ -20,6 +21,7 @@ export class AddOrder extends Component {
             menuItems: [],
             resOrder: null,
             orderLines: [],
+            validPolicies: [],
 
             menuType: "",
             menuItem: "",
@@ -28,7 +30,11 @@ export class AddOrder extends Component {
             quantity: 0,
             isLoading: false,
             localNotification: null,
-            notificationType: null
+            notificationType: null,
+            finalTotal: null,
+
+            menuItemNameError: null,
+            qtyError: null
         }
 
         this.onChangeFormFeild = this.onChangeFormFeild.bind(this);
@@ -36,6 +42,43 @@ export class AddOrder extends Component {
         this.resetForm = this.resetForm.bind(this);
         this.addProductsToOrder = this.addProductsToOrder.bind(this);
         this.calculateOrderTotalWithOutDiscountPolicy = this.calculateOrderTotalWithOutDiscountPolicy.bind(this);
+        this.validateForm = this.validateForm.bind(this);
+        this.resetFormErrors = this.resetFormErrors.bind(this);
+        this.getAllApplicablePolicies = this.getAllApplicablePolicies.bind(this);
+        this.calculatePriceAccordingToPolicy = this.calculatePriceAccordingToPolicy.bind(this);
+    }
+
+    calculatePriceAccordingToPolicy(discount) {
+        let total = this.calculateOrderTotalWithOutDiscountPolicy();
+        let finalTotal = total - (total * discount) / 100;
+
+        this.setState({
+            ...this.state,
+            finalTotal
+        })
+    }
+
+    getAllApplicablePolicies() {
+        let total = this.calculateOrderTotalWithOutDiscountPolicy();
+
+        this.setState({
+            ...this.state,
+            isLoading: true,
+        })
+        PolicyService.getApplicablePolicies(total).then((res) => {
+            this.setState({
+                ...this.state,
+                isLoading: false,
+                validPolicies: res.data
+            })
+        }).catch(() => {
+            this.setState({
+                ...this.state,
+                isLoading: false,
+                localNotification: "Something went wrong!",
+                notificationType: ALERT_TYPES.ERROR
+            })
+        })
     }
 
     componentDidMount() {
@@ -85,27 +128,66 @@ export class AddOrder extends Component {
         })
     }
 
-    addProductsToOrder() {
+    resetFormErrors(key) {
+        this.setState({
+            ...this.state,
+            ...key
+        })
+    }
+
+    validateForm() {
+        const { menuItem, quantity } = this.state;
+
+        let hasErrors = false;
+        if (menuItem === null || menuItem === "" || menuItem === undefined) {
+            this.setState({
+                ...this.state,
+                menuItemNameError: "Item name is required"
+            })
+            hasErrors = true;
+        }
+        if (quantity === "" || quantity === null || quantity === undefined || quantity < 1) {
+            this.setState({
+                ...this.state,
+                qtyError: "valid qunatity is required"
+            })
+            hasErrors = true;
+        }
+        return hasErrors;
+    }
+
+    addProductsToOrder(e) {
         const { menuType, menuItem, discount, quantity, resOrder, unitPrice } = this.state;
         let currentMenuItem = null;
         let total = (unitPrice * quantity) - (unitPrice * quantity * discount / 100);
-        this.setState({
-            ...this.state,
-            isLoading: true
-        })
-        MenuItemService.getMenuItemById(menuItem).then((res) => {
-            currentMenuItem = res.data;
-            MenuResOrderService.addItemsToOrder({ menuItemName: currentMenuItem.menuItemName, menuItemType: menuType, qty: quantity, discount: discount, total: total, rest: resOrder, res: currentMenuItem }).then((res2) => {
-                this.setState({
-                    ...this.state,
-                    localNotification: "Item added to order!",
-                    notificationType: ALERT_TYPES.SUCCESS
-                })
-                MenuResOrderService.getOrderLinesByOrderId(resOrder.menu_order_id).then((res3) => {
+
+        e.preventDefault();
+        if (!this.validateForm()) {
+            this.setState({
+                ...this.state,
+                isLoading: true
+            })
+            MenuItemService.getMenuItemById(menuItem).then((res) => {
+                currentMenuItem = res.data;
+                MenuResOrderService.addItemsToOrder({ menuItemName: currentMenuItem.menuItemName, menuItemType: menuType, qty: quantity, discount: discount, total: total, rest: resOrder, res: currentMenuItem }).then((res2) => {
                     this.setState({
                         ...this.state,
-                        isLoading: false,
-                        orderLines: res3.data
+                        localNotification: "Item added to order!",
+                        notificationType: ALERT_TYPES.SUCCESS
+                    })
+                    MenuResOrderService.getOrderLinesByOrderId(resOrder.menu_order_id).then((res3) => {
+                        this.setState({
+                            ...this.state,
+                            isLoading: false,
+                            orderLines: res3.data
+                        })
+                    }).catch(() => {
+                        this.setState({
+                            ...this.state,
+                            isLoading: false,
+                            localNotification: "Something went wrong!",
+                            notificationType: ALERT_TYPES.ERROR
+                        })
                     })
                 }).catch(() => {
                     this.setState({
@@ -123,29 +205,20 @@ export class AddOrder extends Component {
                     notificationType: ALERT_TYPES.ERROR
                 })
             })
-        }).catch(() => {
-            this.setState({
-                ...this.state,
-                isLoading: false,
-                localNotification: "Something went wrong!",
-                notificationType: ALERT_TYPES.ERROR
-            })
-        })
 
-        this.resetForm();
+            this.resetForm();
+        }
     }
 
-    calculateOrderTotalWithOutDiscountPolicy(){
-        const {orderLines} = this.state;
+    calculateOrderTotalWithOutDiscountPolicy() {
+        const { orderLines } = this.state;
 
         let total = 0;
-        orderLines.map((item)=>{
-            total= total+parseFloat(item[3]);
+        orderLines.map((item) => {
+            total = total + parseFloat(item[3]);
             return null;
         })
-
-        console.log("total",total)
-        return total.toFixed(2)
+        return total;
     }
 
     resetForm() {
@@ -159,7 +232,7 @@ export class AddOrder extends Component {
         })
     }
 
-    onChangeMenuItem(event) {
+    onChangeMenuItem(event, key) {
         let id = parseInt(event.target.value)
         const { menuItems } = this.state;
 
@@ -173,19 +246,30 @@ export class AddOrder extends Component {
                 menuItem: id,
                 discount: selectedItem[0].discount,
                 unitPrice: selectedItem[0].unitPrice
+            }, () => {
+                this.resetFormErrors(key)
             })
         }
     }
 
-    onChangeFormFeild(feild) {
-        this.setState({
-            ...this.state,
-            ...feild
-        })
+    onChangeFormFeild(feild, key = null) {
+        if (key !== null) {
+            this.setState({
+                ...this.state,
+                ...feild
+            }, () => {
+                this.resetFormErrors(key)
+            })
+        } else {
+            this.setState({
+                ...this.state,
+                ...feild
+            })
+        }
     }
 
     render() {
-        const { isLoading, localNotification, notificationType, menuTypes, menuType, menuItems, menuItem, discount, unitPrice, quantity, orderLines } = this.state;
+        const { isLoading, localNotification, notificationType, menuTypes, menuType, menuItems, menuItem, discount, unitPrice, quantity, orderLines, menuItemNameError, qtyError, validPolicies, finalTotal } = this.state;
         const menuTypeOptions = menuTypes.map(({ menuItemType }) => {
             return menuItemType;
         })
@@ -210,14 +294,17 @@ export class AddOrder extends Component {
                 ) : (
                     <Container>
                         {localNotification !== "" && localNotification !== null ? (<Alert message={localNotification} type={notificationType} />) : null}
-                        <div class="form-group col-md-6">
-                            <label for="foodType">Food Type</label>
-                            <select id="foodType" class="form-control" value={menuType} onChange={(e) => { this.onChangeFormFeild({ menuType: e.target.value }) }}> <option>choose...</option>
-                                {menuTypeOptions.map((item) => {
-                                    return (<option value={item}>{item}</option>)
-                                })}
-                            </select>
-                        </div>
+                        <Row>
+                            <Col lg={5} ></Col>
+                                <Col lg={7}>
+                                        <label for="foodType">Food Type</label>
+                                        <select id="foodType" class="form-control" value={menuType} onChange={(e) => { this.onChangeFormFeild({ menuType: e.target.value }) }}> <option>choose...</option>
+                                            {menuTypeOptions.map((item) => {
+                                                return (<option value={item}>{item}</option>)
+                                            })}
+                                        </select>
+                                </Col>
+                        </Row>
                         <Row>
                             <Col lg={5} >
                                 <div className="row">
@@ -230,12 +317,15 @@ export class AddOrder extends Component {
                                                         <div class="form-row">
                                                             <div class="form-group col-md-6">
                                                                 <label for="foodName">Food Item Name</label>
-                                                                <select id="foodNmae" class="form-control" onChange={this.onChangeMenuItem} value={menuItem}>
+                                                                <select id="foodNmae" class="form-control" onChange={(event) => { this.onChangeMenuItem(event, { menuItemNameError: null }) }} value={menuItem}>
                                                                     <option>Choose...</option>
                                                                     {menuItemOptions.map((item) => {
                                                                         return (<option value={item.menu_item_id}>{item.menuItemName}</option>)
                                                                     })}
                                                                 </select>
+                                                                {menuItemNameError !== null && (
+                                                                    <div style={{ fontSize: 12, color: "red" }}>{menuItemNameError}</div>
+                                                                )}
                                                                 <div> <div className="form-row">
                                                                     <div class="form-group col-md-6">
                                                                         <label for="discount">Discount</label>
@@ -245,7 +335,10 @@ export class AddOrder extends Component {
                                                                         <input type="text" class="form-control" id="price" disabled value={unitPrice} />
 
                                                                         <label for="discount">Quantity</label>
-                                                                        <input type="number" class="form-control" id="qty" value={quantity} onChange={(e) => { this.onChangeFormFeild({ quantity: e.target.value }) }} min="1"/>
+                                                                        <input type="number" class="form-control" id="qty" value={quantity} onChange={(e) => { this.onChangeFormFeild({ quantity: e.target.value }, { qtyError: null }) }} min="1" />
+                                                                        {qtyError !== null && (
+                                                                            <div style={{ fontSize: 12, color: "red" }}>{qtyError}</div>
+                                                                        )}
                                                                     </div>
                                                                 </div>
                                                                 </div>
@@ -299,7 +392,7 @@ export class AddOrder extends Component {
                                                             })
                                                         ) : (
                                                             <tr>
-                                                                <td><span>No Items Found</span></td>
+                                                                <div style={{ display: "flex" }}><span>No Items Found</span></div>
                                                             </tr>
                                                         )}
                                                         <tr>
@@ -307,44 +400,98 @@ export class AddOrder extends Component {
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
-                                                            <td>{this.calculateOrderTotalWithOutDiscountPolicy()}</td>
+                                                            <td>{this.calculateOrderTotalWithOutDiscountPolicy().toFixed(2)}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <div class="form-group col-md-4">
-                                                    <Fragment>
-                                                        <div style={{ display: "none" }}>
-                                                            <style type="text/css">
-                                                                {"@media print{@page {size: landscape; margin: 10mm;}}"}
-                                                            </style>
-                                                            {orderLines && (
-                                                                <PrintRestBill
-                                                                    ref={(el) => (this.componentRef = el)}
-                                                                    orderLines={orderLines}
-                                                                />
-                                                            )}
+                                            </div>
+                                            {orderLines && orderLines.length > 0 && (
+                                                <Fragment>
+                                                    <div className="container  bg-dark" style={{ color: 'white', padding: 2, margin: 5 }} >
+                                                        <h3 className="text-center" style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}>Discount Policy</h3>
+                                                    </div>
+                                                    <div>
+                                                        <div style={{ width: "100%", textAlign: "center" }}>
+                                                            <Button className="btn btn-success" onClick={this.getAllApplicablePolicies}>Get Applicable Discount Policies</Button>
                                                         </div>
-                                                        <ReactToPrint
-                                                            copyStyles={true}
-                                                            content={() => this.componentRef}
-                                                            documentTitle={"Bill"}
-                                                            removeAfterPrint
-                                                        >
-                                                            <PrintContextConsumer>
-                                                                {({ handlePrint }) =>
-                                                                    <button
-                                                                        className="btn btn-success" style={{ marginLeft: 200, marginTop: 150, marginRight: 250, background: "#bd9660", color: "white" }}
-                                                                        onClick={() => {
-                                                                            handlePrint();
-                                                                        }}
-                                                                    >
-                                                                        Print Bill
+                                                    </div>
+                                                    <div className="row">
+                                                        <table className="table table-striped ">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Policy Name</th>
+                                                                    <th>Description</th>
+                                                                    <th>Min Bill Amount</th>
+                                                                    <th>Discount(%)</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {validPolicies && validPolicies.length > 0 ? (
+                                                                    validPolicies.map((item, index) => {
+                                                                        return (
+                                                                            <tr key={index}>
+                                                                                <td>{item.name}</td>
+                                                                                <td>{item.description}</td>
+                                                                                <td>{item.min_bill_amount}</td>
+                                                                                <td>{item.discount}</td>
+                                                                                <td><Button onClick={() => { this.calculatePriceAccordingToPolicy(item.discount) }}>Apply</Button></td>
+                                                                            </tr>
+                                                                        )
+                                                                    })
+                                                                ) : (
+                                                                    <tr>
+                                                                        <div style={{ display: "flex" }}><span>No Items Found</span></div>
+                                                                    </tr>
+                                                                )}
+                                                                {finalTotal && (
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td><span style={{ fontWeight: "800" }}>{finalTotal.toFixed(2)}</span></td>
+                                                                    </tr>
+                                                                )}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </Fragment>
+                                            )}
+                                            <div class="form-group col-md-4">
+                                                <Fragment>
+                                                    <div style={{ display: "none" }}>
+                                                        <style type="text/css">
+                                                            {"@media print{@page {size: landscape; margin: 10mm;}}"}
+                                                        </style>
+                                                        {orderLines && (
+                                                            <PrintRestBill
+                                                                ref={(el) => (this.componentRef = el)}
+                                                                orderLines={orderLines}
+                                                                finalTotal={finalTotal}
+                                                            />
+                                                        )}
+                                                    </div>
+                                                    <ReactToPrint
+                                                        copyStyles={true}
+                                                        content={() => this.componentRef}
+                                                        documentTitle={"Bill"}
+                                                        removeAfterPrint
+                                                    >
+                                                        <PrintContextConsumer>
+                                                            {({ handlePrint }) =>
+                                                                <button
+                                                                    className="btn btn-success" style={{ marginLeft: 200, marginTop: 150, marginRight: 250, background: "#bd9660", color: "white" }}
+                                                                    onClick={() => {
+                                                                        handlePrint();
+                                                                    }}
+                                                                >
+                                                                    Print Bill
                                                                     </button>
-                                                                }
-                                                            </PrintContextConsumer>
-                                                        </ReactToPrint>
-                                                    </Fragment>
-                                                </div>
+                                                            }
+                                                        </PrintContextConsumer>
+                                                    </ReactToPrint>
+                                                </Fragment>
                                             </div>
                                         </div>
                                     </div>
@@ -358,85 +505,3 @@ export class AddOrder extends Component {
     }
 }
 export default AddOrder;
-
-/*
-function AddOrder() {
-    const [menu_order_id, setMenu_order_id] = useState("");
-    const [show, setShow] = useState(false);
-    const [category, setCategory] = useState([]);
-    const [gtCategory, getCategory] = useState("");
-    const [menuItem, setMenuItem] = useState([]);
-    const [disount, setUnitPrice] = useState("");
-    const [untPrice, setDiscount] = useState("");
-    const [menu, setMenu] = useState("");
-    const [d, setd] = useState([]);
-    const [quantity, setQuantity] = useState("");
-    const [total, setTotal] = useState(0);
-
-
-    const [menuTypes, setMenuTypes] = useState([]);
-
-    // useEffect(() => {
-    //     axios.get('http://localhost:8080/api/v1/menu_item_category').then((res) => {
-    //         setCategory(res.data);
-    //         console.log(category);
-    //         console.log("yes");
-    //     }).catch((err) => {
-    //         alert(err)
-    //     })
-
-
-    // }, [])
-
-
-
-
-
-    function onDisplay() {
-        // const x = document.getElementById("f1").style.display;
-        // if (x === "none") {
-        //     document.getElementById("f1").style.display = 'block'
-        // } else {
-        //     document.getElementById("f1").style.display = 'block'
-        // }
-
-        document.getElementById("f1").style.display = 'block'
-        axios.get('http://localhost:8080/api/v1//res_menu_item/type/' + gtCategory).then((res) => {
-
-            setMenuItem(res.data);
-
-
-            console.log(menuItem);
-
-        }).catch((err) => {
-            alert(err)
-        })
-
-
-    }
-
-
-    function fx(e) {
-        console.log(e);
-        axios.get('http://localhost:8080/api/v1//res_menu_item/name/' + e).then((res) => {
-
-            setd(res.data);
-            console.log(res.data);
-
-        }).catch((err) => {
-            alert(err)
-        })
-
-    }
-
-    return (
-
-
-
-
-
-    )
-
-}
-
-export default AddOrder;*/
