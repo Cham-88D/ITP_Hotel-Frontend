@@ -4,7 +4,7 @@ import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
-import MenuItemService from '../../services/MenuItemService';
+import MenuItemService from '../../adapters/MenuItemService';
 
 import 'bootstrap-css-only/css/bootstrap.min.css';
 

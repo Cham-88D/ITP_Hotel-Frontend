@@ -5,7 +5,7 @@ import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
 import ResOrderService from '../../adapters/ResOrderService';
-import MenuItemService from "../../services/MenuItemService";
+import MenuItemService from "../../adapters/MenuItemService";
 import MenuResOrderService from "../../adapters/MenuResOrder";
 import PolicyService from "../../adapters/policyService";
 
