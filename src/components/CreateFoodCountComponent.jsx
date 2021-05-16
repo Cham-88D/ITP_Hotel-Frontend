@@ -50,9 +50,15 @@ class CreateFoodCountComponent extends Component {
     }
 
     notify(){
-        toast.warn('Food Count Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+        toast.warn('Food Count Added Successfully!', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
 
     }
+
+    notify1(){
+        toast.warn('Food Count Updated Successfully!', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }
+
+    
 
     validate = () => {
         let nameError= '';
@@ -99,6 +105,7 @@ class CreateFoodCountComponent extends Component {
                 }).catch(error=>{alert("Count Not Available")});
             }else{
                 FoodCountService.updateFoodCount(foodcount, this.state.count_id).then( res => {
+                    this.notify1();
                     this.props.history.push('/foodCount');
                 }).catch(error=>{alert("Count Not Available")});
             }

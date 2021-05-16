@@ -35,6 +35,10 @@ class CreateFoodDetailComponent extends Component {
 
     }
 
+    notify1(){
+        toast.warn('Food Detail Updated Successfully!', {position: toast.POSITION.TOP_CENTER})
+    }
+
     //step 3
     componentDidMount(){
 
@@ -105,6 +109,7 @@ class CreateFoodDetailComponent extends Component {
                 });
             }else{
                 FoodDetailService.updateFoodDetail(foodDetail, this.state.food_Id).then( res => {
+                    this.notify1();
                     this.props.history.push('/foodDetails');
                 });
             }
