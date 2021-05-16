@@ -159,7 +159,7 @@ class CreateFoodDetailComponent extends Component {
                                                 <lable> Food Name: </lable>
                                                 <br/>
                                                 <input placeholder="Food Name" name="food_Name" className = "form-control" 
-                                                    value={this.state.food_Name} onChange={this.changefoodnamehandler}/>
+                                                    value={this.state.food_Name} onChange={this.changefoodnamehandler } style={{marginTop:6}}/>
                                                 
                                                 <div style={{fontSize: 12, color: "red"}}>{this.state.nameError}</div>
 
@@ -168,7 +168,7 @@ class CreateFoodDetailComponent extends Component {
                                                 <lable> Availability (KG or L): </lable>
                                                 <br/>
                                                 <input placeholder="Availability" name="availability" className = "form-control" 
-                                                    value={this.state.availability} onChange={this.changeavailabilityhandler}/>
+                                                    value={this.state.availability} onChange={this.changeavailabilityhandler} style={{marginTop:6}}/>
 
                                                     <div style={{fontSize: 12, color: "red"}}>{this.state.availabilityError}</div>
                                             </div>
@@ -176,7 +176,7 @@ class CreateFoodDetailComponent extends Component {
                                                 <lable> Unit Price: </lable>
                                                 <br/>
                                                 <input placeholder="Unit Price" name="unit_Price" className = "form-control" 
-                                                    value={this.state.unit_Price} onChange={this.changeunitpricehandler}/>
+                                                    value={this.state.unit_Price} onChange={this.changeunitpricehandler} style={{marginTop:6}}/>
 
                                                     <div style={{fontSize: 12, color: "red"}}>{this.state.unitpriceError}</div>
 
@@ -187,7 +187,7 @@ class CreateFoodDetailComponent extends Component {
                                                 <br/>
                                                 
                                                 <select placeholder = "Choose" name="food_Type" className = "form-control"
-                                                 value={this.state.food_Type} onChange={this.changetypehandler}>
+                                                 value={this.state.food_Type} onChange={this.changetypehandler} style={{marginTop:6}}>
                                                      <option value="">Choose</option>
                                                      <option value="Vegetable">Vegetable</option>
                                                      <option value="Fruit">Fruit</option>

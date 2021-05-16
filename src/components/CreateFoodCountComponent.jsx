@@ -153,7 +153,7 @@ class CreateFoodCountComponent extends Component {
                                                 <lable> Food Name: </lable>
                                                 <br/>
                                                 <input placeholder="Food Name" name="name" className = "form-control" required
-                                                    value={this.state.name} onChange={this.changefoodnamehandler}/>
+                                                    value={this.state.name} onChange={this.changefoodnamehandler} style={{marginTop:6}}/>
 
                                                     <div style={{fontSize: 12, color: "red"}}>{this.state.nameError}</div>
 
@@ -162,7 +162,7 @@ class CreateFoodCountComponent extends Component {
                                                 <lable> Date: </lable>
                                                 <br/>
                                                 <input type="date" name="date" className = "form-control" 
-                                                    value={this.state.date} onChange={this.changedatehandler}/>
+                                                    value={this.state.date} onChange={this.changedatehandler} style={{marginTop:6}}/>
 
                                                     <div style={{fontSize: 12, color: "red"}}>{this.state.dateError}</div>
 
@@ -171,7 +171,7 @@ class CreateFoodCountComponent extends Component {
                                                 <lable> Quantity (KG or L): </lable>
                                                 <br/>
                                                 <input placeholder="Quantity" name="quantity" className = "form-control" required
-                                                    value={this.state.quantity} onChange={this.changequantityhandler}/>
+                                                    value={this.state.quantity} onChange={this.changequantityhandler} style={{marginTop:6}}/>
 
                                                     <div style={{fontSize: 12, color: "red"}}>{this.state.quantityError}</div>
 
