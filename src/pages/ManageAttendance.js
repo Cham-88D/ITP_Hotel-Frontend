@@ -1,17 +1,16 @@
 import React from 'react'
-import AddAttendForm from '../components/AddAttendForm'
-// import AddAttendForm from '../components/AddAttendForm'
-import ViewAttendance from '../components/ViewAttendance'
-import './Attendance.css'
+import UpdatemonthlyAttendance from '../components/UpdatemonthlyAttendance'
+import ViewAttendanceList from '../components/ViewAttendanceList'
+import '../styles/Attendance.css'
 function ManageAttendance() {
     return (
         <div >
 
-            <ul className="attend">
+            <ul>
                 
-                
-                <li> <AddAttendForm/></li>
-                <li><ViewAttendance/></li>
+                <li><ViewAttendanceList/></li>
+                <li> <UpdatemonthlyAttendance/></li>
+               
                 
 
             </ul>
