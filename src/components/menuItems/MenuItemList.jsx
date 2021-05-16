@@ -40,12 +40,12 @@ class MenuItemList extends Component {
     }
 
     viewMenuItem(id) {
-        this.props.history.push(`/view menu item/${id}`);
+        this.props.history.push(`/viewMenuItem/${id}`);
     }
 
 
     editMenuItem(id) {
-        this.props.history.push(`/update menu items/${id}`);
+        this.props.history.push(`/menuItems/update/${id}`);
 
     }
 

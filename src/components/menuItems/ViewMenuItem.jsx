@@ -25,7 +25,7 @@ class ViewMenuItem extends Component {
  }
 
  cancel(){
-    this.props.history.push('/menu items');
+    this.props.history.push('/menuItems');
 }
 
 

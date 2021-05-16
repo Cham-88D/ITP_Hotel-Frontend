@@ -32,6 +32,7 @@ export class AddOrder extends Component {
             localNotification: null,
             notificationType: null,
             finalTotal: null,
+            showPolicyTable: false,
 
             menuItemNameError: null,
             qtyError: null
@@ -64,6 +65,7 @@ export class AddOrder extends Component {
         this.setState({
             ...this.state,
             isLoading: true,
+            showPolicyTable: true
         })
         PolicyService.getApplicablePolicies(total).then((res) => {
             this.setState({
@@ -269,7 +271,7 @@ export class AddOrder extends Component {
     }
 
     render() {
-        const { isLoading, localNotification, notificationType, menuTypes, menuType, menuItems, menuItem, discount, unitPrice, quantity, orderLines, menuItemNameError, qtyError, validPolicies, finalTotal } = this.state;
+        const { isLoading, localNotification, notificationType, menuTypes, menuType, menuItems, menuItem, discount, unitPrice, quantity, orderLines, menuItemNameError, qtyError, validPolicies, finalTotal, showPolicyTable } = this.state;
         const menuTypeOptions = menuTypes.map(({ menuItemType }) => {
             return menuItemType;
         })
@@ -293,17 +295,23 @@ export class AddOrder extends Component {
                     </Col>
                 ) : (
                     <Container>
-                        {localNotification !== "" && localNotification !== null ? (<Alert message={localNotification} type={notificationType} />) : null}
+                        <div style={{ marginTop: "10px" }}>
+                            {localNotification !== "" && localNotification !== null ? (<Alert message={localNotification} type={notificationType} />) : null}
+                        </div>
                         <Row>
-                            <Col lg={5} ></Col>
-                                <Col lg={7}>
-                                        <label for="foodType">Food Type</label>
-                                        <select id="foodType" class="form-control" value={menuType} onChange={(e) => { this.onChangeFormFeild({ menuType: e.target.value }) }}> <option>choose...</option>
-                                            {menuTypeOptions.map((item) => {
-                                                return (<option value={item}>{item}</option>)
-                                            })}
-                                        </select>
-                                </Col>
+                            <Col lg={1} ></Col>
+                            <Col lg={4}>
+                                <div style={{ marginLeft: "8px" }}>
+                                    <label for="foodType">Food Type</label>
+                                    <select id="foodType" class="form-control" value={menuType} onChange={(e) => { this.onChangeFormFeild({ menuType: e.target.value }) }}> <option>choose...</option>
+                                        {menuTypeOptions.map((item) => {
+                                            return (<option value={item}>{item}</option>)
+                                        })}
+                                    </select>
+
+                                </div>
+
+                            </Col>
                         </Row>
                         <Row>
                             <Col lg={5} >
@@ -365,7 +373,7 @@ export class AddOrder extends Component {
                                         <div className="container  bg-dark" style={{ color: 'white', marginTop: 10 }} >
                                             <h3 className="text-center" style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}>BILLING    AREA</h3>
                                         </div>
-                                        <div className="card-body">
+                                        <div className="card-body" style={{ marginBottom: "10px" }}>
                                             <div className="row">
                                                 <table className="table table-striped ">
                                                     <thead>
@@ -415,63 +423,53 @@ export class AddOrder extends Component {
                                                             <Button className="btn btn-success" onClick={this.getAllApplicablePolicies}>Get Applicable Discount Policies</Button>
                                                         </div>
                                                     </div>
-                                                    <div className="row">
-                                                        <table className="table table-striped ">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Policy Name</th>
-                                                                    <th>Description</th>
-                                                                    <th>Min Bill Amount</th>
-                                                                    <th>Discount(%)</th>
-                                                                    <th>Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                {validPolicies && validPolicies.length > 0 ? (
-                                                                    validPolicies.map((item, index) => {
-                                                                        return (
-                                                                            <tr key={index}>
-                                                                                <td>{item.name}</td>
-                                                                                <td>{item.description}</td>
-                                                                                <td>{item.min_bill_amount}</td>
-                                                                                <td>{item.discount}</td>
-                                                                                <td><Button onClick={() => { this.calculatePriceAccordingToPolicy(item.discount) }}>Apply</Button></td>
-                                                                            </tr>
-                                                                        )
-                                                                    })
-                                                                ) : (
+                                                    {showPolicyTable && (
+                                                        <div className="row">
+                                                            <table className="table table-striped ">
+                                                                <thead>
                                                                     <tr>
-                                                                        <div style={{ display: "flex" }}><span>No Items Found</span></div>
+                                                                        <th>Policy Name</th>
+                                                                        <th>Description</th>
+                                                                        <th>Min Bill Amount</th>
+                                                                        <th>Discount(%)</th>
+                                                                        <th>Action</th>
                                                                     </tr>
-                                                                )}
-                                                                {finalTotal && (
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td><span style={{ fontWeight: "800" }}>{finalTotal.toFixed(2)}</span></td>
-                                                                    </tr>
-                                                                )}
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {validPolicies && validPolicies.length > 0 ? (
+                                                                        validPolicies.map((item, index) => {
+                                                                            return (
+                                                                                <tr key={index}>
+                                                                                    <td>{item.name}</td>
+                                                                                    <td>{item.description}</td>
+                                                                                    <td>{item.min_bill_amount}</td>
+                                                                                    <td>{item.discount}</td>
+                                                                                    <td><Button onClick={() => { this.calculatePriceAccordingToPolicy(item.discount) }}>Apply</Button></td>
+                                                                                </tr>
+                                                                            )
+                                                                        })
+                                                                    ) : (
+                                                                        <tr>
+                                                                            <div style={{ display: "flex" }}><span>No Items Found</span></div>
+                                                                        </tr>
+                                                                    )}
+                                                                    {finalTotal && (
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td><span style={{ fontWeight: "800" }}>{finalTotal.toFixed(2)}</span></td>
+                                                                        </tr>
+                                                                    )}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    )}
                                                 </Fragment>
                                             )}
-                                            <div class="form-group col-md-4">
+                                            <div style={{ display: "flex", justifyContent: "center" }}>
                                                 <Fragment>
-                                                    <div style={{ display: "none" }}>
-                                                        <style type="text/css">
-                                                            {"@media print{@page {size: landscape; margin: 10mm;}}"}
-                                                        </style>
-                                                        {orderLines && (
-                                                            <PrintRestBill
-                                                                ref={(el) => (this.componentRef = el)}
-                                                                orderLines={orderLines}
-                                                                finalTotal={finalTotal}
-                                                            />
-                                                        )}
-                                                    </div>
                                                     <ReactToPrint
                                                         copyStyles={true}
                                                         content={() => this.componentRef}
@@ -481,7 +479,7 @@ export class AddOrder extends Component {
                                                         <PrintContextConsumer>
                                                             {({ handlePrint }) =>
                                                                 <button
-                                                                    className="btn btn-success" style={{ marginLeft: 200, marginTop: 150, marginRight: 250, background: "#bd9660", color: "white" }}
+                                                                    className="btn btn-success" style={{ background: "#bd9660", color: "white" }}
                                                                     onClick={() => {
                                                                         handlePrint();
                                                                     }}
@@ -498,6 +496,18 @@ export class AddOrder extends Component {
                                 </div>
                             </Col>
                         </Row>
+                        <div style={{ display: "none" }}>
+                            <style type="text/css">
+                                {"@media print{@page {size: landscape; margin: 10mm;}}"}
+                            </style>
+                            {orderLines && (
+                                <PrintRestBill
+                                    ref={(el) => (this.componentRef = el)}
+                                    orderLines={orderLines}
+                                    finalTotal={finalTotal}
+                                />
+                            )}
+                        </div>
                     </Container>
                 )}
             </div>
