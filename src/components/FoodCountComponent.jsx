@@ -7,7 +7,8 @@ class FoodCountComponent extends Component {
         super(props)
 
         this.state = {
-            foodCount: []
+            foodCount: [],
+            searchId:''
         }
          this.addFoodCount = this.addFoodCount.bind(this);
         this.editFoodCount = this.editFoodCount.bind(this);
@@ -58,11 +59,27 @@ class FoodCountComponent extends Component {
         this.props.history.push('/generateFoodCountReport');
     }
 
+    searchFoodType(event){
+        this.setState({ searchId: event.target.value.substr(0,
+            20)});
+    }
+
     render() {
+
+        let filtertype = this.state.foodCount.filter((
+            foodcounts)=>{
+                return foodcounts.type.toLowerCase().indexOf(this.state.
+                    searchId.toLowerCase())!==-1;
+            }
+        );
+
         return (
             <div>
                 <h2 className="tableheading">Food Count</h2>
-                
+
+                <div className = "form-group col-md-4">
+                    <input type="text" class="form-control" style={{marginLeft:80}} placeholder="Enter Type (Add or Consumed)" value={this.state.searchId} onChange={this.searchFoodType.bind(this)}/>
+                </div>                
 
                 <div className = "row">
                     <button style={{marginLeft:755, background: "rgb(199, 161, 60) 0%"}} className = "btn btn-secondary" onClick={this.addFoodCount}>Add FoodCount</button>
@@ -86,10 +103,12 @@ class FoodCountComponent extends Component {
 
                         <tbody>
                             {
-                                this.state.foodCount.map(
-                                    foodcounts =>
+                                filtertype.map(
+                                    foodcounts=>
+                                // this.state.foodCount.map(
+                                //     foodcounts =>
                                     <tr key = {foodcounts.count_id}>
-                                        {/*<td>{foodcounts.count_id}</td>*/}
+                                        
                                         <td>{foodcounts.name}</td>
                                         <td>{foodcounts.date}</td>
                                         <td>{foodcounts.quantity}</td>

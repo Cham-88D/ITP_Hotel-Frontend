@@ -26,6 +26,7 @@ class FoodDetailsReportGenerate extends Component {
 
         return (
             <div>
+                
                 <h2 className="tableheading">Food Stock Details</h2>
                
                 

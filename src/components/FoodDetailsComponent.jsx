@@ -71,7 +71,7 @@ class FoodDetailsComponent extends Component {
         });
     }
 
-    searchMenuId(event){
+    searchFoodName(event){
         this.setState({ searchId: event.target.value.substr(0,
             20)});
     }
@@ -88,12 +88,9 @@ class FoodDetailsComponent extends Component {
         return (
             <div>
                 <h2 className="tableheading">Food Stock Details</h2>
-                {/* <div className = "row">
-                    <button className = "btn btn-primary" onClick={this.addFoodDetails}>Add Food Details</button>
-                </div> */}
+                
                 <div className = "form-group col-md-4">
-                    <input type="text" class="form-control" style={{marginLeft:80}} placeholder="Enter Food Name" value={this.state.searchId} onChange={this.searchMenuId.bind(this)}/>
-                    
+                    <input type="text" class="form-control" style={{marginLeft:80}} placeholder="Enter Food Name" value={this.state.searchId} onChange={this.searchFoodName.bind(this)}/>
                 </div>
                 <div className = "row">
                     <button style={{marginLeft:755, background: "rgb(199, 161, 60) 0%"}} className = "btn btn-secondary" onClick={this.addFoodDetails}>Add Food Details</button>
