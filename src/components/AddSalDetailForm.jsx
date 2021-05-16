@@ -48,7 +48,7 @@ const initialState={
     let  basic_Error='';
 
     if(!this.state.ot_rate){
-        ot_rate_Error="In Time is required"
+        ot_rate_Error="OT Rate is required"
     }
     if(!this.state.allowance){
         allowance_Error="Allowance is required"
