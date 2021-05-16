@@ -165,7 +165,7 @@ class CreateFoodDetailComponent extends Component {
 
                                             </div>
                                             <div className = "form-group">
-                                                <lable> Availability: </lable>
+                                                <lable> Availability (KG or L): </lable>
                                                 <br/>
                                                 <input placeholder="Availability" name="availability" className = "form-control" 
                                                     value={this.state.availability} onChange={this.changeavailabilityhandler}/>

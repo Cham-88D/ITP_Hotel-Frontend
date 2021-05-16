@@ -168,7 +168,7 @@ class CreateFoodCountComponent extends Component {
 
                                             </div>
                                             <div className = "form-group col-md-11">
-                                                <lable> Quantity: </lable>
+                                                <lable> Quantity (KG or L): </lable>
                                                 <br/>
                                                 <input placeholder="Quantity" name="quantity" className = "form-control" required
                                                     value={this.state.quantity} onChange={this.changequantityhandler}/>
