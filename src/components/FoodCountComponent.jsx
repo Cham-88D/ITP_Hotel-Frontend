@@ -33,19 +33,7 @@ class FoodCountComponent extends Component {
 
     }
 
-    deleteoldfoodcount(){
-        var confirmtext;
-        if(window.confirm("Are You Sure Want to Delete !")){
-            FoodCountService.deleteoldfoodcount().then(res=>{
-               
-          }) ;
-          confirmtext="You Succesfully deleted food count";
-
-        }else{
-           confirmtext="You pressed cansel Try again";
-        }
-          
-   }
+    
 
     viewFoodCount(count_id){
         this.props.history.push(`/view-foodCount/${count_id}`)
@@ -74,14 +62,11 @@ class FoodCountComponent extends Component {
         return (
             <div>
                 <h2 className="tableheading">Food Count</h2>
-                {/* <div className = "row">
-                    <button className = "btn btn-primary" onClick={this.addFoodCount}>Add FoodCount</button>
-                    
-                </div> */}
+                
 
                 <div className = "row">
-                    <button style={{marginLeft:755}} className = "btn btn-primary" onClick={this.addFoodCount}>Add FoodCount</button>
-                    <button style={{marginLeft:10}} className="btn btn-info" onClick={this.generatepdf} type='submit'>Generate PDF</button>
+                    <button style={{marginLeft:755, background: "rgb(199, 161, 60) 0%"}} className = "btn btn-secondary" onClick={this.addFoodCount}>Add FoodCount</button>
+                    <button style={{marginLeft:10, background: "#bd1c1c"}} className="btn btn-danger" onClick={this.generatepdf} type='submit'>Generate PDF</button>
                     
                 </div>
                 <br/>
@@ -89,7 +74,7 @@ class FoodCountComponent extends Component {
                     <table className="attendtable">
                         <thead>
                             <tr>
-                                {/*<th>FoodCount ID</th>*/}
+                                
                                 <th>Food Name</th>
                                 <th>Date</th>
                                 <th>Quantity (KG or L)</th>
@@ -110,9 +95,9 @@ class FoodCountComponent extends Component {
                                         <td>{foodcounts.quantity}</td>
                                         <td>{foodcounts.type}</td>
                                         <td>
-                                            <button style={{background: "rgb(197, 161, 60) 0%"}} onClick = { () => this.editFoodCount(foodcounts.count_id)} className="btn btn-info">Update</button>
+                                            <button style={{background: "rgb(197, 161, 60) 0%"}} onClick = { () => this.editFoodCount(foodcounts.count_id)} className="btn btn-secondary">Update</button>
                                             <button style={{marginLeft: "20px"}} onClick = { () => this.deleteFoodCount(foodcounts.count_id)} className="btn btn-danger">Delete</button>
-                                            <button style={{background: "rgb(197, 161, 60)", marginLeft: "20px"}} onClick = { () => this.viewFoodCount(foodcounts.count_id)} className="btn btn-info">View</button>
+                                            <button style={{background: "rgb(197, 161, 60)", marginLeft: "20px"}} onClick = { () => this.viewFoodCount(foodcounts.count_id)} className="btn btn-secondary">View</button>
                                         </td> 
                                     </tr>
                                 )

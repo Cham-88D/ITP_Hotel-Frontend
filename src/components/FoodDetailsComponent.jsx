@@ -96,8 +96,8 @@ class FoodDetailsComponent extends Component {
                     
                 </div>
                 <div className = "row">
-                    <button style={{marginLeft:755}} className = "btn btn-primary" onClick={this.addFoodDetails}>Add Food Details</button>
-                    <button style={{marginLeft:10}} className="btn btn-info" onClick={this.generatepdf} type='submit'>Generate PDF</button>
+                    <button style={{marginLeft:755, background: "rgb(199, 161, 60) 0%"}} className = "btn btn-secondary" onClick={this.addFoodDetails}>Add Food Details</button>
+                    <button style={{marginLeft:10, background: "#bd1c1c"}} className="btn btn-danger" onClick={this.generatepdf} type='submit'>Generate PDF</button>
                     
                 </div>
                 <br></br>
@@ -128,7 +128,7 @@ class FoodDetailsComponent extends Component {
                                         <td>{foodDetail.unit_Price}</td>
 
                                         <td>
-                                            <button style={{background: "rgb(197, 161, 60) 0%"}} onClick = { () => this.editFoodDetail(foodDetail.food_Id)} className="btn btn-info">Update</button>
+                                            <button style={{background: "rgb(197, 161, 60) 0%"}} onClick = { () => this.editFoodDetail(foodDetail.food_Id)} className="btn btn-secondary">Update</button>
                                             <button style={{marginLeft: "20px"}} onClick = { () => this.deleteFoodDetail(foodDetail.food_Id)} className="btn btn-danger">Delete</button>
                                             
                                         </td>

@@ -116,9 +116,9 @@ class CreateFoodCountComponent extends Component {
 
     getTitle(){
         if(this.state.count_id === '_add'){
-            return <h3 className="text-center" /*className = "table-heading"*/>Added and Consumed Food</h3>
+            return <h3 className="text-center" >Added and Consumed Food</h3>
         }else{
-            return <h3 className="text-center" /*className = "table-heading"*/>Update Food Count</h3>
+            return <h3 className="text-center" >Update Food Count</h3>
         }
     }
 
@@ -192,65 +192,6 @@ class CreateFoodCountComponent extends Component {
                         </div>
                     </div>
 
-                    {/* <div className = "form-container">
-                        <div className = "row1">
-                            <div className = "form-add-count">
-                                    {
-                                        this.getTitle()
-                                    }
-                                    <div className = "cardbody"></div>
-                                        <form>
-                                            <div className = "form-inputs" >
-                                                <lable className='form-label'> Food Name: </lable>
-                                                <br/>
-                                                <input placeholder="Food Name" name="name" className = "form-input" required
-                                                    value={this.state.name} onChange={this.changefoodnamehandler}/>
-
-                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.nameError}</div>
-
-                                            </div>
-                                            <div className = "form-inputs">
-                                                <lable className='form-label'> Date: </lable>
-                                                <br/>
-                                                <input type="date" name="date" className = "form-input" 
-                                                    value={this.state.date} onChange={this.changedatehandler}/>
-
-                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.dateError}</div>
-
-                                            </div>
-                                            <div className = "form-inputs">
-                                                <lable className='form-label'> Quantity: </lable>
-                                                <br/>
-                                                <input placeholder="Quantity" name="quantity" className = "form-input" required
-                                                    value={this.state.quantity} onChange={this.changequantityhandler}/>
-
-                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.quantityError}</div>
-
-                                            </div>
-                                            
-                                                
-                                            <div className = "form-inputs">
-                                                <lable className='form-label'> Type (Add or Consumed): </lable>
-                                                <div>
-                                                <br/>
-                                                    <input type="radio" name="type" className="typemeth"
-                                                        value="Add" onChange={this.changetypehandler} checked={type === "Add"}/>
-                                                    <span className="typemeth"> Add </span>
-                                                
-                                                    <input type="radio" name="type" className="typemeth"
-                                                        value="Consumed" onChange={this.changetypehandler} checked={type === "Consumed"}/>
-                                                    <span className="typemeth"> Consumed </span>
-
-                                                </div>
-                                            </div>
-                                             
-                                            
-                                            <button className="forminputbtn1" onClick={this.saveOrUpdatefoodcount}>Submit</button>
-                                            
-                                        </form>
-                            </div>
-                        </div>
-                    </div> */}
             </div>
         );
     }

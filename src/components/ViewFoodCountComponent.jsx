@@ -37,7 +37,7 @@ class ViewFoodCountComponent extends Component {
                         <br></br>
                         <div className = "row">
                             <div style={{fontWeight:"bold"}}>
-                                <lable> Quantity : </lable>
+                                <lable> Quantity (KG or L) : </lable>
                             </div>
                             <div style={{marginLeft:10}}> { this.state.foodCount.quantity } </div>
                         </div>

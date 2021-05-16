@@ -204,71 +204,7 @@ class CreateFoodDetailComponent extends Component {
                         </div>
 
                     </div>
-                    {/* <div className = "form-container">
-                        <div className = "row1">
-                            <div className = "form-add-count">
-                                    {
-                                        this.getTitle()
-                                    }
-                                    <div className = "cardbody"></div>
-                                        <form>
-                                            <div className = "form-inputs" >
-                                                <lable className='form-label'> Food Name: </lable>
-                                                <br/>
-                                                <input placeholder="Food Name" name="food_Name" className = "form-input" 
-                                                    value={this.state.food_Name} onChange={this.changefoodnamehandler}/>
-                                                
-                                                <div style={{fontSize: 12, color: "red"}}>{this.state.nameError}</div>
-
-                                            </div>
-                                            <div className = "form-inputs">
-                                                <lable className='form-label'> Availability: </lable>
-                                                <br/>
-                                                <input placeholder="Availability" name="availability" className = "form-input" 
-                                                    value={this.state.availability} onChange={this.changeavailabilityhandler}/>
-
-                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.availabilityError}</div>
-                                            </div>
-                                            <div className = "form-inputs">
-                                                <lable className='form-label'> Unit Price: </lable>
-                                                <br/>
-                                                <input placeholder="Unit Price" name="unit_Price" className = "form-input" 
-                                                    value={this.state.unit_Price} onChange={this.changeunitpricehandler}/>
-
-                                                    <div style={{fontSize: 12, color: "red"}}>{this.state.unitpriceError}</div>
-
-                                            </div>
-
-                                            <div className = "form-inputs">
-                                                <lable className='form-label'> Food Type: </lable>
-                                                <br/>
-                                                
-                                                <select placeholder = "Choose" name="food_Type" className = "form-input"
-                                                 value={this.state.food_Type} onChange={this.changetypehandler}>
-                                                     <option value="">Choose</option>
-                                                     <option value="Vegetable">Vegetable</option>
-                                                     <option value="Fruit">Fruit</option>
-                                                     <option value="DryFood">Dry Food</option>
-                                                     <option value="Meat">Meat</option>
-                                                     <option value="Diary">Diary</option>
-                                                     <option value="Leaves">Leaves</option>
-                                                     <option value="Bulbs">Bulbs</option>
-                                                     <option value="Seeds">Seeds</option>
-                                                     <option value="Other">Other</option>
-                                                 </select>
-
-                                                 <div style={{fontSize: 12, color: "red"}}>{this.state.foodtypeError}</div>
-
-                                            </div>
-                                             
-                                             
-                                            
-                                            <button className="forminputbtn1" onClick={this.saveOrUpdatefooddetail}>Submit</button>
-                                            
-                                        </form>
-                            </div>
-                        </div>
-                    </div> */}
+                    
             </div>
         );
     
