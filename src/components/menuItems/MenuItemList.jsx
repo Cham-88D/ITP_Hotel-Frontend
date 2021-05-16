@@ -45,7 +45,7 @@ class MenuItemList extends Component {
 
 
     editMenuItem(id) {
-        this.props.history.push(`/menuItems/update/${id}`);
+        this.props.history.push(`/menuItemsUpdate/${id}`);
 
     }
 
