@@ -1,24 +1,24 @@
-import React from 'react'
+// import React from 'react'
 import ViewSalary from '../components/ViewSalary'
-import AddSalDetailForm from '../components/AddSalDetailForm'
+import AddSalDetail from '../components/AddSalDetail'
+import '../styles/SalaryPage.css'
 
+import React, { Component } from 'react'
 
-
-
-function Manage_Salary() {
-    return (
-        <div >
-          <ul className="attend">
+export default class ManageSalary extends Component {
+    render() {
+        return (
+            <div>
+                <ul className="salary">
                 
                 
-                <li> <ViewSalary/></li>
-                <li><AddSalDetailForm/></li>
-                
+                    <li><AddSalDetail/></li>
+                     <li> <ViewSalary/></li>                
 
-            </ul>
-          
-        </div>
-    )
+                </ul>
+            </div>
+        )
+    }
 }
 
-export default Manage_Salary
+
