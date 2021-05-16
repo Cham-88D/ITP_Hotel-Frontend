@@ -1,0 +1,217 @@
+
+    .new li{
+      float: left;
+    }
+    .dattendtable {
+     border-collapse: collapse;
+     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+     margin-left: 120px;
+     font-size: 0.9em;
+     min-width: 450px;
+    }
+    .dattendtable {
+      border-collapse: collapse;
+      box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+      margin-left: 120px;
+      font-size: 0.9em;
+      min-width: 450px;
+     }
+    .dattendtable thead tr{
+      background-color: #969090;
+      color:#ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+    .dattendtable th,
+    .dattendtable td{
+      padding: 12px 15px;
+  
+    }
+    .dtextcenter{
+      margin-left: 20%;
+    }
+      .dattendtable tbody tr{
+        border-bottom: 1px solid #dddddd;
+      }
+      .dattendtable tbody tr:nth-of-type(even){
+        background-color: #f3f3f3;
+  
+      }
+      .dattendtable tbody tr:last-of-type{
+        border-bottom: 2px solid #969090;
+      }
+  
+
+      .dtableheading {
+        font-size: 1.5rem;
+        text-align: start;
+        font-family: ' Calibri';
+        font-weight: bold;
+        width: 650px;
+        border-radius: 5px;
+        padding-left: 10px;
+        margin-bottom: 1rem;
+        margin-top: 50px;
+        margin-left: 120px;
+        color: rgb(36, 23, 23);
+        background: linear-gradient(
+            90deg,
+            rgb(190, 167, 63) 0%,
+            rgb(207, 201, 201) 100%
+          );
+      }
+      .salnav {
+        position: absolute;
+        top: 50%;
+        left: 42%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .caption1 {
+        font-size: 1.5rem;
+        text-align: start;
+        border-radius: 5px;
+        font-family: ' Calibri';
+        font-weight: bold;
+        width: 230px;
+        padding-left: 10px;
+        margin-bottom: 1rem;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: rgb(36, 23, 23);
+        background: linear-gradient(
+            90deg,
+            rgb(190, 167, 63) 0%,
+            rgb(207, 201, 201) 100%
+          );
+      }
+    
+      .dailynavcontainer {
+        /* margin: 100px auto; */
+        margin-left: 330px;
+        margin-top: 50px;
+        width: 280px;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+        position: relative;
+        border-radius: 2px;
+        height: 150px;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: #ccdfd9;
+      }
+    
+      .dailynavbtn1 {
+        width: 90px;
+        height: 30px;
+        margin-top: 40px;
+        margin-left: 165px;
+        margin-bottom: 10px;
+        border-radius: 2px;
+        background: linear-gradient(
+          90deg,
+          rgb(197, 161, 60) 0%,
+           rgb(190, 167, 63) 100%
+        );
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+      }
+      
+      .dailynavbtn1:hover {
+        cursor: pointer;
+        background: linear-gradient(
+          90deg,
+          rgb(221, 147, 9) 0%,
+      rgb(216, 163, 48) 100%
+        );
+        transition: all 0.4s ease-out;
+      }
+
+      
+       .dattendtable1 {
+         border-collapse: collapse;
+         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+         margin-left: 320px;
+         font-size: 0.9em;
+         min-width: 450px;
+        }
+       .dattendtable1 thead tr{
+         background-color: #969090;
+         color:#ffffff;
+         text-align: left;
+         font-weight: bold;
+       }
+       .dattendtable1 th,
+       .dattendtable1 td{
+         padding: 12px 15px;
+     
+       }
+       .dtextcenter{
+         margin-left: 20%;
+       }
+         .dattendtable1 tbody tr{
+           border-bottom: 1px solid #dddddd;
+         }
+         .dattendtable1 tbody tr:nth-of-type(even){
+           background-color: #f3f3f3;
+     
+         }
+         .dattendtable1 tbody tr:last-of-type{
+           border-bottom: 2px solid #969090;
+         }
+     
+   
+         .dtableheading1 {
+           font-size: 1.5rem;
+           text-align: start;
+           font-family: ' Calibri';
+           font-weight: bold;
+           width: 650px;
+           border-radius: 5px;
+           padding-left: 10px;
+           margin-bottom: 1rem;
+           margin-top: 50px;
+           margin-left: 320px;
+           color: rgb(36, 23, 23);
+           background: linear-gradient(
+               90deg,
+               rgb(190, 167, 63) 0%,
+               rgb(207, 201, 201) 100%
+             );
+         }
+
+         .pdfbutton {
+          width: 120px;
+          height: 30px;
+          margin-top: 20px;
+          border-radius: 2px;
+          background: linear-gradient(
+            90deg,
+            rgb(250, 32, 32) 0%,
+            rgb(233, 106, 106) 100%
+          );
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 1rem;
+        }
+        
+        .pdfbutton:hover {
+          cursor: pointer;
+          background: linear-gradient(
+            90deg,
+            rgb(189, 28, 28) 0%,
+            rgb(199, 4, 4) 100%
+          );
+        }
+      

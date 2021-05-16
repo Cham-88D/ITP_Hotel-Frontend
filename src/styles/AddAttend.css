@@ -1,6 +1,14 @@
+.attendance{
+  list-style-type: none;
+  
+}
+
+.attendance li{
+  float: left;
+}
 .form-container {
     /* margin: 100px auto; */
-    margin-left: 330px;
+    margin-left: 600px;
     margin-top: 50px;
     width: 300px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
@@ -12,7 +20,35 @@
     grid-template-columns: 1fr 1fr;
     background-color: #ffffff;
   }
-  
+  .form-container2 {
+    /* margin: 100px auto; */
+    margin-left: 600px;
+    margin-top: 50px;
+    width: 300px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+    height: 400px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+
+  .form-container3 {
+    /* margin: 100px auto; */
+    margin-left: 600px;
+    margin-top: 50px;
+    width: 300px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+    height: 250px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
   .close-btn {
     position: absolute;
     top: 2%;
@@ -63,7 +99,7 @@
     color: rgb(36, 23, 23);
     background: linear-gradient(
         90deg,
-        rgb(39, 176, 255) 0%,
+        rgb(190, 167, 63) 0%,
         rgb(207, 201, 201) 100%
       );
   }
@@ -117,8 +153,8 @@
     border-radius: 2px;
     background: linear-gradient(
       90deg,
-      rgb(39, 176, 255) 0%,
-      rgb(0, 232, 236) 100%
+      rgb(197, 161, 60) 0%,
+      rgb(190, 167, 63) 100%
     );
     outline: none;
     border: none;
@@ -131,8 +167,8 @@
     cursor: pointer;
     background: linear-gradient(
       90deg,
-      rgb(39, 143, 255) 0%,
-      rgb(12, 99, 250) 100%
+     rgb(221, 147, 9) 0%,
+      rgb(216, 163, 48) 100%
     );
     transition: all 0.4s ease-out;
   }
@@ -167,7 +203,7 @@
   .attend-table {
    border-collapse: collapse;
    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-   margin-left: 50px;
+   margin-left: 80px;
    font-size: 0.9em;
    min-width: 450px;
   }
@@ -217,16 +253,16 @@
       text-align: start;
       font-family: ' Calibri';
       font-weight: bold;
-      width: 840px;
+      width: 835px;
       border-radius: 5px;
       padding-left: 10px;
       margin-bottom: 1rem;
       margin-top: 50px;
-      margin-left: 35px;
+      margin-left: 64px;
       color: rgb(36, 23, 23);
       background: linear-gradient(
           90deg,
-          rgb(39, 176, 255) 0%,
+          rgb(190, 167, 63) 0%,
           rgb(207, 201, 201) 100%
         );
     }
@@ -255,8 +291,8 @@
         border-radius: 2px;
         background: linear-gradient(
           90deg,
-          rgb(39, 176, 255) 0%,
-          rgb(0, 232, 236) 100%
+          rgb(197, 161, 60) 0%,
+      rgb(190, 167, 63) 100%
         );
         outline: none;
         border: none;
@@ -277,8 +313,8 @@
         cursor: pointer;
         background: linear-gradient(
           90deg,
-          rgb(39, 143, 255) 0%,
-          rgb(12, 99, 250) 100%
+          rgb(221, 147, 9) 0%,
+          rgb(216, 163, 48) 100%
         );
         transition: all 0.4s ease-out;
       }
@@ -295,3 +331,161 @@
     color: #27cdff;
     font-weight: 600;
   } */
+  
+  .attenav {
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .search{
+
+    display: block;
+    padding-left: 10px;
+    border: 1px solid black;
+    /* outline: 1px; */
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 1250px;
+    height: 30px;
+    width: 250px;
+    /* border: none; */
+
+
+  }
+
+  .search:hover{
+    border:4px solid rgb(63, 147, 226);
+   
+  } 
+
+  
+  
+  .caption2 {
+    font-size: 1.5rem;
+    text-align: start;
+    border-radius: 5px;
+    font-family: ' Calibri';
+    font-weight: bold;
+    width: 230px;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: rgb(36, 23, 23);
+    background: linear-gradient(
+        90deg,
+        rgb(190, 167, 63) 0%,
+        rgb(207, 201, 201) 100%
+      );
+  }
+
+  .caption3 {
+    font-size: 1.5rem;
+    text-align: start;
+    border-radius: 5px;
+    font-family: ' Calibri';
+    font-weight: bold;
+    width: 250px;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: rgb(36, 23, 23);
+    background: linear-gradient(
+        90deg,
+        rgb(190, 167, 63) 0%,
+        rgb(207, 201, 201) 100%
+      );
+  }
+
+  .attenavcontainer {
+    /* margin: 100px auto; */
+    margin-left: 330px;
+    margin-top: 50px;
+    width: 280px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 2px;
+    height: 150px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #ccdfd9;
+  }
+  .attenavcontainer2 {
+    /* margin: 100px auto; */
+    margin-left: 330px;
+    margin-top: 30px;
+    width: 280px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 2px;
+    height: 150px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #ccdfd9;
+  }
+  .attenavbtn1 {
+    width: 90px;
+    height: 30px;
+    margin-top: 40px;
+    margin-left: 165px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      rgb(197, 161, 60) 0%,
+      rgb(190, 167, 63) 100%
+    );
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .attenavbtn1:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgb(221, 147, 9) 0%,
+      rgb(216, 163, 48) 100%
+    );
+    transition: all 0.4s ease-out;
+  }
+  .attenavbtn2 {
+    width: 100px;
+    height: 30px;
+    margin-top: 40px;
+    margin-left: 165px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      rgb(250, 32, 32) 0%,
+      rgb(233, 106, 106) 100%
+    );
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .attenavbtn2:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgb(189, 28, 28) 0%,
+      rgb(199, 4, 4) 100%
+    );
+    transition: all 0.4s ease-out;
+  }
+  
