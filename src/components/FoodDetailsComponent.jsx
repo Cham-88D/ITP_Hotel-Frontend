@@ -108,7 +108,7 @@ class FoodDetailsComponent extends Component {
                 </div>
                 <div className = "row">
                     <button style={{marginLeft:755, background: "rgb(199, 161, 60) 0%"}} className = "btn btn-secondary" onClick={this.addFoodDetails}>Add Food Details</button>
-                    <button style={{marginLeft:10, background: "#bd1c1c"}} className="btn btn-danger" onClick={this.generatepdf} type='submit'>Generate PDF</button>
+                    <button style={{marginLeft:10, background: "#bd1c1c"}} className="btn btn-danger" onClick={this.generatepdf} type='submit'>Generate Report</button>
                     
                 </div>
                 <br></br>
