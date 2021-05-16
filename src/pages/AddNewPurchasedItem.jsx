@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PurchasedItemDetailService from '../adapters/PurchasedItemDetailService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const initialState = {
     invoiceNo: '',
@@ -11,6 +13,7 @@ const initialState = {
     payment:''
 }
 
+toast.configure()
 class AddNewPurchasedItem extends Component {
     constructor(props){
         super(props)
@@ -26,6 +29,12 @@ class AddNewPurchasedItem extends Component {
         this.changePaymentHandler= this.changePaymentHandler.bind(this);
 
     }
+
+    notify(){
+        toast.warn('Item Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+
+    }
+
     validate = () =>{
         let invoiceNoError ="";
         let itemCodeError ="";
@@ -73,6 +82,7 @@ class AddNewPurchasedItem extends Component {
             console.log('purchaseditemdetail =>' +JSON.stringify(purchaseditemdetail));
 
             PurchasedItemDetailService.addPurchasedItem(purchaseditemdetail).then(res =>{
+                this.notify();
                 this.props.history.push('/view-purchaseditem');
             });
 
