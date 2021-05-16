@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import FoodCountService from '../services/FoodCountService';
 import '../styles/table.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class FoodCountComponent extends Component {
     constructor(props){
         super(props)
@@ -16,15 +19,25 @@ class FoodCountComponent extends Component {
         this.generatepdf = this.generatepdf.bind(this)
     }
 
+    notify1(){
+        toast.info('You pressed cancel Try again', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }
+
+    notify2(){
+        toast.error('You Succesfully deleted food count', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }
+
     deleteFoodCount(count_id){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
             FoodCountService.deleteFoodCount(count_id).then(res=>{
                 this.setState({foodCount: this.state.foodCount.filter(foodcounts => foodcounts.count_id !== count_id)});
-                confirmtext="You Succesfully deleted food count";
+                //confirmtext="You Succesfully deleted food count";
+                this.notify2();
            }) ;
         }else{
-            confirmtext="You pressed cancel Try again";
+            this.notify1();
+            //confirmtext="You pressed cancel Try again";
          }
 
 
@@ -34,6 +47,7 @@ class FoodCountComponent extends Component {
 
     }
 
+    
     
 
     viewFoodCount(count_id){
