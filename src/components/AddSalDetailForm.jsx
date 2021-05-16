@@ -137,17 +137,23 @@ const initialState={
                             <label htmlFor="inTime" className='formlabel'>
                             Role
                             </label>
-                            <input 
+                            <select
                                 id='role'
                                 type="text" 
                                 name='role'
                                 className='forminput'
                                 placeholder='Role'
                                 value={this.state.role}
-                                onChange={this.changeRoleHandler}/>
-                                <div className='input_Error'>
+                                onChange={this.changeRoleHandler}>
+                                <option value ="manager">manager</option>
+                                <option value ="housekeeper">housekeeper</option>
+                   
+
+                            </select>
+
+                                {/* <div className='input_Error'>
                                     {this.state.role_Error}
-                                </div>
+                                </div> */}
                                 {/* {errors.inTime && <p>{errors.inTime}</p>} */}
                         </div>
                         <div className="forminputs">
@@ -185,7 +191,7 @@ const initialState={
                                 {/* {errors.otHour && <p>{errors.otHour}</p>} */}
                         </div>
                         <div className="forminputs">
-                            <label htmlFor="type" className='formabel'>
+                            <label htmlFor="type" className='formlabel'>
                                 EPF
                             </label>
                             <input 

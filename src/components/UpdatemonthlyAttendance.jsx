@@ -27,7 +27,7 @@ export default class UpdatemonthlyAttendance extends Component {
     }
 
     changetotalAbsentHandler=(event)=>{
-        this.setState({totalAttendance:event.target.value});
+        this.setState({totalAbsent:event.target.value});
     }
     changetotalAttendanceHandler=(event)=>{
         this.setState({totalAttendance:event.target.value});
@@ -42,8 +42,9 @@ export default class UpdatemonthlyAttendance extends Component {
         this.setState({totalHalfDay:event.target.value});
     }
     componentDidMount(){
-        MonthlyAttendanceService.getMonthlyAttendanceById(this.setState.id).then((res)=>{
+        MonthlyAttendanceService.getMonthlyAttendanceById(this.state.id).then((res)=>{
             let monthlyAttendanceDetail=res.data;
+            console.log(monthlyAttendanceDetail);
             this.setState({
                 totalAttendance:monthlyAttendanceDetail.totalAttendance,
                 totalOt:monthlyAttendanceDetail.totalOt,
@@ -74,7 +75,7 @@ export default class UpdatemonthlyAttendance extends Component {
                    
                     <div className="mform-inputs">
                         <label htmlFor="totalAttendance" className='mform-label'>
-                        In Time
+                        Total Attendance
                         </label>
                         <input 
                             id='totalAttendance'
@@ -82,7 +83,7 @@ export default class UpdatemonthlyAttendance extends Component {
                             name='total_Attendance'
                             className='mform-input'
                             placeholder='Total Attendance'
-                            value={this.state.total_Attendance}
+                            value={this.state.totalAttendance}
                             onChange={this.changetotalAttendanceHandler}/>
                             {/* <div className='inputError'>
                                 {this.state.in_Time_Error}
@@ -91,7 +92,7 @@ export default class UpdatemonthlyAttendance extends Component {
                     </div>
                     <div className="mform-inputs">
                         <label htmlFor=" totalOt" className='mform-label'>
-                            Out Time
+                            Total OT
                         </label>
                         <input 
                             id=' totalOt'
@@ -99,7 +100,7 @@ export default class UpdatemonthlyAttendance extends Component {
                             name='total_Ot'
                             className='mform-input'
                             placeholder='Total OT'
-                            value={this.state.total_Ot}
+                            value={this.state.totalOt}
                             onChange={this.changetotalOtHandler}/>
                             {/* <div className='inputError'>
                                 {this.state.out_Time_Error}
@@ -108,7 +109,7 @@ export default class UpdatemonthlyAttendance extends Component {
                     </div>
                     <div className="mform-inputs">
                         <label htmlFor=" totalLeave" className='mform-label'>
-                            OT Hour
+                        Total Leave
                         </label>
                         <input 
                             id=' totalLeave'
@@ -125,7 +126,7 @@ export default class UpdatemonthlyAttendance extends Component {
                     </div>
                     <div className="mform-inputs">
                         <label htmlFor="totalAbsent" className='mform-label'>
-                            totalAbsent
+                            Total Absent
                         </label>
                         <input 
                             id='totalAbsent'
@@ -133,7 +134,7 @@ export default class UpdatemonthlyAttendance extends Component {
                             name='total_Absent'
                             className='mform-input'
                             placeholder='totalAbsent'
-                            value={this.state.total_Absent}
+                            value={this.state.totalAbsent}
                             onChange={this.changetotalAbsentHandler}/>
                             {/* <div className='inputError'>
                                 {this.state.atte_totalAbsent_Error}
@@ -142,7 +143,7 @@ export default class UpdatemonthlyAttendance extends Component {
                     </div>
                     <div className="mform-inputs">
                         <label htmlFor=" totalHalfDay" className='mform-label'>
-                            OT Hour
+                        Total Half Days
                         </label>
                         <input 
                             id=' totalHalfDay'
@@ -150,7 +151,7 @@ export default class UpdatemonthlyAttendance extends Component {
                             name=' totalHalfDays'
                             className='mform-input'
                             placeholder='Total Half Days'
-                            value={this.state.totalHalfDays}
+                            value={this.state.totalHalfDay}
                             onChange={this.changetotalHalfDayHandler}/>
                             {/* <div className='inputError'>
                                 {this.state. totalHalfDays_Error}

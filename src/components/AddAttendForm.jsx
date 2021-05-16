@@ -160,7 +160,7 @@ handleChange = ({ target }) => {
 }
 
     temp=()=>{
-        alert("hhhh");
+        
 
         var atteId = this.attendanceId;
         var id={};
@@ -299,7 +299,7 @@ handleChange = ({ target }) => {
                             placeholder='Type'
                             value={this.state.atte_type}
                             onChange={this.changeTypeHandler}>
-                                <option value ="CHOOSE">Choose</option>
+                             
                                 <option value ="1">1</option>
                                 <option value ="ab">ab</option>
                                 <option value ="half-day">half-day</option>
