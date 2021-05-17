@@ -69,8 +69,7 @@ class UpdateBeverageComponent extends Component {
 
     onSuccessUpdate(){
         confirmAlert({
-            title: 'Confirm to Delete',
-            message: 'Are you sure to delete this beverage',
+            title: 'Successfully Updated!',
             buttons: [
                 {
                     label: 'OK',
