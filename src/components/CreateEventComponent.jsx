@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import EventService from '../services/EventService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure()
+
 const initialState = {
                package:'',
                type:'',
@@ -23,6 +28,15 @@ class CreateEventComponent extends Component {
         this.changePriceHandler=this.changePriceHandler.bind(this);
 
         this.saveEvent = this.saveEvent.bind(this);
+    }
+
+    notify(){
+        toast.warn('Event is Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+
+    }
+    notify1(){
+        toast.error('You have canceled the Event addition!', {position: toast.POSITION.TOP_CENTER})
+
     }
 
     validate = () => {
@@ -62,6 +76,7 @@ class CreateEventComponent extends Component {
             console.log('event => ' + JSON.stringify(event));
             this.setState(initialState);
             EventService.createEvent(event).then(res =>{
+                this.notify();
                 this.props.history.push('/events');
             });
         }
@@ -79,6 +94,7 @@ class CreateEventComponent extends Component {
         this.setState({price: event.target.value});
     }
     cancel(){
+        this.notify1();
         this.props.history.push('/events');
     }
 

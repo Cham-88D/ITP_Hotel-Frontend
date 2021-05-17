@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import EventService from '../services/EventService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure()
 
 class UpdateEventComponent extends Component {
     constructor(props){
@@ -21,6 +25,15 @@ class UpdateEventComponent extends Component {
         this.updateEvent = this.updateEvent.bind(this);
     }
 
+    notify(){
+        toast.warn('Event is Updated Successfully!', {position: toast.POSITION.TOP_CENTER})
+
+    }
+    notify1(){
+        toast.error('You have canceled the Event updation!', {position: toast.POSITION.TOP_CENTER})
+
+    }
+
     componentDidMount(){
             EventService.getEventById(this.state.Event_Id).then( (res) =>{
                 let event = res.data;
@@ -34,6 +47,7 @@ class UpdateEventComponent extends Component {
         let event = {package:this.state.package, type: this.state.type, description: this.state.description, price: this.state.price};
         console.log('event => ' + JSON.stringify(event));
         EventService.updateEvent(event, this.state.Event_Id).then( res => {
+            this.notify();
             this.props.history.push('/events');
         });    
     }
@@ -50,6 +64,7 @@ class UpdateEventComponent extends Component {
         this.setState({price: event.target.value});
     }
     cancel(){
+        this.notify1();
         this.props.history.push('/events');
     }
 

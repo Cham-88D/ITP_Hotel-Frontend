@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import EventBookingsService from '../services/EventBookingsService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure()
 
 const initialState = {
     cusName:'',
@@ -38,7 +42,12 @@ class CreateEventBookingComponent extends Component {
 
         this.saveEventBooking = this.saveEventBooking.bind(this);
     }
-    
+
+    notify(){
+        toast.warn('Event Booking is Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+
+    }
+
     validate = () => {
         let cusNameError='';
         let cusPhoneError='';
@@ -99,6 +108,7 @@ class CreateEventBookingComponent extends Component {
             console.log('eventBooking => ' + JSON.stringify(eventBooking));
             this.setState(initialState);
             EventBookingsService.createEventBooking(eventBooking).then(res => {
+                this.notify();
                 this.props.history.push('/bookings'); 
             });
         }

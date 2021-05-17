@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import EventModificationRequestService from '../services/EventModificationRequestService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure()
+
 const initialState = {
             //   booking:'',
               email:'',
@@ -26,6 +31,15 @@ class CusEventModificationRequest extends Component {
         this.changeMessageHandler=this.changeMessageHandler.bind(this);
 
         this.saveEventModificationRequest = this.saveEventModificationRequest.bind(this);
+    }
+
+    notify(){
+        toast.warn('Event Modification Request is Added Successfully!', {position: toast.POSITION.TOP_CENTER})
+
+    }
+    notify1(){
+        toast.error('You have canceled the Event Modifcation Request addition!', {position: toast.POSITION.TOP_CENTER})
+
     }
 
     validate = () => {
@@ -72,6 +86,7 @@ class CusEventModificationRequest extends Component {
             console.log('eventModificationRequest => ' + JSON.stringify(eventModificationRequest));
            
             EventModificationRequestService.createEv_Modification_Request(eventModificationRequest).then(res =>{
+                this.notify();
                 this.props.history.push('/cus-page-bookings');
             });
             this.setState(initialState);
@@ -97,6 +112,7 @@ class CusEventModificationRequest extends Component {
         this.setState({message: event.target.value});
     }
     cancel(){
+        this.notify1();
         this.props.history.push('/cus-page-bookings');
     }
     
