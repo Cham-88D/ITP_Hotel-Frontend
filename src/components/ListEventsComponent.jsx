@@ -80,7 +80,7 @@ class ListEventsComponent extends Component {
                 </div>
                 <h2 className="tableheading"> Events List</h2> 
                 <div className="row">
-                    <button className="btn btn-primary" style={{background:"rgb(197,161,60)"}} onClick={this.addEvent}>Add Event </button>
+                    <button className="btn btn-primary" style={{background:"rgb(197,161,60)0%"}} onClick={this.addEvent}>Add Event </button>
                 </div>
                <div className="row">
                 <table className="table table-striped table=bordered">

@@ -95,8 +95,8 @@ class ListEventBookingsComponent extends Component {
                 </div>
                <h2 className="tableheading "> Event Bookings List</h2> 
                <div className="row">
-                <button className="btn btn-primary" style={{background:"rgb(197,161,60)"}} onClick={this.addEventBooking}>Add Event Booking</button>
-                <button style={{marginLeft:"20px"}} className="btn-danger" onClick={this.GenerateReport} type='submit'>Generate PDF</button>
+                <button className="btn btn-primary" style={{background:"rgb(197,161,60)0%"}} onClick={this.addEventBooking}>Add Event Booking</button>
+                <button style={{marginLeft:"20px", background: "#bd1c1c"}} className="btn btn-danger" onClick={this.GenerateReport} type='submit'>Generate PDF</button>
                </div>
                <div className="row">
                 <table className="table table-striped table=bordered">

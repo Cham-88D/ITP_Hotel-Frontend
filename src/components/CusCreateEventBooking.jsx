@@ -245,7 +245,7 @@ class CusCreateEventBooking extends Component {
                                              value={this.state.timeOut} onChange={this.changeTimeOutHandler}/>
                                              <div style={{fontSize: 12, color: "red"}}>{this.state.timeOutError}</div>
                                         </div>
-                                        <button className="btn btn-success" style={{background:"rgb(197,161,60)0%"}} onClick={this.saveEventBooking}>Save</button>
+                                        <button className="btn btn-success" style={{background:"rgb(197,161,60)"}} onClick={this.saveEventBooking}>Save</button>
                                         <button className="btn btn-danger" onClick={this} style={{marginLeft:"10px"}}>Reset</button>
                                         {/* <button className="btn btn-info" onClick={<a href="http://localhost:3000/payments"></a>} style={{marginLeft:"10px"}}>Next</button> */}
                                     </form>
