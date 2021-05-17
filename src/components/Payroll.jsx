@@ -47,7 +47,7 @@ export default class Payroll extends Component {
        
 
       //  this.calculate(salary_dataMaster,attendance_dataMaster);
-     var itemsets =  setTimeout(this.temp , 600);
+     var itemsets =  setTimeout(this.temp ,3000);
      console.log('start');
      
      console.log(itemsets);
@@ -81,8 +81,8 @@ export default class Payroll extends Component {
                 var temp_employe_id = emp_attendace[p]['employeeId'];
             for (let o = 0; o < emp_salary.length; o++) {
                 if (temp_employe_id == emp_salary[o]['employee']['id']) {
-             //   console.log( emp_salary[o]);
-             //   console.log( emp_attendace[p]);
+            //    console.log( emp_salary[o]);
+            //    console.log( emp_attendace[p]);
                 var final_salary = 0;
                     var deducation = ((emp_salary[o]['basic'] / 30 ) * emp_attendace[p]['totalAbsent'] ) + emp_salary[o]['epf']+ emp_salary[o]['etf'];
                     var additiion = emp_salary[o]['basic'] + emp_salary[o]['allowance'] +(emp_salary[o]['ot_rate'] * emp_attendace[p]['totalOt']) ;
@@ -100,7 +100,7 @@ export default class Payroll extends Component {
                     };
                 //     PayrollService.insertPayroll(object).then(res=>{
                 //   insertpayrollDetails(object);
-                    console.log(object)
+                    // console.log(object)
                         
                 //   });
           
@@ -111,6 +111,7 @@ export default class Payroll extends Component {
                 
             }
             final_employ_all_data[p] = object;
+            console.log(final_employ_all_data[p]);
         }
         console.log(final_employ_all_data);
         
@@ -129,8 +130,6 @@ export default class Payroll extends Component {
     insertpayrollDetails=()=>{
         
 
-        // let attendance={atte_type:this.state.atte_type,in_Time:this.state.in_Time,otHours:this.state.otHours,
-        //     out_Time:this.state.out_Time,employee:{id:this.state.employee.id} };
         
         let payrolldetail={basicSalary:'',employeeId : '',month : '',totalDeduction : '',totalEran : '',totalSalary : '' };
          console.log(payrolldetail);
