@@ -1,0 +1,115 @@
+#navbarNav{
+    height: 50px;
+    text-align: start;
+  }
+  
+  .nav-link:hover{
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgb(55, 189, 28) 0%,
+      rgb(199, 4, 4) 100%
+    );
+    transition: all 0.4s ease-out;
+  }
+  
+  #ReservaionPage{
+    background-image: url(https://kasihseminyakvillas.com/wp-content/uploads/2019/10/one-bedroom-villa-1.jpg
+    );
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    /* background-size: cover; */
+    display: block;
+    float:left;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    font-weight: bold;
+    padding: 150px;
+    border-radius: 2px;
+    height: 200px;
+    
+    width: 400px;
+    border: 1px solid rgb(27, 151, 160);
+    border-radius: 2px;
+  }
+  #ReservaionPage2{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHvwzJ38tXNaIWgKEzvP-l6Ld_zeGZI8AkqA&usqp=CAU
+    );
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    /* background-size: cover; */
+    display: block;
+    float:left;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    font-weight: bold;
+    padding: 150px;
+    border-radius: 2px;
+    height: 200px;
+    
+    width: 400px;
+    border: 1px solid rgb(27, 151, 160);
+    border-radius: 2px;
+  }
+ 
+  #ReservaionPage2{
+    background-image: url(
+        https://www.niyama.com/uploads/minor/niyama/images/pniy/accomodation/teaser/beach-villa/teaser_beach_villa_1_750x550.jpg?mw=480
+    );
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    /* background-size: cover; */
+    display: block;
+    float:left;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    font-weight: bold;
+    padding: 150px;
+    border-radius: 2px;
+    height: 200px;
+    
+    width: 400px;
+    border: 1px solid rgb(27, 151, 160);
+    border-radius: 2px;
+  }
+  #ReservaionPage3{
+    background-image: url(
+        https://cdn.villa-finder.com/cache/512/villas/shanti-maurice-double-suite-villa/shanti-maurice-double-suite-villa-luxury-double-suite-pool-villa-bedroom-5d5a46d255a14.jpg
+    );
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    float:left;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    font-weight: bold;
+    padding: 150px;
+    border-radius: 2px;
+    height: 200px;
+    
+    width: 400px;
+    border: 1px solid rgb(27, 151, 160);
+    border-radius: 2px;
+  }
+  
+
+  .mainh2{
+    /* background-color: #ffffff73; */
+    
+    font-size: 25px;
+    color: rgba(15, 73, 92, 0.5);
+  }
+
+ .mainp1{
+      
+  font-size: 18px;
+  color:  rgba(3, 39, 51, 0.5);
+ }
+  img:hover {
+    box-shadow: 0 0 2px 1px rgba(2, 136, 180, 0.5);
+  }

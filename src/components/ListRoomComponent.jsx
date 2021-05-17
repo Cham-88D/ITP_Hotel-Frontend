@@ -104,9 +104,9 @@ class ListRoomComponent extends Component {
                                           <td>{room.room_Status}</td>
                                           <td>{room.r_Price}</td>
                                           <tb>
-                                              <button onClick= { () => this.updateRoom(room.roomId)}  className="btn btn-info"> Update </button>
+                                              <button style={{background: "rgb(197, 161, 60) 0%"}} onClick= { () => this.updateRoom(room.roomId)}  className="btn btn-info"> Update </button>
                                               <button style={{marginLeft: "10px" }} onClick= {() =>this.deleteRoom(room.roomId)} className="btn btn-danger"> Delete </button>
-                                              <button style={{marginLeft: "30px" }} onClick= {() =>this.viewRoom(room.roomId)} className="btn btn-info"> View </button>
+                                              <button style={{background: "rgb(197, 161, 60) 0%",marginLeft: "30px"}}  onClick= {() =>this.viewRoom(room.roomId)} className="btn btn-info"> View </button>
                                               
                                           </tb>
                                       </tr>
