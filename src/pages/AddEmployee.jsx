@@ -53,7 +53,7 @@ const CreateEmployee= () => {
                 phone: '',
                 dateOfBirth: '',
                 nic: '',
-                startD: '',
+                startDate: '',
                 roles: ''
             },
 
@@ -82,7 +82,7 @@ const CreateEmployee= () => {
                     .min(9)
                     .max(12)
                     .required('Required'),
-                startD: Yup.date()
+                startDate: Yup.date()
                     .required('Required'),
                 roles: Yup.string()
                     .required('Required')
@@ -228,19 +228,19 @@ const CreateEmployee= () => {
 
                                         <br/>
 
-                                        <label htmlFor="startD" className="black-text font-weight-bold">
+                                        <label htmlFor="startDate" className="black-text font-weight-bold">
                                             Start Date
                                         </label>
                                         <input className="form-control font-weight-bold "
                                                style={{backgroundColor: "#fafaff", borderWidth: "2px"}}
-                                               id="startD"
-                                               name="startD"
+                                               id="startDate"
+                                               name="startDate"
                                                type="date"
                                                onChange={formik.handleChange}
                                                onBlur={formik.handleBlur}
-                                               value={formik.values.startD}/>
-                                        {formik.touched.startD && formik.errors.startD ? (
-                                            <div style={{color: "red"}}>{formik.errors.startD}</div>
+                                               value={formik.values.startDate}/>
+                                        {formik.touched.startDate && formik.errors.startDate ? (
+                                            <div style={{color: "red"}}>{formik.errors.startDate}</div>
                                         ) : null}
 
 
