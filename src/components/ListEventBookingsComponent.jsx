@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
 import EventBookingsService from '../services/EventBookingsService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class ListEventBookingsComponent extends Component {
     constructor(props){
         super(props)
@@ -19,15 +22,26 @@ class ListEventBookingsComponent extends Component {
 
     }
 
+    notify1(){
+        toast.info('You pressed cancel, Try again', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }
+
+    notify2(){
+        toast.error('You Succesfully deleted the Event Booking', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }
+
     deleteEventBooking(Booking_Id){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
             EventBookingsService.deleteEventBooking(Booking_Id).then( res => {
             this.setState({bookings: this.state.bookings.filter( booking => booking.booking_Id !== Booking_Id)});
-            confirmtext="You Succesfully deleted attendance";
+            //confirmtext="You Succesfully deleted booking";
+            this.notify2();
+
         }) ;
         }else{
-         confirmtext="You presed cansel Try again";
+            this.notify1();
+            //confirmtext="You presed cansel Try again";
         }
     }
 

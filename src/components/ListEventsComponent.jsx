@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
 import EventService from '../services/EventService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class ListEventsComponent extends Component {
     constructor(props){
         super(props)
@@ -19,16 +22,26 @@ class ListEventsComponent extends Component {
      viewEvent(event_Id){
          this.props.history.push(`/view-event/${event_Id}`);
      }
+
+     notify1(){
+        toast.info('You pressed cancel, Try again', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }
+
+    notify2(){
+        toast.error('You Succesfully deleted the Event', {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }
     
      deleteEvent(event_Id){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
         EventService.deleteEvent(event_Id).then( res => {
             this.setState({events: this.state.events.filter(event => event.event_Id !== event_Id)});
-            confirmtext="You Succesfully deleted attendance";
+            //confirmtext="You Succesfully deleted event";
+            this.notify2();
         }) ;
         }else{
-         confirmtext="You presed cansel Try again";
+            this.notify1();
+         //confirmtext="You presed cansel Try again";
         }
      }
 
