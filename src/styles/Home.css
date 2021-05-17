@@ -1,0 +1,10 @@
+
+#row1:hover,#row2:hover{
+  color: #5f3726;
+}
+#change2:hover{
+    color: #d79f3b;
+}
+#img1{
+    filter:brightness(80%);
+}
