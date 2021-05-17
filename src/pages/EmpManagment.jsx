@@ -234,7 +234,7 @@ function App() {
                 actions={actions}
                 options={{headerStyle:{fontSize:"16px"},
                     rowStyle: rowData => {
-                        if(rowData.roles.name === "user") {
+                        if(rowData.roles.name === "Worker") {
                             return {backgroundColor: '#bed0ed'};
                         }
                         else
