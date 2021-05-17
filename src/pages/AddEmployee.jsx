@@ -257,7 +257,7 @@ const CreateEmployee= () => {
                                             style={{display: 'block'}}
                                         >
                                             <option value="" label="Select a role"/>
-                                            <option value="user" label="Worker"/>
+                                            <option value="worker" label="Worker"/>
                                             <option value="HRmanager" label="HR Manager"/>
                                         </select>
                                         {formik.errors.roles &&
