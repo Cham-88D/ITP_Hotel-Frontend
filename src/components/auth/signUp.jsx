@@ -158,7 +158,7 @@ class SignUp extends Component {
                             <div className="form-group">
                                 <label for="beverage type">User Role</label>
                                 <select class="form-control" value={role} onChange={(event) => { this.onChangeFormFeild({ role: event.target.value }) }}>
-                                    <option selected>Choose...</option>
+                                    <option selected value="">Choose...</option>
                                     {userRoleOptions.map((item, index) => {
                                         return (<option value={item.value} key={index}>{item.name}</option>)
                                     })}

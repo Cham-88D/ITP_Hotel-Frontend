@@ -18,10 +18,13 @@ class CreateBeverageComponent extends Component {
             unit_Price: 0,
             discount: 0,
             description: '',
+
             nameError: ' ',
             priceError: '',
             discountError: '',
             descriptionError: '',
+            bevTypeError: "",
+
             loading: false,
             localNotification: null,
             notificationType: null
@@ -36,10 +39,52 @@ class CreateBeverageComponent extends Component {
         this.saveBeverage = this.saveBeverage.bind(this);
         this.changeBeverageTypeHandler = this.changeBeverageTypeHandler.bind(this);
         this.saveBevType = this.saveBevType.bind(this);
+        this.validateForm = this.validateForm.bind(this);
+
     }
 
-    validate = () => {
+    validateForm() {
+        const { b_Type, b_Name, unit_Price, discount, description } = this.state;
+
+        let hasError = false;
+        if (b_Type === "" || b_Type === null) {
+            this.setState({
+                ...this.state,
+                bevTypeError: "Beverage type is required!"
+            })
+            hasError = true;
+        }
+        if (b_Name === "" || b_Name === null) {
+            this.setState({
+                ...this.state,
+                nameError: "Beverage name is required!"
+            })
+            hasError = true;
+        }
+        if (description === "" || description === null) {
+            this.setState({
+                ...this.state,
+                descriptionError: "Beverage description is required!"
+            })
+            hasError = true;
+        }
+        if (unit_Price === "" || unit_Price === null || unit_Price < 1) {
+            this.setState({
+                ...this.state,
+                priceError: "Price should be valid and is required!"
+            })
+            hasError = true;
+        }
+        if (discount === "" || discount === null || discount < 1 || discount > 100) {
+            this.setState({
+                ...this.state,
+                discountError: "Discount should be valid and is required!"
+            })
+            hasError = true;
+        }
+        return hasError;
     }
+
     handleSubmit = event => {
         event.preventDefault();
         const isValid = this.validate();
@@ -67,28 +112,30 @@ class CreateBeverageComponent extends Component {
     }
     saveBeverage = (e) => {
         e.preventDefault();
+
         let beverage = { b_Type: this.state.b_Type, b_Name: this.state.b_Name, unit_Price: this.state.unit_Price, discount: parseFloat(this.state.discount), description: this.state.description };
-        //console.log('beverage =>' + JSON.stringify(beverage));
 
-        this.setState({
-            ...this.state,
-            loading: true
-        })
-        BeverageService.createBeverage(beverage).then(res => {
+        if (!this.validateForm()) {
             this.setState({
                 ...this.state,
-                loading: false
+                loading: true
             })
-            this.props.history.push('/beverages');
+            BeverageService.createBeverage(beverage).then(res => {
+                this.setState({
+                    ...this.state,
+                    loading: false
+                })
+                this.props.history.push('/beverages');
 
-        }).catch(() => {
-            this.setState({
-                ...this.state,
-                loading: false,
-                localNotification: "Something went wrong!",
-                notificationType: ALERT_TYPES.ERROR
+            }).catch(() => {
+                this.setState({
+                    ...this.state,
+                    loading: false,
+                    localNotification: "Something went wrong!",
+                    notificationType: ALERT_TYPES.ERROR
+                })
             })
-        })
+        }
     }
 
     saveBevType = (er) => {
@@ -123,7 +170,7 @@ class CreateBeverageComponent extends Component {
     }
 
     onChangeBevType = (event) => {
-        this.setState({ ...this.state, b_Type: event.target.value });
+        this.setState({ ...this.state, b_Type: event.target.value,bevTypeError:null });
     }
 
     changeBeverageTypeHandler = (event) => {
@@ -131,16 +178,16 @@ class CreateBeverageComponent extends Component {
     }
 
     changeBeverageNameHandler = (event) => {
-        this.setState({ ...this.state, b_Name: event.target.value });
+        this.setState({ ...this.state, b_Name: event.target.value, nameError:null });
     }
     changeUnitPriceHandler = (event) => {
-        this.setState({ ...this.state, unit_Price: event.target.value });
+        this.setState({ ...this.state, unit_Price: event.target.value,priceError:null });
     }
     changeDiscountHandler = (event) => {
-        this.setState({ ...this.state, discount: event.target.value });
+        this.setState({ ...this.state, discount: event.target.value,discountError:null });
     }
     changeDescriptionHandler = (event) => {
-        this.setState({ ...this.state, description: event.target.value });
+        this.setState({ ...this.state, description: event.target.value, descriptionError:null });
     }
     cancel() {
         this.props.history.push('/beverages');
@@ -181,6 +228,13 @@ class CreateBeverageComponent extends Component {
 
             }
         }
+
+        const { nameError,
+            priceError,
+            discountError,
+            descriptionError,
+            bevTypeError } = this.state;
+
         return (
             <div>
                 {
@@ -226,39 +280,49 @@ class CreateBeverageComponent extends Component {
                                             <div className="form-group">
                                                 <label for="beverage type">Beverage Type</label>
                                                 <select id="b_Type" class="form-control" value={this.state.b_Type} onChange={this.onChangeBevType}>
-                                                    <option selected>Choose...</option>
+                                                    <option selected value="">Choose...</option>
                                                     {Btype.map(({ b_Type }) => {
                                                         return (<option value={b_Type}>{b_Type}</option>)
                                                     })}
                                                 </select>
+                                                {bevTypeError !== null && (
+                                                    <div style={{ fontSize: 12, color: "red" }}>{bevTypeError}</div>
+                                                )}
                                             </div>
 
                                             <div className="form-group">
                                                 <label>Beverage Name</label>
                                                 <input type="text" placeholder="Beverage Name" name="b_Name" className="form-control"
                                                     value={this.state.b_Name} onChange={this.changeBeverageNameHandler} />
-                                                <div style={{ color: "red" }}>{this.state.nameError} </div>
+                                                {nameError !== null && (
+                                                    <div style={{ fontSize: 12, color: "red" }}>{nameError}</div>
+                                                )}
                                             </div>
                                             <div className="form-group">
                                                 <label>Unit Price</label>
                                                 <input placeholder="Unit Price" name="unit_Price" className="form-control" type="number" min="0"
                                                     value={this.state.unit_Price} onChange={this.changeUnitPriceHandler} />
-                                                <div style={{ color: "red" }}>{this.state.priceError} </div>
-
+                                                {priceError !== null && (
+                                                    <div style={{ fontSize: 12, color: "red" }}>{priceError}</div>
+                                                )}
                                             </div>
                                             <div className="form-group">
                                                 <label>Discount</label>
                                                 <input placeholder="Discount" name="Discount" className="form-control"
                                                     value={this.state.discount} onChange={this.changeDiscountHandler} type="number" min="0" max="100" />
-                                                <div style={{ color: "red" }}>{this.state.discountError} </div>
+                                                {discountError !== null && (
+                                                    <div style={{ fontSize: 12, color: "red" }}>{discountError}</div>
+                                                )}
                                             </div>
                                             <div className="form-group">
                                                 <label>Description</label>
                                                 <textarea placeholder="Description" name="description" className="form-control"
                                                     value={this.state.description} onChange={this.changeDescriptionHandler} />
-                                                <div style={{ color: "red" }}>{this.state.descriptionError} </div>
+                                                {descriptionError !== null && (
+                                                    <div style={{ fontSize: 12, color: "red" }}>{descriptionError}</div>
+                                                )}
                                             </div>
-                                            <button className="btn btn-success" style={{ background: "#bd9660", marginLeft: "180px" }} onClick={this.saveBeverage} disabled={this.state.b_Name === "" || this.state.b_Type === "" || this.state.description === ""}>Save</button>
+                                            <button className="btn btn-success" style={{ background: "#bd9660", marginLeft: "180px" }} onClick={this.saveBeverage}>Save</button>
                                             <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
 
 

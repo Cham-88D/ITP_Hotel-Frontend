@@ -226,7 +226,7 @@ class BevOrderComponent extends Component {
                                         <div className="form-group">
                                             <label for="beverage type">Beverage Type</label>
                                             <select id="b_Type" class="form-control" value={bev_type} onChange={(event) => { this.onChangeFormFeild({ bev_type: event.target.value }) }}>
-                                                <option selected>Choose...</option>
+                                                <option selected value="">Choose...</option>
                                                 {bevTypes.map(({ b_Type, index }) => {
                                                     return (<option value={b_Type} key={index}>{b_Type}</option>)
                                                 })}
@@ -235,7 +235,7 @@ class BevOrderComponent extends Component {
                                         <div className="form-group">
                                             <label for="beverage type">Beverage Name</label>
                                             <select id="b_Type" class="form-control" onChange={this.onSelectBeverage} disabled={bev_type === ""} value={bev_ID}>
-                                                <option selected>Choose...</option>
+                                                <option selected value="">Choose...</option>
                                                 {beverageOptions.map((item, index) => {
                                                     return (<option value={item.value} key={index}>{item.name}</option>)
                                                 })}
