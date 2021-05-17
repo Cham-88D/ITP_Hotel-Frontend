@@ -209,6 +209,7 @@ class CusCreateResRequestComponent extends Component{
                                         <div style={{fontSize: 12, color: "red"}}>{this.state.r_ReasonError} </div>
                                     </div>
 
+
                                    
                                     <div className="form-group">
                                     <label> Message : </label>
@@ -216,6 +217,7 @@ class CusCreateResRequestComponent extends Component{
                                         value={ this.state.r_Message} onChange={this.changer_MessageHandler} />
                                      <div style={{fontSize: 12, color: "red"}}>{this.state.r_MessageError} </div>
                                     </div>
+
 
                                     <div className="form-group">
                                     <label> Requested Date : </label>

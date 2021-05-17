@@ -78,7 +78,9 @@ validate=()=>{
         no_Of_ChildError="Number Of Child is Required !";
     }
     if(!this.state.no_Of_Adult){
+
         no_Of_AdultError="Number of Adults is Required !";
+
     }
    
     // if(!this.state.r_Price<1000){
@@ -232,7 +234,9 @@ render() {
                                 </div>
 
                                  
+
                                 <button style={{background: "rgb(197, 161, 60) 0%"}} className="btn btn-success" onClick={this.saveReservation}> Save </button>
+
                                 <button className="btn btn-danger" style={{marginLeft: "10px" }} onClick={this.cancel.bind(this)}  > Cancel </button> 
                              </form>   
 

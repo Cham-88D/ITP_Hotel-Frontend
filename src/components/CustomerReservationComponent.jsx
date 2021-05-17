@@ -45,7 +45,9 @@ class CustomerReservationComponent extends Component {
 
             <h2 className="mainh2">Villa Acress Green looks forward to meet your Reservation Needs!</h2>
             <h2 className="mainh2">Join us to spend your Holidays!</h2>
+
             <p className="mainp1">These rooms have been recently refurbished with AC 3000 LKR (12 hrs) and NON AC 2000 LKR (12 hrs) facilities and are fully ensuite with toilet, shower and bath and toileteries. Also available in the room is Tea and Coffee making Facilities, Flat Screen TV,  Free Wifi. Other refreshments available upon request.</p>
+
            
             <div id="ReservaionPage"></div>
             <div id="ReservaionPage2"></div>

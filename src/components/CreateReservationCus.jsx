@@ -77,7 +77,9 @@ validate=()=>{
         no_Of_ChildError="Number Of Child is Required !";
     }
     if(!this.state.no_Of_Adult){
+
         no_Of_AdultError="Number Of Adult is Required !";
+
     }
    
     // if(!this.state.r_Price<1000){
