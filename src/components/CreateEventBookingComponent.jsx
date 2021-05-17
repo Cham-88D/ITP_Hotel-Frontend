@@ -152,8 +152,8 @@ class CreateEventBookingComponent extends Component {
                                         </div> 
                                         <div className="form-group">
                                             <label>Phone No</label>
-                                            <input placeholder="Customer Phone" name="cusPhone" className="form-control"
-                                             value={this.state.cusPhone} onChange={this.changeCustomerPhoneHandler}/>
+                                            <input type="tel" placeholder="Customer Phone" name="cusPhone" className="form-control"
+                                             value={this.state.cusPhone} onChange={this.changeCustomerPhoneHandler} pattern ="[0-9]{10}" maxLength = "10"/>
                                              <div style={{fontSize: 12, color: "red"}}>{this.state.cusPhoneError}</div>
                                         </div><br/>
                                         <h4>EVENT DETAILS</h4><br/>
