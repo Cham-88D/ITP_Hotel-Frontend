@@ -49,7 +49,7 @@ class ListEventModificationRequestComponent extends Component {
                 </div>
                 <h2 className="tableheading "> Event Modification Requests List</h2> 
                 <div className="row">
-                    <button className="btn btn-primary" onClick={this.addEventModificationRequest}>Add Event Modification Request </button>
+                    <button className="btn btn-primary" style={{background:"rgb(197,161,60)"}} onClick={this.addEventModificationRequest}>Add Event Modification Request </button>
                 </div>
                <div className="row">
                 <table className="table table-striped table=bordered">
@@ -78,7 +78,7 @@ class ListEventModificationRequestComponent extends Component {
                                     <td> {eventModificationRequest.days_Remain_Booking} </td>
                                     <td> {eventModificationRequest.message} </td>
                                     <td>
-                                        <button onClick = { () => this.viewEventModificationRequest(eventModificationRequest.ev_M_ID)} className="btn btn-success">VIEW</button>  
+                                        <button style={{background:"rgb(197,161,60)"}} onClick = { () => this.viewEventModificationRequest(eventModificationRequest.ev_M_ID)} className="btn btn-success">VIEW</button>  
                                     </td>
                                 </tr>
 

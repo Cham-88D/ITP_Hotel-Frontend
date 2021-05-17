@@ -25,7 +25,7 @@ class ViewEventModificationRequestComponent extends Component {
             <div>
                 <br></br>
                 <div className = "card col-md-6 offset-md-3">
-                    <h3 className = "text-center">View Event Details</h3>
+                    <h3 className = "text-center">View Event Modification Request Details</h3>
                     <div className = "card-body">
                         {/* <div className = "row">
                            <label>Booking ID:</label>

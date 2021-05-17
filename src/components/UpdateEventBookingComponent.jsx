@@ -145,7 +145,7 @@ class UpdateEventBookingComponent extends Component {
                                             <input type="time" name="timeOut" className="form-control"
                                              value={this.state.timeOut} onChange={this.changeTimeOutHandler}/>
                                         </div>
-                                        <button className="btn btn-success" onClick={this.updateEventBooking}>Update</button>
+                                        <button className="btn btn-success" style={{background:"rgb(197,161,60)0%"}} onClick={this.updateEventBooking}>Update</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
                                     </form>
                                 </div>

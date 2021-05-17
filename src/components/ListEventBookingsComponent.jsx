@@ -95,8 +95,8 @@ class ListEventBookingsComponent extends Component {
                 </div>
                <h2 className="tableheading "> Event Bookings List</h2> 
                <div className="row">
-                <button className="btn btn-primary" onClick={this.addEventBooking}>Add Event Booking</button>
-                <button style={{marginLeft:"20px", color:"red"}} className="pdfbutton" onClick={this.GenerateReport} type='submit'>Generate PDF</button>
+                <button className="btn btn-primary" style={{background:"rgb(197,161,60)"}} onClick={this.addEventBooking}>Add Event Booking</button>
+                <button style={{marginLeft:"20px"}} className="btn-danger" onClick={this.GenerateReport} type='submit'>Generate PDF</button>
                </div>
                <div className="row">
                 <table className="table table-striped table=bordered">
@@ -133,9 +133,9 @@ class ListEventBookingsComponent extends Component {
                                     <td>
                                     <Container>
                                        <Row md={3}>
-                                        <Col><button onClick = { () => this.editEventBooking(booking.booking_Id)} className="btn btn-info">UPDATE</button></Col>
+                                        <Col><button style={{background:"rgb(197,161,60)0%"}} onClick = { () => this.editEventBooking(booking.booking_Id)} className="btn btn-info">UPDATE</button></Col>
                                         <Col><button style={{marginLeft:"40px"}} onClick = { () => this.deleteEventBooking(booking.booking_Id)} className="btn btn-danger">DELETE</button></Col>
-                                        <Col><button style={{marginLeft:"75px"}} onClick = { () => this.viewEventBooking(booking.booking_Id)} className="btn btn-success">VIEW</button></Col>
+                                        <Col><button style={{background:"rgb(197,161,60)",marginLeft:"75px"}} onClick = { () => this.viewEventBooking(booking.booking_Id)} className="btn btn-success">VIEW</button></Col>
                                         </Row>
                                     </Container>
                                     </td>

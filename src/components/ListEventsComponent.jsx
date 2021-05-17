@@ -80,7 +80,7 @@ class ListEventsComponent extends Component {
                 </div>
                 <h2 className="tableheading"> Events List</h2> 
                 <div className="row">
-                    <button className="btn btn-primary" onClick={this.addEvent}>Add Event </button>
+                    <button className="btn btn-primary" style={{background:"rgb(197,161,60)"}} onClick={this.addEvent}>Add Event </button>
                 </div>
                <div className="row">
                 <table className="table table-striped table=bordered">
@@ -109,9 +109,9 @@ class ListEventsComponent extends Component {
                                     <td>
                                     <Container>
                                        <Row md={4}>
-                                        <Col><button onClick = { () => this.editEvent(event.event_Id)} className="btn btn-info">UPDATE</button></Col>
+                                        <Col><button style={{background:"rgb(197,161,60)0%"}} onClick = { () => this.editEvent(event.event_Id)} className="btn btn-info">UPDATE</button></Col>
                                         <Col><button style={{marginLeft:"20px"}} onClick = { () => this.deleteEvent(event.event_Id)} className="btn btn-danger">DELETE</button></Col>
-                                        <Col> <button style={{marginLeft:"35px"}} onClick = { () => this.viewEvent(event.event_Id)} className="btn btn-success">VIEW</button></Col>
+                                        <Col> <button style={{background:"rgb(197,161,60)", marginLeft:"35px"}} onClick = { () => this.viewEvent(event.event_Id)} className="btn btn-success">VIEW</button></Col>
                                        </Row>
                                         </Container>
                                        

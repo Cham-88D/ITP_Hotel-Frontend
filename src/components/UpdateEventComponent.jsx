@@ -83,7 +83,7 @@ class UpdateEventComponent extends Component {
                                             <input placeholder="Price" name="price" className="form-control"
                                              value={this.state.price} onChange={this.changePriceHandler}/>
                                         </div>
-                                        <button className="btn btn-success" onClick={this.updateEvent}>Update</button>
+                                        <button className="btn btn-success" style={{background:"rgb(197,161,60)0%"}} onClick={this.updateEvent}>Update</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
                                     </form>
                                 </div>

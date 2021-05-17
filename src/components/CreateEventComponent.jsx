@@ -115,7 +115,7 @@ class CreateEventComponent extends Component {
                                              value={this.state.price} onChange={this.changePriceHandler}/>
                                              <div style={{fontSize: 12, color: "red"}}>{this.state.priceError}</div>
                                         </div>
-                                        <button className="btn btn-success" onClick={this.saveEvent}>Save</button>
+                                        <button className="btn btn-success" style={{background:"rgb(197,161,60)"}} onClick={this.saveEvent}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
                                     </form>
                                 </div>
