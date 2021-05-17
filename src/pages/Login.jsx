@@ -45,11 +45,12 @@ const LoginForm = () => {
              email: Yup.string()
                 .required('Required'),
             password: Yup.string()
-                .required('Required')
+                .required('Required'),
+
 
         }),
         onSubmit: values => {
-            AuthService.login(values.email,values.password,values.role).then(
+            AuthService.login(values.email,values.password).then(
                 () => {
                         history.push("/");
                         window.location.reload();

@@ -11,7 +11,7 @@ function Navbar() {
     const [sidebar,setSidebar]= useState(false);
     const onLogout = ()=>{
         AuthService.logout();
-
+        history.push("/login");
     }
     let user = AuthService.getCurrentUser();
     const history = useHistory();

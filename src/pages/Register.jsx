@@ -38,7 +38,7 @@ const RegisterForm = () => {
                 email: '',
                 passwordConfirmation: '',
                 message:  '',
-
+                roles: ''
 
             },
             validationSchema: Yup.object({
@@ -56,12 +56,14 @@ const RegisterForm = () => {
                         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
                     ),
                 passwordConfirmation: Yup.string()
-                    .oneOf([Yup.ref('password'), null], 'Passwords must match').required('Required')
+                    .oneOf([Yup.ref('password'), null], 'Passwords must match').required('Required'),
+                roles: Yup.string()
+                    .required('Required')
 
 
             }),
             onSubmit: values => {
-                AuthService.register(values.userName,values.email,values.password).then(
+                AuthService.register(values.userName,values.email,values.password,values.roles).then(
                     () => {
                         history.push("/login");
                         window.location.reload();
@@ -174,6 +176,25 @@ const RegisterForm = () => {
 
                                     <br/>
 
+                                    <label htmlFor="roles" className="black-text font-weight-bold">
+                                        Role
+                                    </label>
+                                    <select
+                                        name="roles"
+                                        value={formik.values.roles}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        style={{display: 'block'}}
+                                    >
+                                        <option value="" label="Select a role"/>
+                                        <option value="user" label="user"/>
+                                        <option value="HRmanager" label="HR Manager"/>
+                                    </select>
+                                    {formik.errors.roles &&
+                                    formik.touched.roles &&
+                                    <div className="input-feedback">
+                                        {formik.errors.roles}
+                                    </div>}
                                     <div className="text-center mt-4">
                                         <MDBBtn color="orange" type="submit" onClick={() => setShow(true)}>
                                            Register
