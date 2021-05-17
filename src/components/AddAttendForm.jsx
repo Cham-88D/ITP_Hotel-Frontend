@@ -206,18 +206,18 @@ handleChange = ({ target }) => {
                         <label htmlFor="employeeId" className='form-label'>
                         Employee ID
                         </label>
-                        <select 
+                        <input 
                             id='employeeId'
                             type="text" 
                             name='employeeId'
                             className='form-input'
                             placeholder='Employee ID'
                             // value={this.state.employee.id}
-                            onChange={this.changeEmployeeIdHandler}>
+                            onChange={this.changeEmployeeIdHandler}/>
                                 
                                     
-                                <option value ="CHOOSE"></option>
-                                <option value ="1">1</option>
+                                {/* <option value ="CHOOSE"></option>
+                                <option value ="1">1</option> */}
 
                                 {/* {
                                     this.state.attendance.map(type=>( <option key={attendance.id} >
@@ -228,7 +228,7 @@ handleChange = ({ target }) => {
                                 } */}
                                            
 
-                         </select>
+                         {/* </select> */}
                                
                     
                             
@@ -284,6 +284,7 @@ handleChange = ({ target }) => {
                             onChange={this.changeOTHourHandler}/>
                             <div className='inputError'>
                                 {this.state.otHours_Error}
+
                             </div>
                             {/* {errors.otHour && <p>{errors.otHour}</p>} */}
                     </div>
@@ -299,7 +300,8 @@ handleChange = ({ target }) => {
                             placeholder='Type'
                             value={this.state.atte_type}
                             onChange={this.changeTypeHandler}>
-                             
+
+                                <option value ="CHOOSE"></option>
                                 <option value ="1">1</option>
                                 <option value ="ab">ab</option>
                                 <option value ="half-day">half-day</option>

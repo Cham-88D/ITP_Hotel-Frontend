@@ -145,6 +145,7 @@ const initialState={
                                 placeholder='Role'
                                 value={this.state.role}
                                 onChange={this.changeRoleHandler}>
+                                <option value ="CHOOSE"></option>
                                 <option value ="manager">manager</option>
                                 <option value ="housekeeper">housekeeper</option>
                    

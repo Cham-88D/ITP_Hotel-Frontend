@@ -91,13 +91,13 @@ export default class ViewPayslip extends Component {
                            
                         <div className="row">
                             <label className="label1">Deduction:</label>
-                            <div style={{marginLeft:"305px"}}>{this.state.payrolls.totalDeduction}</div>
+                            <div style={{marginLeft:"297px"}}>{this.state.payrolls.totalDeduction}</div>
                             <label>.00</label>
                         </div>
                         <hr></hr>
                         <div className="row">
                             <label className="label1">Total Salary:</label>
-                            <div style={{marginLeft:"285px"}}>{this.state.payrolls.totalSalary}</div>
+                            <div style={{marginLeft:"280px"}}>{this.state.payrolls.totalSalary}</div>
                             <label>.00</label>
                         </div>
                        
