@@ -15,6 +15,7 @@ import HRPage from "../pages/EmpManagment";
 import UpdateEmployeeComponent from "../pages/UpdateEmployee";
 import CreateEmployeeComponent from "../pages/AddEmployee";
 
+
 function Routing() {
 
     return (
@@ -34,6 +35,7 @@ function Routing() {
                     <Route exact  path='/employee'  component={HRPage}/>
                     <Route exact  path="/add-employee"  component={CreateEmployeeComponent}/>
                     <Route exact  path="/update-employee/:id"  component={UpdateEmployeeComponent}/>
+
                 </Switch>
 
         </BrowserRouter>

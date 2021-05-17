@@ -4,7 +4,7 @@ import {
     MDBCardImage,
     MDBCol,
     MDBRow,
-    MDBContainer, MDBNotification
+    MDBContainer, MDBNotification, MDBLink
 } from 'mdbreact';
 import {useHistory} from "react-router";
 import { useFormik } from 'formik';
@@ -201,7 +201,7 @@ const RegisterForm = () => {
                                         </MDBBtn>
                                     </div>
                                 </form>
-
+                                <MDBLink to="/">Back to Home</MDBLink>
                             </MDBCol>
                         </MDBRow>
                     </MDBContainer>
