@@ -128,7 +128,7 @@ class Navigation extends React.Component {
             <div>
                 <header>
 
-                        <MDBNavbar fixed="top" dark expand="md" scrolling color={"black"} >
+                        <MDBNavbar fixed="top" dark expand="md" scrolling  >
                             <MDBNavbarBrand href="/">
                                 <MDBAnimation type="slideInLeft" >
                                 <strong style={{ color: this.state.change ? "#e97b2c":"white"}}>
@@ -136,7 +136,7 @@ class Navigation extends React.Component {
                                     </MDBAnimation>
                             </MDBNavbarBrand>
                             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
-                            <MDBCollapse isOpen={this.state.collapse} navbar >
+                            <MDBCollapse isOpen={this.state.collapse} style={{ backgroundColor: this.state.collapse ? "#151515":"transparent"}}  navbar >
                                 <MDBNavbarNav right>
                                     <MDBNavItem active style={{marginLeft:"20px" }}>
                                         <MDBNavLink to="/" style={{color:"#e97b2c"}}>Home</MDBNavLink>
