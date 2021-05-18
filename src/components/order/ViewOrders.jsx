@@ -20,7 +20,8 @@ class ViewOrders extends Component {
             isLoading: false,
             orderStatus: "parked",
             createOrderClicked: false,
-            billDetails: null
+            billDetails: null,
+            orderDate: this.formatDate(new Date())
         }
 
         this.formateOrderDate = this.formateOrderDate.bind(this);
@@ -28,14 +29,33 @@ class ViewOrders extends Component {
         this.createNewOrder = this.createNewOrder.bind(this);
         //this.downloadPdf = this.downloadPdf.bind(this);
         this.downloadAllPdf = this.downloadAllPdf.bind(this);
+        this.onClickCompleteOrder = this.onClickCompleteOrder.bind(this);
+        this.formatDate = this.formatDate.bind(this);
+    }
+
+    formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + (d.getDate()+1),
+            year = d.getFullYear();
+    
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+    
+        return [year, month, day].join('-');
+       // return new Date().toISOString().slice(0, 19).replace('T', ' ');
     }
 
     componentDidMount() {
+        const {orderDate} = this.state;
         this.setState({
             ...this.state,
             isLoading: true,
         })
-        BarRoomOrderService.getAllOrders({ status: "parked" }).then((res) => {
+
+        BarRoomOrderService.getAllOrders({ status: "parked",orderDate:this.formatDate(orderDate) }).then((res) => {
             this.setState({
                 ...this.state,
                 isLoading: false,
@@ -51,6 +71,38 @@ class ViewOrders extends Component {
         })
     }
 
+    onClickCompleteOrder(id) {
+        const { orderStatus,orderDate } = this.state;
+
+        this.setState({
+            ...this.state,
+            isLoading: true,
+        })
+
+        BarRoomOrderService.updateBarRoomOrder(id).then((res) => {
+            BarRoomOrderService.getAllOrders({ status: orderStatus,orderDate:this.formatDate(orderDate) }).then((res2) => {
+                this.setState({
+                    ...this.state,
+                    isLoading: false,
+                    orders: res2.data
+                })
+            }).catch(() => {
+                this.setState({
+                    ...this.state,
+                    isLoading: false,
+                    localNotification: "Something went wrong!",
+                    notificationType: ALERT_TYPES.ERROR
+                })
+            })
+        }).catch(() => {
+            this.setState({
+                ...this.state,
+                isLoading: false,
+                localNotification: "Something went wrong!",
+                notificationType: ALERT_TYPES.ERROR
+            })
+        })
+    }
     /*downloadPdf(id, handlePrint) {
         this.setState({
             ...this.state,
@@ -82,15 +134,40 @@ class ViewOrders extends Component {
         })
     }
 
-    onChangeFormFeild(feild) {
+    onChangeDateFilter(date){
+        const {orderStatus} = this.state;
 
+        this.setState({
+            ...this.state,
+            orderDate:date,
+            isLoading: true
+        })
+
+        BarRoomOrderService.getAllOrders({ orderDate:this.formatDate(date),status:orderStatus }).then((res) => {
+            this.setState({
+                ...this.state,
+                isLoading: false,
+                orders: res.data
+            })
+        }).catch(() => {
+            this.setState({
+                ...this.state,
+                isLoading: false,
+                localNotification: "Something went wrong!",
+                notificationType: ALERT_TYPES.ERROR
+            })
+        })
+    }
+
+    onChangeFormFeild(feild) {
+        const {orderDate} = this.state;
         this.setState({
             ...this.state,
             ...feild,
             isLoading: true
         })
 
-        BarRoomOrderService.getAllOrders({ status: feild.orderStatus }).then((res) => {
+        BarRoomOrderService.getAllOrders({ status: feild.orderStatus,orderDate:this.formatDate(orderDate) }).then((res) => {
             this.setState({
                 ...this.state,
                 isLoading: false,
@@ -107,6 +184,7 @@ class ViewOrders extends Component {
     }
 
     formateOrderDate(date) {
+        console.log(date)
         return date.split("T")[0]
     }
 
@@ -133,7 +211,7 @@ class ViewOrders extends Component {
     }
 
     render() {
-        const { orders, localNotification, notificationType, isLoading, orderStatus, createOrderClicked, billDetails } = this.state;
+        const { orders, localNotification, notificationType, isLoading, orderStatus, createOrderClicked, billDetails,orderDate } = this.state;
 
         if (createOrderClicked) {
             return <Redirect to="/create-order" />
@@ -163,6 +241,11 @@ class ViewOrders extends Component {
                                             <option value="completed">COMPLETED</option>
                                         </select>
                                     </div>
+                                    <div className="form-group">
+                                        <label for="beverage type">Order Date</label>
+                                        <input type="date" className="form-control" value={orderDate} onChange={(event) => { this.onChangeDateFilter( event.target.value ) }} 
+                                        />
+                                    </div>
                                 </form>
                                 <table className="table table-striped table-bordered" style={{ background: "#ebebe0" }}>
                                     <tr>
@@ -170,6 +253,9 @@ class ViewOrders extends Component {
                                         <th style={{ color: 'red' }}>Status</th>
                                         <th style={{ color: 'red' }}>Order Date</th>
                                         <th style={{ color: 'red' }}>Total</th>
+                                        {orderStatus === "parked" && (
+                                            <th style={{ color: 'red' }}>Action</th>
+                                        )}
                                     </tr>
                                     {orders && orders.length > 0 ? (
                                         orders.map((item) => {
@@ -179,6 +265,9 @@ class ViewOrders extends Component {
                                                     <td>{item[1]}</td>
                                                     <td>{this.formateOrderDate(item[2])}</td>
                                                     <td>{item[3].toFixed(2)}</td>
+                                                    {item[1] === "parked" && (
+                                                        <button className="btn btn-success" style={{ background: "#bd9660",marginLeft:"10px", marginTop:"10px", marginBottom:"10px" }} onClick={() => { this.onClickCompleteOrder(item[0]) }} >Complete</button>
+                                                    )}
                                                 </tr>
                                             )
                                         })

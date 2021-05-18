@@ -29,6 +29,7 @@ class Bill extends Component {
         this.totalAfterDiscountApplied = this.totalAfterDiscountApplied.bind(this);
         this.onClickSaveBill = this.onClickSaveBill.bind(this);
         this.resetNotification = this.resetNotification.bind(this);
+        this.onChangeDiscount = this.onChangeDiscount.bind(this);
     }
 
     componentDidMount() {
@@ -121,6 +122,15 @@ class Bill extends Component {
         return discountPerOrder === 0 ? total : totalAfterDiscount
     }
 
+    onChangeDiscount(value){
+        if( value>0 && value<101){
+            this.setState({
+                ...this.state,
+                discountPerOrder:value
+            })
+        }
+    }
+
     onChangeFormFeild(feild) {
         this.setState({
             ...this.state,
@@ -188,7 +198,7 @@ class Bill extends Component {
                                     <div style={{ display: "flex" }}>
                                         <span>Discount (%)</span>
                                         <div style={{ marginLeft: "65px" }}>
-                                            <input type="number" className="form-control" value={discountPerOrder} onChange={(event) => { this.onChangeFormFeild({ discountPerOrder: event.target.value }) }} min="0" max="100" />
+                                            <input type="number" className="form-control" value={discountPerOrder} onChange={(event) => { this.onChangeDiscount( event.target.value ) }} min="0" max="100" />
                                         </div>
                                     </div>
                                     <div style={{ width: "87%", display: "flex", justifyContent: "flex-end" }}>
