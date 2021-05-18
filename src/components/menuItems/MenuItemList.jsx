@@ -1,6 +1,8 @@
 
 import React, {Component } from 'react';
 import MenuItemService from '../../adapters/MenuItemService';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
 class MenuItemList extends Component {
@@ -16,27 +18,32 @@ class MenuItemList extends Component {
         this.addMenu = this.addMenu.bind(this);
         this.editMenuItem = this.editMenuItem.bind(this);
         this.removeMenuItem = this.removeMenuItem.bind(this);
-       
+        this.onClickDeleteItem = this.onClickDeleteItem.bind(this);
         
     }
 
+    onClickDeleteItem(id){
+        confirmAlert({
+            title: 'Confirm to Delete',
+            message: 'Are you sure to delete this item',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => this.removeMenuItem(id)
+              },
+              {
+                label: 'No',
+                onClick: () => alert('Click No')
+              }
+            ]
+          });
+    }
+
     removeMenuItem(id) {
-        var txt;
-         if (window.confirm("Are You Sure You Want To Delete!")) {
              MenuItemService.deleteMenu(id).then(res => {
 
              this.setState({ ...this.state,menuItems: this.state.menuItems.filter(menuItem => menuItem.menu_item_id !== id) });
              });
-                txt = "You Succesfully Deleted Menu Item!";
-         } else {
-            txt = "You pressed Cancel Try Again!";
-         }
-        
-  document.getElementById("demo").innerHTML = txt;
-  
-        
-        
-
     }
 
     viewMenuItem(id) {
@@ -52,8 +59,6 @@ class MenuItemList extends Component {
     componentDidMount() {
         MenuItemService.getMenuItems().then((res) => {
             this.setState({...this.state, menuItems: res.data });
-            
-            console.log(this.state.menuItems);
         })
 
     }
@@ -138,8 +143,8 @@ class MenuItemList extends Component {
 
                                                 <button onClick={() => this.editMenuItem(menuItem.menu_item_id)} style={{ background: "#bd9660", color: "white" }} className="btn ">Update</button>
                                                 
-                                                <button style={{ marginLeft: "20px" }} onClick={() => this.removeMenuItem(menuItem.menu_item_id)} className="btn btn-danger">Delete</button>
-                                                <button style={{ marginLeft: "220px", background: "#bd9660", color: "white" }} onClick={() => this.viewMenuItem(menuItem.menu_item_id)} className="btn ">View more..</button>
+                                                <button style={{ marginLeft: "20px" }} onClick={() => this.onClickDeleteItem(menuItem.menu_item_id)} className="btn btn-danger">Delete</button>
+                                                <button style={{  marginLeft: "20px", background: "#bd9660", color: "white" }} onClick={() => this.viewMenuItem(menuItem.menu_item_id)} className="btn ">View more..</button>
 
                                             </td>
 

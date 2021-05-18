@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MenuItemService from '../../adapters/MenuItemService';
+import { isValidName } from '../shared/utils';
 
 
 
@@ -57,17 +58,17 @@ class UpdateMenuItem extends Component {
         let descriptionError="";
         let discountError="";
 
-        if(!this.state.unitPrice){
-            unitPriceError = "unit price canot be null";
+        if(this.state.unitPrice===""||this.state.unitPrice===null||this.state.unitPrice===undefined||this.state.unitPrice<0 || isNaN(this.state.unitPrice)){
+            unitPriceError = "unit price canot be null and should be valid";
         }
-        if(!this.state.description){
-            descriptionError= "description canot be null";
+        if(this.state.description === "" || this.state.description===null||this.state.description===undefined || !isValidName(this.state.description)){
+            descriptionError= "description canot be null and can not contain numbers";
         }
-        if(!this.state.discount){
-            discountError = "discount canot be null";
+        if(this.state.discount===""||this.state.discount===null||this.state.discount===undefined||this.state.discount<0||this.state.discount>100|| isNaN(this.state.discount)){
+            discountError = "discount canot be null and shoul be valid";
         }
-       if(!this.state.menuItemName){
-           menuItemNameError = "item name canot be null";
+       if(this.state.menuItemName===""||this.state.menuItemName===null||this.state.menuItemName===undefined|| !isValidName(this.state.menuItemName)){
+           menuItemNameError = "item name canot be null and can not contain numbers";
        }
        if(menuItemNameError ||  unitPriceError || descriptionError || discountError){
         this.setState({menuItemNameError,unitPriceError,descriptionError,discountError});
@@ -116,7 +117,7 @@ class UpdateMenuItem extends Component {
     }
 
     cancel(){
-        this.props.history.push('/menu items');
+        this.props.history.push('/menuItems');
     }
     
 
@@ -147,7 +148,7 @@ class UpdateMenuItem extends Component {
                                     <div class="form-row">
                                         <div class="form-group  col-md-6">
                                             <label for="unit_price">Unit Price</label>
-                                            <input type="text" class="form-control" id="unit_price"  value={this.state.unitPrice} onChange={this.changeUnitPriceHandler}   required/>
+                                            <input type="number" class="form-control" id="unit_price"  value={this.state.unitPrice} onChange={this.changeUnitPriceHandler}   required min="0"/>
                                             <div style={{fontSize:12, color:"red"}}>{this.state.unitPriceError}</div>
                                         </div>
                                     </div>
@@ -159,7 +160,7 @@ class UpdateMenuItem extends Component {
                                     <div className="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="discount">Discount</label>
-                                            <input type="text" class="form-control" id="discount" value={this.state.discount} onChange={this.changeDiscountHandler}  required />
+                                            <input type="number" class="form-control" id="discount" value={this.state.discount} onChange={this.changeDiscountHandler}  required min="0" max="100"/>
                                             <div style={{fontSize:12, color:"red"}}>{this.state.discountError}</div>
                                         </div>
                                    

@@ -8,6 +8,7 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 import PolicyService from "../../adapters/policyService";
+import { isValidName } from "../shared/utils";
 
 class Policy extends Component {
     constructor(props) {
@@ -129,36 +130,37 @@ class Policy extends Component {
 
     validateForm() {
         const { name, description, discount, min_bill_amount } = this.state;
+        let nameError = null;
+        let desError = null;
+        let minBillAmountError = null;
+        let discountError = null;
 
         let hasErrors = false
-        if (name === "") {
-            this.setState({
-                ...this.state,
-                nameError: "Name is required"
-            })
+        if (name === ""||name===null||name===undefined || !isValidName(name)) {
+            nameError="Name is required and can not contain numbers";
             hasErrors = true
         }
-        else if (description === "") {
-            this.setState({
-                ...this.state,
-                desError: "Description is required"
-            })
+        if (description === ""||description===null||description===undefined || !isValidName(description)) {
+            desError= "Description is required and can not contain numbers"
             hasErrors = true
 
-        } else if (min_bill_amount === "" || min_bill_amount < 0) {
-            this.setState({
-                ...this.state,
-                minBillAmountError: "Bill amount should be a number greater than 0"
-            })
+        }
+        if (min_bill_amount === "" || min_bill_amount < 0 || isNaN(min_bill_amount) || min_bill_amount===null || min_bill_amount === undefined) {
+            minBillAmountError= "Bill amount should be a number greater than 0"
             hasErrors = true
         }
-        else if (discount === "" || discount < 0 || discount > 100) {
-            this.setState({
-                ...this.state,
-                discountError: "Discount should be a number between 0 and 100"
-            })
+        if (discount === "" || discount < 0 || discount > 100 || isNaN(discount) || discount=== null || discount===undefined) {
+            discountError = "Discount should be a number between 0 and 100"
             hasErrors = true
         }
+
+        this.setState({
+            ...this.state,
+            nameError,
+            desError,
+            minBillAmountError,
+            discountError
+        })
         return hasErrors
     }
 

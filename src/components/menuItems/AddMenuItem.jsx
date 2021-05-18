@@ -7,6 +7,7 @@ import ALERT_TYPES from "../../constants/AlertTypes";
 import MenuItemService from '../../adapters/MenuItemService';
 
 import 'bootstrap-css-only/css/bootstrap.min.css';
+import { isValidName } from '../shared/utils';
 
 
 const initialState = {
@@ -55,10 +56,10 @@ class AddMenuItem extends Component {
     validateNewMenuTypeForm() {
         const { newMenuItemType } = this.state;
         let hasErrors = false;
-        if (newMenuItemType === "") {
+        if (newMenuItemType === "" ||newMenuItemType===null||newMenuItemType===undefined || !isValidName(newMenuItemType) ) {
             this.setState({
                 ...this.state,
-                newMenuItemTypeError: "Menu type is required!"
+                newMenuItemTypeError: "Menu type is required and can not contain numbers!"
             })
             hasErrors = true
         }
@@ -103,17 +104,17 @@ class AddMenuItem extends Component {
         if (!this.state.menuItemType) {
             menuItemTypeError = "Should select item type";
         }
-        if (!this.state.unitPrice) {
-            unitPriceError = "Unit price canot be null";
+        if (this.state.unitPrice === ""||this.state.unitPrice===null || this.state.unitPrice=== undefined || isNaN(this.state.unitPrice) || this.state.unitPrice<0 ) {
+            unitPriceError = "Unit price canot be null and should be valid";
         }
-        if (!this.state.description) {
-            descriptionError = "Description canot be null";
+        if (this.state.description === ""||this.state.description===null||this.state.description===undefined|| !isValidName(this.state.description)) {
+            descriptionError = "Description canot be null and can not contain numbers";
         }
-        if (!this.state.discount) {
-            discountError = "Discount canot be null";
+        if (this.state.discount === "" || this.state.discount===null || this.state.discount===undefined || isNaN(this.state.discount)|| this.state.discount<0 || this.state.discount>100) {
+            discountError = "Discount canot be null and should be valid";
         }
-        if (!this.state.menuItemName) {
-            menuItemNameError = "Item name canot be null";
+        if (this.state.menuItemName === "" || this.state.menuItemName === null || this.state.menuItemName === undefined || !isValidName(this.state.menuItemName)) {
+            menuItemNameError = "Item name canot be null and can not contain numbers";
         }
 
         if (menuItemNameError || menuItemTypeError || unitPriceError || descriptionError || discountError) {
@@ -288,7 +289,7 @@ class AddMenuItem extends Component {
                                                 <div class="form-row">
                                                     <div class="form-group  col-md-6">
                                                         <label for="unit_price">Unit Price</label>
-                                                        <input type="text" class="form-control" id="unit_price" placeholder="Unit Price" value={this.state.unitPrice} onChange={this.changeUnitPriceHandler} />
+                                                        <input type="number" class="form-control" id="unit_price" placeholder="Unit Price" value={this.state.unitPrice} onChange={this.changeUnitPriceHandler} min="0"/>
                                                         <div style={{ fontSize: 12, color: "red" }}>{this.state.unitPriceError}</div>
                                                     </div>
                                                 </div>
@@ -300,7 +301,7 @@ class AddMenuItem extends Component {
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="discount">Discount</label>
-                                                        <input type="text" class="form-control" id="discount" value={this.state.discount} onChange={this.changeDiscountHandler} />
+                                                        <input type="number" class="form-control" id="discount" value={this.state.discount} onChange={this.changeDiscountHandler} min="0" max="100"/>
                                                         <div style={{ fontSize: 12, color: "red" }}>{this.state.discountError}</div>
                                                     </div>
                                                 </div>

@@ -139,22 +139,23 @@ export class AddOrder extends Component {
 
     validateForm() {
         const { menuItem, quantity } = this.state;
+        let menuItemNameError = null;
+        let qtyError = null;
 
         let hasErrors = false;
         if (menuItem === null || menuItem === "" || menuItem === undefined) {
-            this.setState({
-                ...this.state,
-                menuItemNameError: "Item name is required"
-            })
+            menuItemNameError = "Item name is required"
             hasErrors = true;
         }
-        if (quantity === "" || quantity === null || quantity === undefined || quantity < 1) {
-            this.setState({
-                ...this.state,
-                qtyError: "valid qunatity is required"
-            })
+        if (quantity === "" || quantity === null || quantity === undefined || quantity < 1 || isNaN(quantity)) {
+            qtyError = "valid qunatity is required"
             hasErrors = true;
         }
+        this.setState({
+            ...this.state,
+            menuItemNameError,
+            qtyError
+        })
         return hasErrors;
     }
 
