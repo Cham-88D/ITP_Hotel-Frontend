@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 
-import ReservationService from '../adapters/ReservationService';
+import ReservationService_IT19964010 from '../adapters/ReservationService_IT19964010';
 
-class UpdateReservation extends Component {
+class UpdateReservation_IT19964010 extends Component {
     constructor(props){
         super(props)
 
@@ -43,7 +43,7 @@ class UpdateReservation extends Component {
 
 
 componentDidMount(){
-    ReservationService.getReservationtById(this.state.id).then( (res) => {
+    ReservationService_IT19964010.getReservationtById(this.state.id).then( (res) => {
         let reservation = res.data;
         this.setState({
             cus_Name:reservation.cus_Name,
@@ -68,7 +68,7 @@ updateReservation =(e) => {
                 no_Of_Child:this.state.no_Of_Child,no_Of_Adult:this.state.no_Of_Adult};
                 console.log('reservation =>' + JSON.stringify(reservation));
 
-                ReservationService.createReservation(reservation).then(res =>{
+                ReservationService_IT19964010.createReservation(reservation).then(res =>{
                      this.props.history.push('/reservations');
                 });
 
@@ -222,4 +222,4 @@ render() {
 
 
 
-export default UpdateReservation ;
+export default UpdateReservation_IT19964010 ;

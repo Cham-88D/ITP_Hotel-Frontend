@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-import PaymentService from '../adapters/PaymentService';
+import PaymentService_IT19964010 from '../adapters/PaymentService_IT19964010';
 
 
 
@@ -18,7 +18,7 @@ const initialState={
     methodError:''
           
 }
-class CusCreatePaymentComponent extends Component  {
+class CusCreatePaymentComponent_IT19964010 extends Component  {
         constructor(props){
             super(props)
    
@@ -74,7 +74,7 @@ class CusCreatePaymentComponent extends Component  {
             let payment ={p_Date:this.state.p_Date, pay_For:this.state.pay_For,amount:this.state.amount,method:this.state.method};
             console.log('payment =>' + JSON.stringify(payment));
         
-            PaymentService.createPayment(payment).then(res =>{
+            PaymentService_IT19964010.createPayment(payment).then(res =>{
                 this.props.history.push('/cus-res');
             });
         }
@@ -211,4 +211,4 @@ class CusCreatePaymentComponent extends Component  {
     }
 }
 
-export default CusCreatePaymentComponent;
+export default CusCreatePaymentComponent_IT19964010;

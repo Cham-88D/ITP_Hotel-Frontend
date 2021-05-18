@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Reservation.css';
-class CustomerReservationComponent extends Component {
+import './Reservation_IT19964010.css';
+class CustomerReservationComponent_IT19964010 extends Component {
     render() {
         return (
             <div>
@@ -61,4 +61,4 @@ class CustomerReservationComponent extends Component {
     }
 }
 
-export default CustomerReservationComponent;
+export default CustomerReservationComponent_IT19964010;

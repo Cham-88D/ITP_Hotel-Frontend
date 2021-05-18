@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import RoomService from '../adapters/RoomService';
+import RoomService_IT19964010 from '../adapters/RoomService_IT19964010';
 
-class ListRoomComponent extends Component {
+class ListRoomComponent_IT19964010 extends Component {
 
     constructor(props){
         super(props)
@@ -19,7 +19,7 @@ class ListRoomComponent extends Component {
 
     
     componentDidMount(){
-        RoomService.getAllRooms().then((res) => {
+        RoomService_IT19964010.getAllRooms().then((res) => {
 
             this.setState({rooms:res.data});
         });
@@ -36,7 +36,7 @@ class ListRoomComponent extends Component {
     deleteRoom(id){
         var confirmtext;
         if(window.confirm("Are You Sure You want to Delete This Room !")){
-                RoomService.deleteRooms(id).then(res =>{
+                RoomService_IT19964010.deleteRooms(id).then(res =>{
                 this.setState({rooms:this.state.rooms.filter(room=>room.roomId!==id)});
                 confirmtext="You Succesfully deleted Rservation";
             }) ;
@@ -124,5 +124,5 @@ class ListRoomComponent extends Component {
     }
 }
 
-export default ListRoomComponent;
+export default ListRoomComponent_IT19964010;
 

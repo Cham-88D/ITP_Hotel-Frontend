@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReservationRequestService from '../adapters/ReservationRequestService';
+import ReservationRequestService_IT19964010 from '../adapters/ReservationRequestService_IT19964010';
 
-class ViewResRequestComponent extends Component {
+class ViewResRequestComponent_IT19964010 extends Component {
     constructor(props){
         super(props)
 
@@ -12,7 +12,7 @@ class ViewResRequestComponent extends Component {
         }
     } 
     componentDidMount(){
-        ReservationRequestService.
+        ReservationRequestService_IT19964010.
         getRes_Modification_RequestById(this.state.id).then( res =>{
             this.setState({res_modification_request: res.data});
          })
@@ -66,4 +66,4 @@ class ViewResRequestComponent extends Component {
     }
 }
 
-export default ViewResRequestComponent;
+export default ViewResRequestComponent_IT19964010;

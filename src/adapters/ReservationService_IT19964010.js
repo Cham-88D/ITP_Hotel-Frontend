@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const RESERVATION_API_BASE_URL= "http://localhost:8080/api/v1/reservations";
 
-class ReservationService{
+class ReservationService_IT19964010{
 
     getAllReservations(){
         return axios.get(RESERVATION_API_BASE_URL);
@@ -29,4 +29,4 @@ class ReservationService{
 
     
 }
-export default new ReservationService()
+export default new ReservationService_IT19964010()

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const PAYMENT_API_BASE_URL= "http://localhost:8080/api/v1/payments";
 
-class PaymentService{
+class PaymentService_IT19964010{
 
     getAllPayments(){
         return axios.get(PAYMENT_API_BASE_URL);
@@ -28,4 +28,4 @@ class PaymentService{
 
     
 }
-export default new PaymentService()
+export default new PaymentService_IT19964010()

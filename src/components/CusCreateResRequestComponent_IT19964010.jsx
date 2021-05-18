@@ -1,6 +1,5 @@
-
 import React, { Component } from 'react';
-import ReservationRequestService from '../adapters/ReservationRequestService';
+import ReservationRequestService_IT19964010 from '../adapters/ReservationRequestService_IT19964010';
 
 
 
@@ -19,7 +18,7 @@ const initialState={
     rm_Req_DateError:''
           
 }
-class CreateResRequestComponent extends Component{
+class CusCreateResRequestComponent_IT19964010 extends Component{
         constructor(props){
             super(props)
    
@@ -85,8 +84,8 @@ class CreateResRequestComponent extends Component{
             let res_modification_request ={rm_id:this.state.rm_id,rm_Type:this.state.rm_Type,r_Reason:this.state.r_Reason,r_Message:this.state.r_Message,rm_Req_Date:this.state.rm_Req_Date};
             console.log('res_modification_request =>' + JSON.stringify(res_modification_request));
         
-            ReservationRequestService.createRes_Modification_Request(res_modification_request).then(res =>{
-                this.props.history.push('/res_modification_requests');
+            ReservationRequestService_IT19964010.createRes_Modification_Request(res_modification_request).then(res =>{
+                this.props.history.push('/cus-res');
             });
         }
     }
@@ -113,7 +112,7 @@ class CreateResRequestComponent extends Component{
     }
     
     cancel(){
-        this.props.history.push('/res_modification_requests');
+        this.props.history.push('/cus-res');
     }
 
 
@@ -121,21 +120,49 @@ class CreateResRequestComponent extends Component{
         return (
             <div>
 
-
-            {/* <div>
-                <header>
+<header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div className = "navbar-brand" >Room Reservation Management  </div>
+                    {/* <div><a href="https://javaguides.net" className="navbar-brand">Room Rservation Management</a></div>  */}
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navBarNav" aria-aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>   
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/home" style={{color:'orange'}}>Home <span className="sr-only"></span></a>
+                            </li>
+                            {/* <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/events-page" style={{color:'orange'}}>Rooms <span className="sr-only"></span></a>
+                            </li> */}
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-res" style={{color:'orange'}}>Rooms<span className="sr-only"></span></a>
+                            </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-create-res" style={{color:'orange'}}>Room Reservation<span className="sr-only"></span></a>
+                            </li>
+                            {/* <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/view-reservation/:id" style={{color:'orange'}}>Your Booking<span className="sr-only"></span></a>
+                            </li> */}
+                             <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-res-req" style={{color:'orange'}}>Reservation Modification Request<span className="sr-only"></span></a>
+                            </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-payments" style={{color:'orange'}}>Payment<span className="sr-only"></span></a>
+                            </li>
+                        </ul>
 
+                    </div>
                     </nav>
-                </header>
-            </div> */}
 
-
-
-
+               </header> 
+               
+                   
+                <br></br>
                 <div className ="container">
                     <div className="row">
+                    <br></br>
+                    <h2 className="mainh2"> We assist you to modify your reserved packages! </h2>
+
                         <div className= "card col-md-6 offset-md-3 offset-md-3">
                             <h3 className=" text-center"> Add Room Reservation Modification Request </h3>
                             <div className="card-body">
@@ -148,6 +175,16 @@ class CreateResRequestComponent extends Component{
                                         value={ this.state.rm_id} onChange={this.changerm_idHandler} />
                                      <div style={{fontSize: 12, color: "red"}}>{this.state.rm_idError} </div>
                                     </div>
+                                    {/* <div className="form-group">
+                                    <label> Modification Type : </label><br/>
+                                        <select value={this.state.rm_Type} name="rm_Type" className="formcontrol"
+                                            onChange={this.changerm_TypeHandler}>
+                                            <option>Reservation Cancel</option>
+                                            <option > Reservation Update</option>
+                                        </select>
+                                        <div style={{fontSize: 12, color: "red"}}>{this.state.rm_TypeError} </div>
+                                    </div>
+                                      */}
                                     <div className="form-group">
                                     <label> Modification Type : </label><br/>
                                         <select  placeholder="CHOOSE" value={this.state.rm_Type} name="rm_Type" className="formcontrol" 
@@ -172,12 +209,15 @@ class CreateResRequestComponent extends Component{
                                         <div style={{fontSize: 12, color: "red"}}>{this.state.r_ReasonError} </div>
                                     </div>
 
+
+                                   
                                     <div className="form-group">
                                     <label> Message : </label>
                                     <input placeholder="Message" name="r_Message" className="formcontrol"
                                         value={ this.state.r_Message} onChange={this.changer_MessageHandler} />
                                      <div style={{fontSize: 12, color: "red"}}>{this.state.r_MessageError} </div>
                                     </div>
+
 
                                     <div className="form-group">
                                     <label> Requested Date : </label>
@@ -188,8 +228,7 @@ class CreateResRequestComponent extends Component{
 
 
 
-                                    <button style={{background: "rgb(197, 161, 60) 0%"}} className="btn btn-success" onClick={this.saveRes_Modification_Request}> Save </button>
-
+                                    <button className="btn btn-success" onClick={this.saveRes_Modification_Request}> Save </button>
                                     <button className="btn btn-danger" style={{marginLeft: "10px" }} onClick={this.cancel.bind(this)}  > Cancel </button> 
                                  </form>   
 
@@ -205,4 +244,4 @@ class CreateResRequestComponent extends Component{
         );
     }
 }
-export default CreateResRequestComponent;
+export default CusCreateResRequestComponent_IT19964010;

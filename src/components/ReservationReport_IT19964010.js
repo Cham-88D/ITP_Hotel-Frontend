@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import GenerateListRoomComponent from './GenerateListRoomComponent';
+import GenerateListRoomComponent_IT19964010 from './GenerateListRoomComponent_IT19964010';
 import ReactToPrint from 'react-to-print';
 export default class example extends Component {
     render() {
@@ -14,7 +14,7 @@ export default class example extends Component {
                 }}
                 content={() => this.componentRef}
               />
-              <GenerateListRoomComponent ref={el => (this.componentRef = el)} />
+              <GenerateListRoomComponent_IT19964010 ref={el => (this.componentRef = el)} />
             </div>
             </div>
         )

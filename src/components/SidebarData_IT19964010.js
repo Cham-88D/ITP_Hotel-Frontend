@@ -1,10 +1,10 @@
 import React from 'react';
 import * as FaIcon from "react-icons/fa";
 import * as AiIcon from "react-icons/ai";
-import * as IoIcon from "react-icons/io5";
+// import * as IoIcon from "react-icons/io5";
 import * as GoIcon from "react-icons/go";
 
-export const SidebarData = [
+export const SidebarData_IT19964010 = [
     {
         title: 'Home',
         path:'/',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ReservationService from '../adapters/ReservationService';
+import ReservationService_IT19964010 from '../adapters/ReservationService_IT19964010';
+
 
 const initialState={
     cus_Name:'',
@@ -23,7 +24,7 @@ const initialState={
     no_Of_AdultError:'',
        
 }
-class CreateReservationCus extends Component {
+class CreateReservationComponent_IT19964010 extends Component {
     constructor(props){
         super(props)
 
@@ -39,7 +40,7 @@ class CreateReservationCus extends Component {
     this.changeno_Of_AdultHandler= this.changeno_Of_AdultHandler.bind(this);
 
 
-    // this.saveReservation=this.saveReservation.bind(this);
+    this.saveReservation=this.saveReservation.bind(this);
 
 }
 
@@ -78,7 +79,7 @@ validate=()=>{
     }
     if(!this.state.no_Of_Adult){
 
-        no_Of_AdultError="Number Of Adult is Required !";
+        no_Of_AdultError="Number of Adults is Required !";
 
     }
    
@@ -104,8 +105,8 @@ saveReservation = (e) => {
             no_Of_Child:this.state.no_Of_Child,no_Of_Adult:this.state.no_Of_Adult};
         console.log('reservation =>' + JSON.stringify(reservation));
     
-        ReservationService.createReservation(reservation).then(res =>{
-            this.props.history.push('/cus-res');
+        ReservationService_IT19964010.createReservation(reservation).then(res =>{
+            this.props.history.push('/reservations');
         });
     }
 }
@@ -141,54 +142,30 @@ changeno_Of_AdultHandler = (event) => {
 
 
 cancel(){
-    this.props.history.push('/cus-res');
+    this.props.history.push('/reservations');
 }
 render() {
     return (
+
+
+        
         <div>
 
-<header>
+
+        {/* <div>
+                <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    {/* <div><a href="https://javaguides.net" className="navbar-brand">Room Rservation Management</a></div>  */}
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navBarNav" aria-aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>   
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item active">
-                                <a className="nav-link" href="http://localhost:3000/home" style={{color:'orange'}}>Home <span className="sr-only"></span></a>
-                            </li>
-                            {/* <li className="nav-item active">
-                                <a className="nav-link" href="http://localhost:3000/events-page" style={{color:'orange'}}>Rooms <span className="sr-only"></span></a>
-                            </li> */}
-                            <li className="nav-item active">
-                                <a className="nav-link" href="http://localhost:3000/cus-res" style={{color:'orange'}}>Rooms<span className="sr-only"></span></a>
-                            </li>
-                            <li className="nav-item active">
-                                <a className="nav-link" href="http://localhost:3000/cus-create-res" style={{color:'orange'}}>Room Reservation<span className="sr-only"></span></a>
-                            </li>
-                            {/* <li className="nav-item active">
-                                <a className="nav-link" href="http://localhost:3000/view-reservation/:id" style={{color:'orange'}}>Your Booking<span className="sr-only"></span></a>
-                            </li> */}
-                             <li className="nav-item active">
-                                <a className="nav-link" href="http://localhost:3000/cus-res-req" style={{color:'orange'}}>Reservation Modification Request<span className="sr-only"></span></a>
-                            </li>
-                            <li className="nav-item active">
-                                <a className="nav-link" href="http://localhost:3000/cus-payments" style={{color:'orange'}}>Payment<span className="sr-only"></span></a>
-                            </li>
-                        </ul>
+                    <div className = "navbar-brand" >Room Reservation Management  </div>
 
-                    </div>
                     </nav>
+                </header>
+            </div> */}
 
-               </header> 
-               <br></br>
+
             <div className ="container">
                 <div className="row">
-                    <br></br>
-                    <h2 className="mainh2"> We service our Room Reservation Facility to your fingerprits! </h2>
                     <div className= "card col-md-6 offset-md-3 offset-md-3">
-                        <h3 className=" text-center"> Add Room Reservation </h3>
+                        <h3 className=" text-center"> Add Reservation </h3>
                         <div className="card-body">
 
                             <form>
@@ -257,7 +234,9 @@ render() {
                                 </div>
 
                                  
-                                <button className="btn btn-success" onClick={this.saveReservation}> Save </button>
+
+                                <button style={{background: "rgb(197, 161, 60) 0%"}} className="btn btn-success" onClick={this.saveReservation}> Save </button>
+
                                 <button className="btn btn-danger" style={{marginLeft: "10px" }} onClick={this.cancel.bind(this)}  > Cancel </button> 
                              </form>   
 
@@ -275,4 +254,6 @@ render() {
 }
 
 
-export default CreateReservationCus;
+
+
+export default CreateReservationComponent_IT19964010;

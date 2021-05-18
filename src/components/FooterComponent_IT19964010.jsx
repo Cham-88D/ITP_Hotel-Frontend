@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FooterComponent extends Component {
+class FooterComponent_IT19964010 extends Component {
 
     constructor(props){
         super(props)
@@ -25,4 +25,4 @@ class FooterComponent extends Component {
     }
 }
 
-export default FooterComponent;
+export default FooterComponent_IT19964010;

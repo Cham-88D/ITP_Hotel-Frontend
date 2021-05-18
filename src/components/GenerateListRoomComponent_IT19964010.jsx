@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import RoomService from '../adapters/RoomService';
+import RoomService_IT19964010 from '../adapters/RoomService_IT19964010';
 
-class GenerateListRoomComponent extends Component {
+class GenerateListRoomComponent_IT19964010 extends Component {
 
     constructor(props){
         super(props)
@@ -18,7 +18,7 @@ class GenerateListRoomComponent extends Component {
 
     
     componentDidMount(){
-        RoomService.getAllRooms().then((res) => {
+        RoomService_IT19964010.getAllRooms().then((res) => {
 
             this.setState({rooms:res.data});
         });
@@ -104,4 +104,4 @@ class GenerateListRoomComponent extends Component {
     }
 }
 
-export default GenerateListRoomComponent;
+export default GenerateListRoomComponent_IT19964010;

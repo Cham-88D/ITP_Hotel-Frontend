@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RoomService from '../adapters/RoomService';
+import RoomService_IT19964010 from '../adapters/RoomService_IT19964010';
 
 
 
@@ -14,7 +14,7 @@ const initialState={
     r_PriceError:''
           
 }
-class CreateRoomComponent extends Component {
+class CreateRoomComponent_IT19964010 extends Component {
         constructor(props){
             super(props)
    
@@ -61,7 +61,7 @@ class CreateRoomComponent extends Component {
             let room ={room_Type:this.state.room_Type, room_Status:this.state.room_Status,r_Price:this.state.r_Price};
             console.log('room =>' + JSON.stringify(room));
         
-            RoomService.createRoom(room).then(res =>{
+            RoomService_IT19964010.createRoom(room).then(res =>{
                 this.props.history.push('/rooms');
             });
         }
@@ -170,4 +170,4 @@ class CreateRoomComponent extends Component {
     }
 }
 
-export default CreateRoomComponent;
+export default CreateRoomComponent_IT19964010;
