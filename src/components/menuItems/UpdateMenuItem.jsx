@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MenuItemService from '../../adapters/MenuItemService';
-import { isValidName } from '../shared/utils';
+import { isValidName ,isValidDescription} from '../shared/utils';
 
 
 
@@ -61,7 +61,7 @@ class UpdateMenuItem extends Component {
         if(this.state.unitPrice===""||this.state.unitPrice===null||this.state.unitPrice===undefined||this.state.unitPrice<0 || isNaN(this.state.unitPrice)){
             unitPriceError = "unit price canot be null and should be valid";
         }
-        if(this.state.description === "" || this.state.description===null||this.state.description===undefined || !isValidName(this.state.description)){
+        if(this.state.description === "" || this.state.description===null||this.state.description===undefined || !isValidDescription(this.state.description)){
             descriptionError= "description canot be null and can not contain numbers";
         }
         if(this.state.discount===""||this.state.discount===null||this.state.discount===undefined||this.state.discount<0||this.state.discount>100|| isNaN(this.state.discount)){

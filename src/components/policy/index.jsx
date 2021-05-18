@@ -8,7 +8,7 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 import PolicyService from "../../adapters/policyService";
-import { isValidName } from "../shared/utils";
+import { isValidName,isValidDescription } from "../shared/utils";
 
 class Policy extends Component {
     constructor(props) {
@@ -140,7 +140,7 @@ class Policy extends Component {
             nameError="Name is required and can not contain numbers";
             hasErrors = true
         }
-        if (description === ""||description===null||description===undefined || !isValidName(description)) {
+        if (description === ""||description===null||description===undefined || !isValidDescription(description)) {
             desError= "Description is required and can not contain numbers"
             hasErrors = true
 

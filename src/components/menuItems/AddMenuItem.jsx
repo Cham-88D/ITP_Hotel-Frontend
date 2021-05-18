@@ -7,7 +7,7 @@ import ALERT_TYPES from "../../constants/AlertTypes";
 import MenuItemService from '../../adapters/MenuItemService';
 
 import 'bootstrap-css-only/css/bootstrap.min.css';
-import { isValidName } from '../shared/utils';
+import { isValidName,isValidDescription } from '../shared/utils';
 
 
 const initialState = {
@@ -107,7 +107,7 @@ class AddMenuItem extends Component {
         if (this.state.unitPrice === ""||this.state.unitPrice===null || this.state.unitPrice=== undefined || isNaN(this.state.unitPrice) || this.state.unitPrice<0 ) {
             unitPriceError = "Unit price canot be null and should be valid";
         }
-        if (this.state.description === ""||this.state.description===null||this.state.description===undefined|| !isValidName(this.state.description)) {
+        if (this.state.description === ""||this.state.description===null||this.state.description===undefined|| !isValidDescription(this.state.description)) {
             descriptionError = "Description canot be null and can not contain numbers";
         }
         if (this.state.discount === "" || this.state.discount===null || this.state.discount===undefined || isNaN(this.state.discount)|| this.state.discount<0 || this.state.discount>100) {
