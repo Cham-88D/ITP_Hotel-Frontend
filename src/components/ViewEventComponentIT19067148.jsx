@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import EventService from '../services/EventService';
+import EventServiceIT19067148 from '../services/EventServiceIT19067148';
 
-class ViewEventComponent extends Component {
+class ViewEventComponentIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -12,7 +12,7 @@ class ViewEventComponent extends Component {
     }
 
     componentDidMount(){
-        EventService.getEventById(this.state.Event_Id).then( res =>{
+        EventServiceIT19067148.getEventById(this.state.Event_Id).then( res =>{
             this.setState({event: res.data});
         })
     }
@@ -47,4 +47,4 @@ class ViewEventComponent extends Component {
     }
 }
 
-export default ViewEventComponent;
+export default ViewEventComponentIT19067148;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
-import EventModificationRequestService from '../services/EventModificationRequestService';
+import EventModificationRequestServiceIT19067148 from '../services/EventModificationRequestServiceIT19067148';
 
-class ListEventModificationRequestComponent extends Component {
+class ListEventModificationRequestComponentIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -29,7 +29,7 @@ class ListEventModificationRequestComponent extends Component {
     }
 
      componentDidMount(){
-        EventModificationRequestService.getAllEv_Modification_Requests().then( (res) =>{
+        EventModificationRequestServiceIT19067148.getAllEv_Modification_Requests().then( (res) =>{
         
             this.setState({eventModificationRequests: res.data});
          });
@@ -93,4 +93,4 @@ class ListEventModificationRequestComponent extends Component {
     }
 }
 
-export default ListEventModificationRequestComponent;
+export default ListEventModificationRequestComponentIT19067148;

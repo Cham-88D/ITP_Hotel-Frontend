@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
-import './Event.css';
-import EventBookingsService from '../services/EventBookingsService';
+import './EventIT19067148.css';
+import EventBookingsServiceIT19067148 from '../services/EventBookingsServiceIT19067148';
 
-class GenerateEventBooking extends Component {
+class GenerateEventBookingIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -18,7 +18,7 @@ class GenerateEventBooking extends Component {
 
     
     componentDidMount(){
-        EventBookingsService.getEventBookings().then((res) => {
+        EventBookingsServiceIT19067148.getEventBookings().then((res) => {
 
 
             this.setState({bookings:res.data});
@@ -87,4 +87,4 @@ class GenerateEventBooking extends Component {
     }
 }
 
-export default GenerateEventBooking;
+export default GenerateEventBookingIT19067148;

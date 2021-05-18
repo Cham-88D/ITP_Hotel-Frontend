@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class EventsPage extends Component {
+class EventsPageIT19067148 extends Component {
     render() {
         return (
             <div>
@@ -129,4 +129,4 @@ class EventsPage extends Component {
     }
 }
 
-export default EventsPage;
+export default EventsPageIT19067148;

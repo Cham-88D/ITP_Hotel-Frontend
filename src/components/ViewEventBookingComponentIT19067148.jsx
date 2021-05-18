@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import EventBookingsService from '../services/EventBookingsService';
+import EventBookingsServiceIT19067148 from '../services/EventBookingsServiceIT19067148';
 
-class ViewEventBookingComponent extends Component {
+class ViewEventBookingComponentIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -12,7 +12,7 @@ class ViewEventBookingComponent extends Component {
     }
 
     componentDidMount(){
-        EventBookingsService.getEventBookingById(this.state.Booking_Id).then( res => {
+        EventBookingsServiceIT19067148.getEventBookingById(this.state.Booking_Id).then( res => {
             this.setState({eventBooking: res.data});
         })
     }
@@ -67,4 +67,4 @@ class ViewEventBookingComponent extends Component {
     }
 }
 
-export default ViewEventBookingComponent;
+export default ViewEventBookingComponentIT19067148;

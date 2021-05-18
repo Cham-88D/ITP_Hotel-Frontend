@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
-import EventService from '../services/EventService';
+import EventServiceIT19067148 from '../services/EventServiceIT19067148';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
-class ListEventsComponent extends Component {
+class ListEventsComponentIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -34,7 +34,7 @@ class ListEventsComponent extends Component {
      deleteEvent(event_Id){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
-        EventService.deleteEvent(event_Id).then( res => {
+        EventServiceIT19067148.deleteEvent(event_Id).then( res => {
             this.setState({events: this.state.events.filter(event => event.event_Id !== event_Id)});
             //confirmtext="You Succesfully deleted event";
             this.notify2();
@@ -48,7 +48,7 @@ class ListEventsComponent extends Component {
      deleteOldEvent(){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
-           EventService.deleteOldEvent().then(res=>{
+           EventServiceIT19067148.deleteOldEvent().then(res=>{
              
           }) ;
           confirmtext="You Succesfully deleted attendance";
@@ -73,7 +73,7 @@ class ListEventsComponent extends Component {
     }
 
      componentDidMount(){
-         EventService.getEvent().then( (res) =>{
+         EventServiceIT19067148.getEvent().then( (res) =>{
         
             this.setState({events: res.data});
          });
@@ -142,4 +142,4 @@ class ListEventsComponent extends Component {
     }
 }
 
-export default ListEventsComponent;
+export default ListEventsComponentIT19067148;

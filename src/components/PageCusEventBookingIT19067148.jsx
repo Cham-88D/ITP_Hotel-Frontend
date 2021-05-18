@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Event.css';
+import './EventIT19067148.css';
 
-class PageCusEventBooking extends Component {
+class PageCusEventBookingIT19067148 extends Component {
     render() {
         return (
             <div>
@@ -48,4 +48,4 @@ class PageCusEventBooking extends Component {
     }
 }
 
-export default PageCusEventBooking;
+export default PageCusEventBookingIT19067148;

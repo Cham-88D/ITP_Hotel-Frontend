@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
-import EventBookingsService from '../services/EventBookingsService';
+import EventBookingsServiceIT19067148 from '../services/EventBookingsServiceIT19067148';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
-class ListEventBookingsComponent extends Component {
+class ListEventBookingsComponentIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -33,7 +33,7 @@ class ListEventBookingsComponent extends Component {
     deleteEventBooking(Booking_Id){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
-            EventBookingsService.deleteEventBooking(Booking_Id).then( res => {
+            EventBookingsServiceIT19067148.deleteEventBooking(Booking_Id).then( res => {
             this.setState({bookings: this.state.bookings.filter( booking => booking.booking_Id !== Booking_Id)});
             //confirmtext="You Succesfully deleted booking";
             this.notify2();
@@ -48,7 +48,7 @@ class ListEventBookingsComponent extends Component {
     deleteOldEventBooking(){
         var confirmtext;
         if(window.confirm("Are You Sure Want to Delete !")){
-            EventBookingsService.deleteOldEventBooking().then(res=>{
+            EventBookingsServiceIT19067148.deleteOldEventBooking().then(res=>{
           }) ;
           confirmtext="You Succesfully deleted attendance";
 
@@ -76,7 +76,7 @@ class ListEventBookingsComponent extends Component {
     }
     
     componentDidMount(){
-        EventBookingsService.getEventBookings().then((res) => {
+        EventBookingsServiceIT19067148.getEventBookings().then((res) => {
 
 
             this.setState({bookings:res.data});
@@ -166,4 +166,4 @@ class ListEventBookingsComponent extends Component {
     }
 }
 
-export default ListEventBookingsComponent;
+export default ListEventBookingsComponentIT19067148;

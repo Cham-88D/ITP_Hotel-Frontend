@@ -41,9 +41,9 @@ render(<Example />, document.querySelector("#root"));
 //generate Report   */ 
 
 import React, { Component } from 'react'
-import GenerateEventBooking from './GenerateEventBooking';
+import GenerateEventBookingIT19067148 from './GenerateEventBookingIT19067148';
 import ReactToPrint from 'react-to-print';
-import './Event.css';
+import './EventIT19067148.css';
 export default class example extends Component {
     render() {
         return (
@@ -57,7 +57,7 @@ export default class example extends Component {
                 }}
                 content={() => this.componentRef}
               />
-              <GenerateEventBooking ref={el => (this.componentRef = el)} />
+              <GenerateEventBookingIT19067148 ref={el => (this.componentRef = el)} />
             </div>
             </div>
         )

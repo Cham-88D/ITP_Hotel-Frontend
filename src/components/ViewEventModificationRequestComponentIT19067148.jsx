@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import EventModificationRequestService from '../services/EventModificationRequestService';
+import EventModificationRequestServiceIT19067148 from '../services/EventModificationRequestServiceIT19067148';
 
-class ViewEventModificationRequestComponent extends Component {
+class ViewEventModificationRequestComponentIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -13,7 +13,7 @@ class ViewEventModificationRequestComponent extends Component {
     }
 
     componentDidMount(){
-        EventModificationRequestService.getEv_Modification_RequestById(this.state.ev_M_ID).then( res =>{
+        EventModificationRequestServiceIT19067148.getEv_Modification_RequestById(this.state.ev_M_ID).then( res =>{
             this.setState({eventModificationRequest: res.data});
             
         })
@@ -54,4 +54,4 @@ class ViewEventModificationRequestComponent extends Component {
     }
 }
 
-export default ViewEventModificationRequestComponent;
+export default ViewEventModificationRequestComponentIT19067148;

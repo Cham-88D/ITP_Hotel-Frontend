@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const EVENT_API_BASE_URL="http://localhost:8080/api/v1/events";
 
-class EventService {
+class EventServiceIT19067148 {
     getEvent(){
         return axios.get(EVENT_API_BASE_URL);
     }
@@ -20,4 +20,4 @@ class EventService {
     }
 }
 
-export default new EventService()
+export default new EventServiceIT19067148()

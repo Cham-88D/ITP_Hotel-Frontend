@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const EVENT_MODIFICATION_REQUEST_API_BASE_URL="http://localhost:8080/api/v1/ev_Modification_Requests";
 
-class EventModificationRequestService {
+class EventModificationRequestServiceIT19067148 {
     getAllEv_Modification_Requests(){
         //return axios.post(EVENT_MODIFICATION_REQUEST_API_BASE_URL);
         let x = axios.get(EVENT_MODIFICATION_REQUEST_API_BASE_URL);
@@ -21,4 +21,4 @@ class EventModificationRequestService {
         return axios.get(EVENT_MODIFICATION_REQUEST_API_BASE_URL + '/' + Ev_M_ID);
     }
 }
-export default new EventModificationRequestService()
+export default new EventModificationRequestServiceIT19067148()

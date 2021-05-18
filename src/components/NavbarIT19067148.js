@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import * as FaIcon from "react-icons/fa";
 import * as AiIcon from "react-icons/ai";
-import {SidebarData } from './SidebarData';
-import './NavBar.css';
+import {SidebarDataIT19067148 } from './SidebarDataIT19067148';
+import './NavBarIT19067148.css';
 import {IconContext} from 'react-icons';
 
-function Navbar() {
+function NavbarIT19067148() {
     const [sidebar,setSidebar]= useState(false);
 
     const showSlider = () => setSidebar(!sidebar);
@@ -29,7 +29,7 @@ function Navbar() {
 
                    </li>
 
-                   {SidebarData.map((item, index)=>{
+                   {SidebarDataIT19067148.map((item, index)=>{
                        return(
                           <li key= {index} className={item.cName}>
                               <Link to={item.path}>
@@ -47,4 +47,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default NavbarIT19067148

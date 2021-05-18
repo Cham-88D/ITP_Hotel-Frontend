@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import EventBookingsService from '../services/EventBookingsService';
+import EventBookingsServiceIT19067148 from '../services/EventBookingsServiceIT19067148';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 toast.configure()
 
-class UpdateEventBookingComponent extends Component {
+class UpdateEventBookingComponentIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -42,7 +42,7 @@ class UpdateEventBookingComponent extends Component {
     }
 
     componentDidMount(){
-        EventBookingsService.getEventBookingById(this.state.Booking_Id).then( (res) => {
+        EventBookingsServiceIT19067148.getEventBookingById(this.state.Booking_Id).then( (res) => {
             let bookings = res.data;
             this.setState({cusName: bookings.cus_Name, cusPhone: bookings.cus_Phone_No, eventType: bookings.booking_Type, eventPackage: bookings.booking_Package, eventDate: bookings.date, numOfParticipants: bookings.num_Participants, timeIn: bookings.time_In, timeOut:bookings.time_Out });
         });
@@ -52,7 +52,7 @@ class UpdateEventBookingComponent extends Component {
         e.preventDefault();
         let bookings = {cus_Name: this.state.cusName, cus_Phone_No: this.state.cusPhone, booking_Type: this.state.eventType, booking_Package: this.state.eventPackage, date: this.state.eventDate, num_Participants: this.state.numOfParticipants, time_In: this.state.timeIn, time_Out: this.state.timeOut};
         console.log('bookings => ' + JSON.stringify(bookings));
-        EventBookingsService.updateEventBooking(bookings,this.state.Booking_Id).then( res => {
+        EventBookingsServiceIT19067148.updateEventBooking(bookings,this.state.Booking_Id).then( res => {
             this.notify();
             this.props.history.push('/bookings');
         });
@@ -173,4 +173,4 @@ class UpdateEventBookingComponent extends Component {
     }
 }
 
-export default UpdateEventBookingComponent;
+export default UpdateEventBookingComponentIT19067148;

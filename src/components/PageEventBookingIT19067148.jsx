@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Event.css';
+import './EventIT19067148.css';
 
-class PageEventBooking extends Component {
+class PageEventBookingIT19067148 extends Component {
     render() {
         return (
             <div className="container">
@@ -15,4 +15,4 @@ class PageEventBooking extends Component {
     }
 }
 
-export default PageEventBooking;
+export default PageEventBookingIT19067148;

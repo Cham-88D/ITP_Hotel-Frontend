@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventBookingsService from '../services/EventBookingsService';
+import EventBookingsServiceIT19067148 from '../services/EventBookingsServiceIT19067148';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -25,7 +25,7 @@ const initialState = {
     timeOutError:''
 
 }
-class CusCreateEventBooking extends Component {
+class CusCreateEventBookingIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -107,7 +107,7 @@ class CusCreateEventBooking extends Component {
             let eventBooking = {cus_Name: this.state.cusName, cus_Phone_No: this.state.cusPhone, booking_Type: this.state.eventType, booking_Package: this.state.eventPackage, date: this.state.eventDate, num_Participants: this.state.numOfParticipants, time_In: this.state.timeIn, time_Out: this.state.timeOut};
             console.log('eventBooking => ' + JSON.stringify(eventBooking));
             this.setState(initialState);
-            EventBookingsService.createEventBooking(eventBooking).then(res => {
+            EventBookingsServiceIT19067148.createEventBooking(eventBooking).then(res => {
                 this.notify();
                 this.props.history.push('/cus-page-bookings'); 
             });
@@ -357,4 +357,4 @@ class CusCreateEventBooking extends Component {
     }
 }
 
-export default CusCreateEventBooking;
+export default CusCreateEventBookingIT19067148;

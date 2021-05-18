@@ -6,7 +6,7 @@ import * as GoIcon from "react-icons/go";
 import * as RiIcon from "react-icons/ri";
 import * as GiIcon from "react-icons/gi";
 
-export const SidebarData = [
+export const SidebarDataIT19067148 = [
     {
         title: 'Home',
         path:'/page-bookings',

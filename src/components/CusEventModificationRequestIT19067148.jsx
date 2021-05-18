@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventModificationRequestService from '../services/EventModificationRequestService';
+import EventModificationRequestServiceIT19067148 from '../services/EventModificationRequestServiceIT19067148';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -18,7 +18,7 @@ const initialState = {
               daysRemainBookingError:'',
               messageError:''
 }
-class CusEventModificationRequest extends Component {
+class CusEventModificationRequestIT19067148 extends Component {
     constructor(props){
         super(props)
 
@@ -85,7 +85,7 @@ class CusEventModificationRequest extends Component {
             let eventModificationRequest = { email:this.state.email, reason:this.state.reason, days_Remain_Booking:this.state.daysRemainBooking, message:this.state.message};
             console.log('eventModificationRequest => ' + JSON.stringify(eventModificationRequest));
            
-            EventModificationRequestService.createEv_Modification_Request(eventModificationRequest).then(res =>{
+            EventModificationRequestServiceIT19067148.createEv_Modification_Request(eventModificationRequest).then(res =>{
                 this.notify();
                 this.props.history.push('/cus-page-bookings');
             });
@@ -204,4 +204,4 @@ class CusEventModificationRequest extends Component {
     }
 }
 
-export default CusEventModificationRequest;
+export default CusEventModificationRequestIT19067148;
