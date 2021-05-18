@@ -11,7 +11,7 @@ class CreateFoodCountComponent extends Component {
         super(props)
 
         this.state = {
-            //step 2
+            
             count_id: this.props.match.params.count_id,
             name: '',
             date: '',
@@ -29,10 +29,10 @@ class CreateFoodCountComponent extends Component {
         this.saveOrUpdatefoodcount = this.saveOrUpdatefoodcount.bind(this);
     }
 
-    //step 3
+    
     componentDidMount(){
 
-        //step 4
+        
         if(this.state.count_id === '_add'){
             return
         }else{
@@ -97,7 +97,7 @@ class CreateFoodCountComponent extends Component {
         if (isValid){
             console.log('foodcount => ' +JSON.stringify(foodcount));
 
-            //step 5
+            
             if(this.state.count_id === '_add'){
                 FoodCountService.createFoodCount(foodcount).then(res =>{
                     this.notify();
