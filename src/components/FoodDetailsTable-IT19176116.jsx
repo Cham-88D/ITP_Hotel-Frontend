@@ -35,13 +35,13 @@ class FoodDetailsComponent extends Component {
         if(window.confirm("Are You Sure Want to Delete !")){
             FoodDetailService.deleteFoodDetail(food_Id).then(res=>{
                 this.setState({foodDetails: this.state.foodDetails.filter(foodDetails => foodDetails.food_Id !== food_Id)});
-                 //confirmtext="You Succesfully deleted food count";
+                 
                  this.notify2();
                 
            }) ;
         }else{
             this.notify1();
-             //confirmtext="You pressed cancel Try again";
+             
          }
 
 
@@ -51,19 +51,7 @@ class FoodDetailsComponent extends Component {
 
     }
 
-//     deleteoldfooddetails(){
-//         var confirmtext;
-//         if(window.confirm("Are You Sure Want to Delete !")){
-//             FoodDetailService.deleteoldfooddetails().then(res=>{
-               
-//           }) ;
-//           confirmtext="You Succesfully deleted food detail";
 
-//         }else{
-//            confirmtext="You pressed cancel Try again";
-//         }
-          
-//    }
 
     editFoodDetail(food_Id){
         this.props.history.push(`/add-foodDetails/${food_Id}`);
