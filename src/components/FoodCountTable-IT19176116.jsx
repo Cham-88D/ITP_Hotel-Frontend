@@ -32,18 +32,14 @@ class FoodCountComponent extends Component {
         if(window.confirm("Are You Sure Want to Delete !")){
             FoodCountService.deleteFoodCount(count_id).then(res=>{
                 this.setState({foodCount: this.state.foodCount.filter(foodcounts => foodcounts.count_id !== count_id)});
-                //confirmtext="You Succesfully deleted food count";
+                
                 this.notify2();
            }) ;
         }else{
             this.notify1();
-            //confirmtext="You pressed cancel Try again";
+            
          }
 
-
-        // FoodCountService.deleteFoodCount(count_id).then( res => {
-        //     this.setState({foodCount: this.state.foodCount.filter(foodcounts => foodcounts.count_id !== count_id)});
-        // });
 
     }
 
