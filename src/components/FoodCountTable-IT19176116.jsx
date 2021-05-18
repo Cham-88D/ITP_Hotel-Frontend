@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FoodCountService from '../services/FoodCountService';
-import '../styles/table.css';
+import FoodCountService from '../services/FoodCountService-IT19176116';
+import '../styles/table-IT19176116.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

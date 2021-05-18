@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FoodDetailsReportGenerate from './FoodDetailsReportGenerate';
+import FoodDetailsReportGenerate from './FoodDetailsReportGenerate-IT19176116';
 import ReactToPrint from 'react-to-print';
 export default class example extends Component {
     render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FoodDetailService from '../services/FoodDetailService';
-import '../styles/form.css';
+import FoodDetailService from '../services/FoodDetailService-IT19176116';
+import '../styles/form-IT19176116.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 

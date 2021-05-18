@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FoodCountService from '../services/FoodCountService';
+import FoodCountService from '../services/FoodCountService-IT19176116';
 
 class ViewFoodCountComponent extends Component {
     constructor(props){

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FoodDetailService from '../services/FoodDetailService';
-import '../styles/table.css';
+import FoodDetailService from '../services/FoodDetailService-IT19176116';
+import '../styles/table-IT19176116.css';
 
 class FoodDetailsReportGenerate extends Component {
     constructor(props){
