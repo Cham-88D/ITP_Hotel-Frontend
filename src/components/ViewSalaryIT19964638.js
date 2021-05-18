@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SalaryServices from '../adapters/SalaryServices'
-import '../styles/AddSalary.css';
+import SalaryServices from '../adapters/SalaryServicesIT19964638'
+import '../styles/AddSalaryIT19964638.css';
 
 export default class ViewSalary extends Component {
     constructor(props){

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import '../styles/DailyAttend.css';
-import AttendanceService from '../adapters/AttendanceService';
+import '../styles/DailyAttendIT19964638.css';
+import AttendanceService from '../adapters/AttendanceServiceIT19964638';
 import ReactToPrint from 'react-to-print';
 import { render } from '@testing-library/react';
 export default class GenerateReport extends Component {

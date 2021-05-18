@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
-import AttendanceService from '../adapters/AttendanceService';
-import '../styles/AddAttend.css';
+import AttendanceService from '../adapters/AttendanceServiceIT19964638';
+import '../styles/AddAttendIT19964638.css';
 
 export default class UpdateAttendanceDetail extends Component {
      

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import '../styles/AddAttend.css'
-import MonthlyAttendanceService from '../adapters/MonthlyAttendanceService'
+import '../styles/AddAttendIT19964638.css'
+import MonthlyAttendanceService from '../adapters/MonthlyAttendanceServiceIT19964638'
 export default class AddMonthlyAttendFrom extends Component {
     constructor(props){
         super(props)

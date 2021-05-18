@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import PayrollService from '../adapters/PayrollService';
+import PayrollService from '../adapters/PayrollServiceIT19964638';
 import jsPDF from 'jspdf';  
 import html2canvas from 'html2canvas';  
 

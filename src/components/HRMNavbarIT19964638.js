@@ -2,8 +2,8 @@ import React,{useState} from 'react';
 import* as FaIcons from "react-icons/fa";
 import* as IoIcons from "react-icons/io5";
 import{Link} from'react-router-dom';
-import{SidebarData} from './HRMNavbarData';
-import '../styles/HRMNavbar.css';
+import{SidebarData} from './HRMNavbarDataIT19964638';
+import '../styles/HRMNavbarIT19964638.css';
 import { IconContext } from 'react-icons/lib';
 function Navbar() {
     const [sidebar,setSidebar]=useState(false);

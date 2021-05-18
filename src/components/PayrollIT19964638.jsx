@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import SalaryServices from '../adapters/SalaryServices';
-import PayrollService from '../adapters/PayrollService';
-import MonthlyAttendanceService from '../adapters/MonthlyAttendanceService';
-import '../styles/payroll.css';
+import SalaryServices from '../adapters/SalaryServicesIT19964638';
+import PayrollService from '../adapters/PayrollServiceIT19964638';
+import MonthlyAttendanceService from '../adapters/MonthlyAttendanceServiceIT19964638';
+import '../styles/payrollIT19964638.css';
 
 
 export default class Payroll extends Component {

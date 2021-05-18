@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import GenerateReport from './GenerateReport';
+import GenerateReport from './GenerateReportIT19964638';
 import ReactToPrint from 'react-to-print';
-import '../styles/AddSalary.css';
+import '../styles/AddSalaryIT19964638.css';
 export default class AttendanceReportGenarate extends Component {
     render() {
         return (

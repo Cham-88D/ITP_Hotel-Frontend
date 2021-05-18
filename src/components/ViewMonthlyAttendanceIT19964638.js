@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import '../styles/MonthlyAttend.css'
-import '../styles/DailyAttend.css';
-import MonthlyAttendanceService from '../adapters/MonthlyAttendanceService'
-import AttendanceService from '../adapters/AttendanceService';
+import '../styles/MonthlyAttendIT19964638.css'
+import '../styles/DailyAttendIT19964638.css';
+import MonthlyAttendanceService from '../adapters/MonthlyAttendanceServiceIT19964638'
+import AttendanceService from '../adapters/AttendanceServiceIT19964638';
 export default class ViewMonthlyAttendance extends Component {
 
     constructor(props){

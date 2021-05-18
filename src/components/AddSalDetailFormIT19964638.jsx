@@ -1,31 +1,29 @@
 import React, { Component } from 'react'
-import SalaryServices from '../adapters/SalaryServices';
-import '../styles/AddSalary.css';
+import SalaryServices from '../adapters/SalaryServicesIT19964638';
+import '../styles/AddSalaryIT19964638.css';
 
-class UpdateSalaryDetail extends Component {
+const initialState={
+    employee:{id:''},
+    role:'',
+    ot_rate:'',
+    allowance:'',
+    etf:'',
+    epf:'',
+    basic:'',
+    role_Error:'',
+    ot_rate_Error:'',
+    allowance_Error:'',
+    etf_Error:'',
+    epf_Error:'',
+    basic_Error:'',
 
 
+}
+ class AddSalDetailForm extends Component {
     constructor(props){
         super(props)
 
-        this.state={
-            // employee:{id:''},
-            id:this.props.match.params.id,
-            role:'',
-            ot_rate:'',
-            allowance:'',
-            etf:'',
-            epf:'',
-            basic:'',
-            // role_Error:'',
-            // ot_rate_Error:'',
-            // allowance_Error:'',
-            // etf_Error:'',
-            // epf_Error:'',
-            // basic_Error:'',
-        
-        
-        }
+        this.state=initialState;
 
 
 
@@ -41,61 +39,49 @@ class UpdateSalaryDetail extends Component {
 
     }
 
-//     validate=()=>{
-//     // let  role_Error='';
-//     let  ot_rate_Error='';
-//     let  allowance_Error='';
-//     let  etf_Error='';
-//     let  epf_Error='';
-//     let  basic_Error='';
+    validate=()=>{
+    // let  role_Error='';
+    let  ot_rate_Error='';
+    let  allowance_Error='';
+    let  etf_Error='';
+    let  epf_Error='';
+    let  basic_Error='';
 
-//     if(!this.state.ot_rate){
-//         ot_rate_Error="In Time is required"
-//     }
-//     if(!this.state.allowance){
-//         allowance_Error="Allowance is required"
-//     }
-//     if(!this.state.etf){
-//         etf_Error="ETF is required"
-//     }
-//     if(!this.state.epf){
-//         epf_Error="EPF is required"
-//     }
-//     if(!this.state. basic){
-//         basic_Error="Basic is required"
-//     }
-//     if(ot_rate_Error||allowance_Error||etf_Error|| epf_Error||basic_Error){
-//         this.setState({ot_rate_Error,allowance_Error,etf_Error, epf_Error,basic_Error});
-//         return false;
-//     }
-
-//     return true;
-//   };  
-    componentDidMount(){
-        SalaryServices.getSalaryDetailById(this.state.id).then((res)=>{
-            let salaryDetail=res.data;
-            this.setState({
-                role:salaryDetail.role,
-                ot_rate:salaryDetail.ot_rate,
-                allowance:salaryDetail.allowance,
-                etf:salaryDetail.etf,
-                epf:salaryDetail.epf,
-                basic:salaryDetail.basic
-            });
-        });
+    if(!this.state.ot_rate){
+        ot_rate_Error="OT Rate is required"
+    }
+    if(!this.state.allowance){
+        allowance_Error="Allowance is required"
+    }
+    if(!this.state.etf){
+        etf_Error="ETF is required"
+    }
+    if(!this.state.epf){
+        epf_Error="EPF is required"
+    }
+    if(!this.state.basic){
+        basic_Error="Basic is required"
+    }
+    if(ot_rate_Error||allowance_Error||etf_Error|| epf_Error||basic_Error){
+        this.setState({ot_rate_Error,allowance_Error,etf_Error, epf_Error,basic_Error});
+        return false;
     }
 
-    updateSalaryDetail=(e)=>{
+    return true;
+  };  
+ 
+
+    saveSalaryDetail=(e)=>{
         e.preventDefault();
-        // const isValid=this.validate();
-        // if(isValid){
-            let salaryDetail={role:this.state.role,ot_rate:this.state.ot_rate,allowance:this.state.allowance,basic:this.state.basic,etf:this.state.etf,epf:this.state.epf};
+        const isValid=this.validate();
+        if(isValid){
+            let salaryDetail={role:this.state.role,ot_rate:this.state.ot_rate,allowance:this.state.allowance,basic:this.state.basic,etf:this.state.etf,epf:this.state.epf,employee:{id:this.state.employee.id}};
             console.log('salaryDetail=>'+JSON.stringify(salaryDetail));
-            SalaryServices.updateSalaryDetail(salaryDetail,this.state.id).then(res=>{
+            SalaryServices.insertSalaryDetail(salaryDetail).then(res=>{
+
                 this.props.history.push('/manageSalary');
             });
-            
-        // }
+        }
         
     }
 
@@ -121,32 +107,54 @@ class UpdateSalaryDetail extends Component {
         this.setState({epf:event.target.value});
     }
     
-    
+    cancel(){
+        this.props.history.push('/manageSalary');
+    }
     
     render() {
         return (
-                <div className="formcontainer1">
+                <div className="formcontainer">
                     <div className="formaddsal">
                     <form className="form" >
-                    <h3 className='caption'>Update Salary Details</h3>
-                        
+                    <h3 className='caption'>Add Salary Details</h3>
+                        <div className="forminputs">
+                            <label htmlFor="employeeId" className='formlabel'>
+                            Employee ID
+                            </label>
+                            <input 
+                                id='employeeId'
+                                type="text" 
+                                name='id'
+                                className='forminput'
+                                placeholder='Employee ID'
+                                value={this.state.employee.id}
+                                onChange={this.changeEmployeeIdHandler}/>
+                                {/* {errors.employeeId && <p>{errors.employeeId}</p>} */}
+                        </div>
                         
                         
                         <div className="forminputs">
                             <label htmlFor="inTime" className='formlabel'>
                             Role
                             </label>
-                            <input 
+                            <select
                                 id='role'
                                 type="text" 
                                 name='role'
                                 className='forminput'
                                 placeholder='Role'
                                 value={this.state.role}
-                                onChange={this.changeRoleHandler}/>
-                                <div className='input_Error'>
+                                onChange={this.changeRoleHandler}>
+                                <option value ="CHOOSE"></option>
+                                <option value ="manager">manager</option>
+                                <option value ="housekeeper">housekeeper</option>
+                   
+
+                            </select>
+
+                                {/* <div className='input_Error'>
                                     {this.state.role_Error}
-                                </div>
+                                </div> */}
                                 {/* {errors.inTime && <p>{errors.inTime}</p>} */}
                         </div>
                         <div className="forminputs">
@@ -235,8 +243,8 @@ class UpdateSalaryDetail extends Component {
                                 {/* {errors.type && <p>{errors.type}</p>} */}
                         </div>
                         <div >
-                            <button className='forminputbtn1' onClick={this.updateSalaryDetail} type='submit'>Save </button>
-                            <button className='forminputbtn2' type='reset'>Reset</button>
+                            <button className='forminputbtn1' onClick={this.saveSalaryDetail} type='submit'>Save </button>
+                            <button className='forminputbtn2' onClick={this.cancel.bind(this)} type="reset">Cancel</button>
     
                         </div>
                         
@@ -248,4 +256,4 @@ class UpdateSalaryDetail extends Component {
         )
     }
 }
-export default UpdateSalaryDetail;
+export default AddSalDetailForm
