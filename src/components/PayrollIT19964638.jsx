@@ -100,8 +100,8 @@ export default class Payroll extends Component {
                     };
                 //     PayrollService.insertPayroll(object).then(res=>{
                 //   insertpayrollDetails(object);
-                    // console.log(object)
-                        
+                    console.log(object)
+                    final_employ_all_data[p] = object;
                 //   });
           
                     
@@ -110,8 +110,9 @@ export default class Payroll extends Component {
                 }
                 
             }
-            final_employ_all_data[p] = object;
-            console.log(final_employ_all_data[p]);
+           
+            
+            // console.log(final_employ_all_data[p]);
         }
         console.log(final_employ_all_data);
         
