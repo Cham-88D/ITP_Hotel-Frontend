@@ -245,11 +245,11 @@ class CreateBeverageComponent extends Component {
                         width={100}
                         timeout={3000}
                     />) : (
-                        <div className="container">
+                        <div className="container" style={{ marginTop: "15px" }}>
                             {this.state.localNotification !== "" && this.state.localNotification !== null ? (<Alert message={this.state.localNotification} type={this.state.notificationType} />) : null}
                             <div className="row">
-                                <div className="card col-md-6 offset-md-3 offset-md-3">
-                                    <h3 className="text-center">Add Beverages</h3>
+                                <div className="card col-md-6 offset-md-3 offset-md-3" style={{ marginTop: "8px" }}> 
+                                    <h3 className="text-center" style={{ marginTop: "8px" }}>Add Beverages</h3>
 
 
                                     <button id="bt1" style={{ display: "block" }} onClick={AddCategoryBar}>Add Category</button>
