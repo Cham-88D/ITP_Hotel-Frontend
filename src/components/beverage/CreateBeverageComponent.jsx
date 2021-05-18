@@ -46,42 +46,42 @@ class CreateBeverageComponent extends Component {
     validateForm() {
         const { b_Type, b_Name, unit_Price, discount, description } = this.state;
 
+        let bevTypeError = null;
+        let nameError = null;
+        let descriptionError = null;
+        let priceError = null;
+        let discountError = null;
+
         let hasError = false;
-        if (b_Type === "" || b_Type === null) {
-            this.setState({
-                ...this.state,
-                bevTypeError: "Beverage type is required!"
-            })
+        if (b_Type === "" || b_Type === null || b_Type===undefined) {
+            bevTypeError = "Beverage type is required!"
             hasError = true;
         }
-        if (b_Name === "" || b_Name === null) {
-            this.setState({
-                ...this.state,
-                nameError: "Beverage name is required!"
-            })
+        if (b_Name === "" || b_Name === null || b_Name===undefined) {
+            nameError = "Beverage name is required!"
             hasError = true;
         }
-        if (description === "" || description === null) {
-            this.setState({
-                ...this.state,
-                descriptionError: "Beverage description is required!"
-            })
+        if (description === "" || description === null || description===undefined) {
+            descriptionError = "Beverage description is required!"
             hasError = true;
         }
-        if (unit_Price === "" || unit_Price === null || unit_Price < 1) {
-            this.setState({
-                ...this.state,
-                priceError: "Price should be valid and is required!"
-            })
+        if (unit_Price === "" || unit_Price === null || unit_Price < 1 || isNaN(unit_Price)) {
+            priceError = "Price should be valid and is required!"
             hasError = true;
         }
-        if (discount === "" || discount === null || discount < 1 || discount > 100) {
-            this.setState({
-                ...this.state,
-                discountError: "Discount should be valid and is required!"
-            })
+        if (discount === "" || discount === null || discount < 0 || discount > 100 || isNaN(discount)) {
+            discountError = "Discount should be valid!"
             hasError = true;
         }
+        this.setState({
+            ...this.state,
+            bevTypeError,
+            nameError,
+            descriptionError,
+            priceError,
+            discountError
+
+        })
         return hasError;
     }
 
@@ -170,7 +170,7 @@ class CreateBeverageComponent extends Component {
     }
 
     onChangeBevType = (event) => {
-        this.setState({ ...this.state, b_Type: event.target.value,bevTypeError:null });
+        this.setState({ ...this.state, b_Type: event.target.value, bevTypeError: null });
     }
 
     changeBeverageTypeHandler = (event) => {
@@ -178,16 +178,16 @@ class CreateBeverageComponent extends Component {
     }
 
     changeBeverageNameHandler = (event) => {
-        this.setState({ ...this.state, b_Name: event.target.value, nameError:null });
+        this.setState({ ...this.state, b_Name: event.target.value, nameError: null });
     }
     changeUnitPriceHandler = (event) => {
-        this.setState({ ...this.state, unit_Price: event.target.value,priceError:null });
+        this.setState({ ...this.state, unit_Price: event.target.value, priceError: null });
     }
     changeDiscountHandler = (event) => {
-        this.setState({ ...this.state, discount: event.target.value,discountError:null });
+        this.setState({ ...this.state, discount: event.target.value, discountError: null });
     }
     changeDescriptionHandler = (event) => {
-        this.setState({ ...this.state, description: event.target.value, descriptionError:null });
+        this.setState({ ...this.state, description: event.target.value, descriptionError: null });
     }
     cancel() {
         this.props.history.push('/beverages');
@@ -248,7 +248,7 @@ class CreateBeverageComponent extends Component {
                         <div className="container" style={{ marginTop: "15px" }}>
                             {this.state.localNotification !== "" && this.state.localNotification !== null ? (<Alert message={this.state.localNotification} type={this.state.notificationType} />) : null}
                             <div className="row">
-                                <div className="card col-md-6 offset-md-3 offset-md-3" style={{ marginTop: "8px" }}> 
+                                <div className="card col-md-6 offset-md-3 offset-md-3" style={{ marginTop: "8px" }}>
                                     <h3 className="text-center" style={{ marginTop: "8px" }}>Add Beverages</h3>
 
 

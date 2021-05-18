@@ -67,13 +67,13 @@ class UpdateBeverageComponent extends Component {
         });
     }
 
-    onSuccessUpdate(){
+    onSuccessUpdate() {
         confirmAlert({
             title: 'Successfully Updated!',
             buttons: [
                 {
                     label: 'OK',
-                    onClick: () => {this.props.history.push('/beverages');}
+                    onClick: () => { this.props.history.push('/beverages'); }
                 }
             ]
         });
@@ -82,42 +82,41 @@ class UpdateBeverageComponent extends Component {
     validateForm() {
         const { b_Type, b_Name, unit_Price, discount, description } = this.state;
 
+        let bevTypeError = null;
+        let nameError = null;
+        let descriptionError = null;
+        let priceError = null;
+        let discountError = null;
+
         let hasError = false;
-        if (b_Type === "" || b_Type === null) {
-            this.setState({
-                ...this.state,
-                bevTypeError: "Beverage type is required!"
-            })
+        if (b_Type === "" || b_Type === null || b_Type === undefined) {
+            bevTypeError = "Beverage type is required!"
             hasError = true;
         }
-        if (b_Name === "" || b_Name === null) {
-            this.setState({
-                ...this.state,
-                nameError: "Beverage name is required!"
-            })
+        if (b_Name === "" || b_Name === null || b_Name === undefined) {
+            nameError = "Beverage name is required!"
             hasError = true;
         }
-        if (description === "" || description === null) {
-            this.setState({
-                ...this.state,
-                descriptionError: "Beverage description is required!"
-            })
+        if (description === "" || description === null || description === undefined) {
+            descriptionError = "Beverage description is required!"
             hasError = true;
         }
-        if (unit_Price === "" || unit_Price === null || unit_Price < 1) {
-            this.setState({
-                ...this.state,
-                priceError: "Price should be valid and is required!"
-            })
+        if (unit_Price === "" || unit_Price === null || unit_Price < 1 || isNaN(unit_Price)) {
+            priceError = "Price should be valid and is required!"
             hasError = true;
         }
-        if (discount === "" || discount === null || discount < 1 || discount > 100) {
-            this.setState({
-                ...this.state,
-                discountError: "Discount should be valid and is required!"
-            })
+        if (discount === "" || discount === null || discount < 0 || discount > 100 || isNaN(discount)) {
+            discountError = "Discount should be valid!"
             hasError = true;
         }
+        this.setState({
+            ...this.state,
+            bevTypeError,
+            nameError,
+            descriptionError,
+            priceError,
+            discountError
+        })
         return hasError;
     }
 
@@ -134,7 +133,7 @@ class UpdateBeverageComponent extends Component {
                 this.setState({
                     ...this.state,
                     loading: false
-                },()=>{
+                }, () => {
                     this.onSuccessUpdate()
                 })
             }).catch(() => {
@@ -151,20 +150,20 @@ class UpdateBeverageComponent extends Component {
     }
 
     changeBeverageTypeHandler = (event) => {
-        this.setState({ b_Type: event.target.value,bevTypeError:null });
+        this.setState({ b_Type: event.target.value, bevTypeError: null });
     }
 
     changeBeverageNameHandler = (event) => {
-        this.setState({ b_Name: event.target.value,nameError:null });
+        this.setState({ b_Name: event.target.value, nameError: null });
     }
     changeUnitPriceHandler = (event) => {
-        this.setState({ unit_Price: event.target.value,priceError:null });
+        this.setState({ unit_Price: event.target.value, priceError: null });
     }
     changeDiscountHandler = (event) => {
-        this.setState({ discount: event.target.value, discountError:null });
+        this.setState({ discount: event.target.value, discountError: null });
     }
     changeDescriptionHandler = (event) => {
-        this.setState({ description: event.target.value, descriptionError:null });
+        this.setState({ description: event.target.value, descriptionError: null });
     }
     cancel() {
         this.props.history.push('/beverages');
