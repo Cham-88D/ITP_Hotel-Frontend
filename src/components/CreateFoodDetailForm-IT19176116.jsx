@@ -10,7 +10,7 @@ class CreateFoodDetailComponent extends Component {
         super(props)
 
         this.state = {
-            //step 2
+            
             food_Id: this.props.match.params.food_Id,
             food_Name: '',
             availability: '',
@@ -39,10 +39,10 @@ class CreateFoodDetailComponent extends Component {
         toast.warn('Food Detail Updated Successfully!', {position: toast.POSITION.TOP_CENTER})
     }
 
-    //step 3
+    
     componentDidMount(){
 
-        //step 4
+        
         if(this.state.food_Id === '_add'){
             return
         }else{
@@ -101,7 +101,7 @@ class CreateFoodDetailComponent extends Component {
         if (isValid){
             console.log('foodDetail => ' +JSON.stringify(foodDetail));
         
-            //step 5
+            
             if(this.state.food_Id === '_add'){
                 FoodDetailService.createFoodDetail(foodDetail).then(res =>{
                     this.notify();
