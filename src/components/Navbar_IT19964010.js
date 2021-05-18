@@ -35,9 +35,9 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import * as FaIcon from "react-icons/fa";
 import * as AiIcon from "react-icons/ai";
-import {SidebarData } from './SidebarData';
+import {SidebarData_IT19964010 } from './SidebarData_IT19964010';
 // import '.NavBar.css';
-import './NavBar.css';
+import './NavBar_IT19964010.css';
 
 import {IconContext} from 'react-icons';
 
@@ -64,7 +64,7 @@ function Navbar() {
 
                    </li>
 
-                   {SidebarData.map((item, index)=>{
+                   {SidebarData_IT19964010.map((item, index)=>{
                        return(
                           <li key= {index} className={item.cName}>
                               <Link to={item.path}>

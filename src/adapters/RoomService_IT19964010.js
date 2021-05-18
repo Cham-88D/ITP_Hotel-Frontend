@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ROOM_API_BASE_URL= "http://localhost:8080/api/v1/rooms";
 
-class RoomService{
+class RoomService_IT19964010{
 
     getAllRooms(){
         return axios.get(ROOM_API_BASE_URL);
@@ -29,4 +29,4 @@ class RoomService{
 
     
 }
-export default new RoomService()
+export default new RoomService_IT19964010()

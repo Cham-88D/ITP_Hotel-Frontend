@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RoomService from '../adapters/RoomService';
+import RoomService_IT19964010 from '../adapters/RoomService_IT19964010';
 
 
-class  UpdateRoomComponent extends Component {
+class  UpdateRoomComponent_IT19964010 extends Component {
     constructor(props){
         super(props)
 
@@ -20,7 +20,7 @@ class  UpdateRoomComponent extends Component {
     
     }
     componentDidMount(){
-        RoomService.getRoomById(this.state.id).then( (res) => {
+        RoomService_IT19964010.getRoomById(this.state.id).then( (res) => {
             let room = res.data;
             this.setState({
                 room_Type:room.room_Type,
@@ -34,7 +34,7 @@ class  UpdateRoomComponent extends Component {
         let room = {room_Type:this.state.room_Type,room_Status:this.state.room_Status,r_Price:this.state.r_Price }
         console.log('room =>' + JSON.stringify(room));
 
-        RoomService.updateRoom(room,this.state.id).then(res=>{
+        RoomService_IT19964010.updateRoom(room,this.state.id).then(res=>{
            this.props.history.push('/rooms') 
         });
 
@@ -120,4 +120,4 @@ class  UpdateRoomComponent extends Component {
     }
 }
 
-export default UpdateRoomComponent;
+export default UpdateRoomComponent_IT19964010;

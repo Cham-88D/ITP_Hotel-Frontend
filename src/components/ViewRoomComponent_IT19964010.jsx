@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import RoomService from '../adapters/RoomService';
+import RoomService_IT19964010 from '../adapters/RoomService_IT19964010';
 
-class ViewRoomComponent extends Component {
+class ViewRoomComponent_IT19964010 extends Component {
     constructor(props){
         super(props)
 
@@ -12,7 +12,7 @@ class ViewRoomComponent extends Component {
         }
     } 
     componentDidMount(){
-         RoomService.getRoomById(this.state.id).then( res =>{
+         RoomService_IT19964010.getRoomById(this.state.id).then( res =>{
             this.setState({room: res.data});
          })
     }
@@ -55,4 +55,4 @@ class ViewRoomComponent extends Component {
     }
 }
 
-export default ViewRoomComponent;
+export default ViewRoomComponent_IT19964010;

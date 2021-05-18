@@ -1,8 +1,8 @@
 // import React, { useEffect,Component } from 'react'
 import React, { Component } from 'react';
-import PaymentService from '../adapters/PaymentService';
+import PaymentService_IT19964010 from '../adapters/PaymentService_IT19964010';
 
-class ListpaymentComponent extends Component {
+class ListpaymentComponent_IT19964010 extends Component {
 
     constructor(props){
         super(props)
@@ -20,7 +20,7 @@ class ListpaymentComponent extends Component {
 
     
     componentDidMount(){
-        PaymentService.getAllPayments().then((res) => {
+        PaymentService_IT19964010.getAllPayments().then((res) => {
 
             this.setState({payments:res.data});
         });
@@ -122,5 +122,5 @@ class ListpaymentComponent extends Component {
     }
 }
 
-export default ListpaymentComponent;
+export default ListpaymentComponent_IT19964010;
 

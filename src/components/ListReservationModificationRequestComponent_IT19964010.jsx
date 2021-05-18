@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import ReservationRequestService from '../adapters/ReservationRequestService';
-class ListReservationModificationRequestComponent extends Component {
+import ReservationRequestService_IT19964010 from '../adapters/ReservationRequestService_IT19964010';
+class ListReservationModificationRequestComponent_IT19964010 extends Component {
 
     constructor(props){
         super(props)
@@ -17,7 +17,7 @@ class ListReservationModificationRequestComponent extends Component {
 
     
     componentDidMount(){
-        ReservationRequestService.getAllRes_Modification_Requests().then((res) => {
+        ReservationRequestService_IT19964010.getAllRes_Modification_Requests().then((res) => {
 
             this.setState({res_modification_requests:res.data});
         });
@@ -31,7 +31,7 @@ class ListReservationModificationRequestComponent extends Component {
     deleteRes_Modification_Request(id){
         var confirmtext;
            if(window.confirm("Are You Sure You want to Delete This Reservation Modify Request !")){
-                ReservationRequestService.deleteRes_Modification_Requests(id).then(res =>{
+                ReservationRequestService_IT19964010.deleteRes_Modification_Requests(id).then(res =>{
                 this.setState({res_modification_requests:this.state.res_modification_requests.filter(res_modification_request=>res_modification_request.reserve_M_Id!==id)});
                 confirmtext="You Succesfully deleted Rservation";
                         }) ;
@@ -107,4 +107,4 @@ class ListReservationModificationRequestComponent extends Component {
 }
 
 
-export default ListReservationModificationRequestComponent;
+export default ListReservationModificationRequestComponent_IT19964010;

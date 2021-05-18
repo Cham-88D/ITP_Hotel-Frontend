@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const RESERVATION_API_BASE_URL= "http://localhost:8080/api/v1/res_modification_requests";
 
-class ReservationRequestService{
+class ReservationRequestService_IT19964010{
 
     getAllRes_Modification_Requests(){
         return axios.get(RESERVATION_API_BASE_URL);
@@ -28,4 +28,4 @@ class ReservationRequestService{
 
     
 }
-export default new ReservationRequestService()
+export default new ReservationRequestService_IT19964010()

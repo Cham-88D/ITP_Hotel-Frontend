@@ -1,34 +1,31 @@
+
 import React, { Component } from 'react';
-import ReservationService from '../adapters/ReservationService';
 
+import ReservationService_IT19964010 from '../adapters/ReservationService_IT19964010';
 
-const initialState={
-    cus_Name:'',
-    cus_Phone:'',
-    check_In:'',
-    check_Out:'',
-    no_Of_Ac_Rooms:'',
-    no_Of_Non_Ac_Rooms:'',
-    no_Of_Child:'',
-    no_Of_Adult:'',
-   
-
-
-    cus_NameError:'',
-    cus_PhoneError:'',
-    check_InError:'',
-    check_OutError:'',
-    no_Of_Ac_RoomsError:'',
-    no_Of_Non_Ac_RoomsError:'',
-    no_Of_ChildError:'',
-    no_Of_AdultError:'',
-       
-}
-class CreateReservationComponent extends Component {
+class UpdateReservation_IT19964010 extends Component {
     constructor(props){
         super(props)
 
-        this.state=initialState;
+        this.state={
+
+        id: this.props.match.params.id,
+        cus_Name:'',
+        cus_Phone:'',
+        check_In:'',
+        check_Out:'',
+        no_Of_Ac_Rooms:'',
+        no_Of_Non_Ac_Rooms:'',
+        no_Of_Child:'',
+        no_Of_Adult:'',
+   
+
+}
+// class UpdateReservation extends Component {
+//     constructor(props){
+//         super(props)
+
+//         this.state=initialState;
            
     this.changecus_NameHandler=this.changecus_NameHandler.bind(this);
     this.changecus_PhoneHandler= this.changecus_PhoneHandler.bind(this);
@@ -40,74 +37,45 @@ class CreateReservationComponent extends Component {
     this.changeno_Of_AdultHandler= this.changeno_Of_AdultHandler.bind(this);
 
 
-    this.saveReservation=this.saveReservation.bind(this);
+//     // this.saveReservation=this.saveReservation.bind(this);
 
 }
 
 
-validate=()=>{
-    let cus_NameError='';
-    let cus_PhoneError='';
-    let check_InError='';
-    let check_OutError='';
-    let no_Of_Ac_RoomsError='';
-    let no_Of_Non_Ac_RoomsError='';
-    let no_Of_ChildError='';
-    let no_Of_AdultError='';
-   
+componentDidMount(){
+    ReservationService_IT19964010.getReservationtById(this.state.id).then( (res) => {
+        let reservation = res.data;
+        this.setState({
+            cus_Name:reservation.cus_Name,
+            cus_Phone:reservation.cus_Phone,
+            check_In:reservation.check_In,
+            check_Out:reservation.check_Out,
+            no_Of_Ac_Rooms:reservation.no_Of_Ac_Rooms,
+            no_Of_Non_Ac_Rooms:reservation.no_Of_Non_Ac_Rooms,
+            no_Of_Child:reservation.no_Of_Child,
+            no_Of_Adult:reservation.no_Of_Adult,
+           
 
-    if(!this.state.cus_Name){
-        cus_NameError="Customer Name is Required !";
-    }
-    if(!this.state.cus_Phone){
-        cus_PhoneError="Customer Phone is Required !";
-    }
-    if(!this.state.check_In){
-        check_InError="Check In Time is Required !";
-    }
-    if(!this.state.check_Out){
-        check_OutError="Check Out Time is Required !";
-    }
-    if(!this.state.no_Of_Ac_Rooms ){
-        no_Of_Ac_RoomsError="Number Of AC Rooms is Required !";
-    }
-    if(!this.state.no_Of_Non_Ac_Rooms){
-        no_Of_Non_Ac_RoomsError="Number Of NON AC Rooms is Required !";
-    }
-    if(!this.state.no_Of_Child){
-        no_Of_ChildError="Number Of Child is Required !";
-    }
-    if(!this.state.no_Of_Adult){
-        no_Of_AdultError="Customer Phone is Required !";
-    }
-   
-    // if(!this.state.r_Price<1000){
-    //     r_PriceError="Room Price is Required !";
-    // }
-    if(cus_NameError||cus_PhoneError||check_InError||check_OutError||no_Of_Ac_RoomsError||no_Of_Non_Ac_RoomsError||no_Of_ChildError||no_Of_AdultError){
-        this.setState({cus_NameError,cus_PhoneError,
-            check_InError,check_OutError,no_Of_Ac_RoomsError,
-        no_Of_Non_Ac_RoomsError,no_Of_ChildError,no_Of_AdultError});
-        return false;
-    }
-    return true;
-
-
-}
-saveReservation = (e) => {
-    e.preventDefault();
-    const isValid=this.validate();
-    if(isValid){
-        let reservation ={cus_Name:this.state.cus_Name, cus_Phone:this.state.cus_Phone,check_In:this.state.check_In,
-            check_Out:this.state.check_Out,no_Of_Ac_Rooms:this.state.no_Of_Ac_Rooms,no_Of_Non_Ac_Rooms:this.state.no_Of_Non_Ac_Rooms,
-            no_Of_Child:this.state.no_Of_Child,no_Of_Adult:this.state.no_Of_Adult};
-        console.log('reservation =>' + JSON.stringify(reservation));
-    
-        ReservationService.createReservation(reservation).then(res =>{
-            this.props.history.push('/reservations');
+            
         });
-    }
+    });
 }
+
+updateReservation =(e) => {
+    e.preventDefault();
+    let reservation ={cus_Name:this.state.cus_Name, cus_Phone:this.state.cus_Phone,check_In:this.state.check_In,
+                check_Out:this.state.check_Out,no_Of_Ac_Rooms:this.state.no_Of_Ac_Rooms,no_Of_Non_Ac_Rooms:this.state.no_Of_Non_Ac_Rooms,
+                no_Of_Child:this.state.no_Of_Child,no_Of_Adult:this.state.no_Of_Adult};
+                console.log('reservation =>' + JSON.stringify(reservation));
+
+                ReservationService_IT19964010.createReservation(reservation).then(res =>{
+                     this.props.history.push('/reservations');
+                });
+
+   
+}
+
+
 changecus_NameHandler= (event) => {
     this.setState({cus_Name:event.target.value});
 }
@@ -144,13 +112,10 @@ cancel(){
 }
 render() {
     return (
-
-
-        
         <div>
 
-
-        {/* <div>
+{/* 
+<div>
                 <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div className = "navbar-brand" >Room Reservation Management  </div>
@@ -160,10 +125,11 @@ render() {
             </div> */}
 
 
+
             <div className ="container">
                 <div className="row">
                     <div className= "card col-md-6 offset-md-3 offset-md-3">
-                        <h3 className=" text-center"> Add Reservation </h3>
+                        <h3 className=" text-center"> Update Reservation </h3>
                         <div className="card-body">
 
                             <form>
@@ -172,6 +138,8 @@ render() {
                                 <input placeholder="Room Type" name="room_Type" className="form-control"
                                     value={ this.state.room_Type} onChange={this.changeroom_TypeHandler} />
                                 </div> */}
+
+                                
 
                                 <div className="form-group">
                                 <label> Customer Name : </label>
@@ -190,7 +158,7 @@ render() {
                                 <div className="form-group">
                                 <label> Check In : </label>
                                 <input placeholder="Check In" name="check_In" className="formcontrol"
-                                    value={ this.state.check_In} onChange={this.changecheck_InHandler}  type="date"  />
+                                    value={ this.state.check_In} onChange={this.changecheck_InHandler} type="date"/>
                                  <div style={{fontSize: 12, color: "red"}}>{this.state.check_InError} </div>
                                 </div>
 
@@ -211,7 +179,7 @@ render() {
                                 <div className="form-group">
                                 <label>No Of Non Ac Rooms : </label>
                                 <input placeholder="No Of Non Ac Rooms" name="no_Of_Non_Ac_Rooms" className="formcontrol"
-                                    value={ this.state.rno_Of_Non_Ac_Rooms} onChange={this.changeno_Of_Non_Ac_RoomsHandler} />
+                                    value={ this.state.no_Of_Non_Ac_Rooms} onChange={this.changeno_Of_Non_Ac_RoomsHandler} />
                                  <div style={{fontSize: 12, color: "red"}}>{this.state.no_Of_Non_Ac_RoomsError} </div>
                                 </div>
 
@@ -232,7 +200,7 @@ render() {
                                 </div>
 
                                  
-                                <button className="btn btn-success" onClick={this.saveReservation}> Save </button>
+                                <button className="btn btn-success" onClick={this.updateReservation}> Update </button>
                                 <button className="btn btn-danger" style={{marginLeft: "10px" }} onClick={this.cancel.bind(this)}  > Cancel </button> 
                              </form>   
 
@@ -252,4 +220,4 @@ render() {
 
 
 
-export default CreateReservationComponent;
+export default UpdateReservation_IT19964010 ;

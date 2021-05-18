@@ -1,7 +1,8 @@
+
 import React, { Component } from 'react';
 
 
-import PaymentService from '../adapters/PaymentService';
+import PaymentService_IT19964010 from '../adapters/PaymentService_IT19964010';
 
 
 
@@ -17,7 +18,7 @@ const initialState={
     methodError:''
           
 }
-class CreatePaymentcomponent extends Component {
+class CusCreatePaymentComponent_IT19964010 extends Component  {
         constructor(props){
             super(props)
    
@@ -73,8 +74,8 @@ class CreatePaymentcomponent extends Component {
             let payment ={p_Date:this.state.p_Date, pay_For:this.state.pay_For,amount:this.state.amount,method:this.state.method};
             console.log('payment =>' + JSON.stringify(payment));
         
-            PaymentService.createPayment(payment).then(res =>{
-                this.props.history.push('/payments');
+            PaymentService_IT19964010.createPayment(payment).then(res =>{
+                this.props.history.push('/cus-res');
             });
         }
     }
@@ -96,26 +97,48 @@ class CreatePaymentcomponent extends Component {
     }
 
     cancel(){
-        this.props.history.push('/payments');
+        this.props.history.push('/home');
     }
 
 
     render() {
         return (
             <div>
-
-
-            {/* <div>
-                <header>
+ {/*<header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div className = "navbar-brand" >Room Reservation Management  </div>
+                    {/* <div><a href="https://javaguides.net" className="navbar-brand">Room Rservation Management</a></div>  */}
+                    {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navBarNav" aria-aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>   
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/home" style={{color:'orange'}}>Home <span className="sr-only"></span></a>
+                            </li>
+                            {/* <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/events-page" style={{color:'orange'}}>Rooms <span className="sr-only"></span></a>
+                            </li> */}
+                            {/* <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-res" style={{color:'orange'}}>Rooms<span className="sr-only"></span></a>
+                            </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-create-res" style={{color:'orange'}}>Room Reservation<span className="sr-only"></span></a>
+                            </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/view-reservation/:id" style={{color:'orange'}}>Your Booking<span className="sr-only"></span></a>
+                            </li>
+                             <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-res-req" style={{color:'orange'}}>Reservation Modification Request<span className="sr-only"></span></a>
+                            </li>
+                            <li className="nav-item active">
+                                <a className="nav-link" href="http://localhost:3000/cus-payments" style={{color:'orange'}}>Payment<span className="sr-only"></span></a>
+                            </li> */}
+                        {/* </ul>
 
+                    </div>
                     </nav>
-                </header>
-            </div> */}
 
-
-
+               </header> */}
 
                 <div className ="container">
                     <div className="row">
@@ -155,7 +178,7 @@ class CreatePaymentcomponent extends Component {
                                     <label> Payment Method: </label><br/>
                                         <select placeholder="CHOOSE" value={this.state.method}  name="method" className="formcontrol"
                                             onChange={this.changemethodHandler}> 
-                                             <option></option>
+                                            <option></option>
                                             <option > Mastercard</option>
                                             <option> Debitcard</option>
                                             <option > Electronic bank transfer</option>
@@ -188,4 +211,4 @@ class CreatePaymentcomponent extends Component {
     }
 }
 
-export default CreatePaymentcomponent;
+export default CusCreatePaymentComponent_IT19964010;

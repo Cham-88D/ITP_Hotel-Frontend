@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import PaymentService from '../adapters/PaymentService';
+import PaymentService_IT19964010 from '../adapters/PaymentService_IT19964010';
 
-class ViewPaymentComponent extends Component {
+class ViewPaymentComponent_IT19964010 extends Component {
     constructor(props){
         super(props)
 
@@ -13,7 +13,7 @@ class ViewPaymentComponent extends Component {
         }
     } 
     componentDidMount(){
-        PaymentService.getPaymentById(this.state.id).then( res =>{
+        PaymentService_IT19964010.getPaymentById(this.state.id).then( res =>{
             this.setState({payment: res.data});
          })
     }
@@ -60,4 +60,4 @@ class ViewPaymentComponent extends Component {
     }
 }
 
-export default ViewPaymentComponent;
+export default ViewPaymentComponent_IT19964010;
