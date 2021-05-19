@@ -27,7 +27,6 @@ class ViewOrders extends Component {
         this.formateOrderDate = this.formateOrderDate.bind(this);
         this.onChangeFormFeild = this.onChangeFormFeild.bind(this);
         this.createNewOrder = this.createNewOrder.bind(this);
-        //this.downloadPdf = this.downloadPdf.bind(this);
         this.downloadAllPdf = this.downloadAllPdf.bind(this);
         this.onClickCompleteOrder = this.onClickCompleteOrder.bind(this);
         this.formatDate = this.formatDate.bind(this);
@@ -45,7 +44,6 @@ class ViewOrders extends Component {
             day = '0' + day;
     
         return [year, month, day].join('-');
-       // return new Date().toISOString().slice(0, 19).replace('T', ' ');
     }
 
     componentDidMount() {
@@ -103,29 +101,6 @@ class ViewOrders extends Component {
             })
         })
     }
-    /*downloadPdf(id, handlePrint) {
-        this.setState({
-            ...this.state,
-            isLoading: true
-        })
-        BillService.getBillByOrderId(id).then((res) => {
-            this.setState({
-                ...this.state,
-                isLoading: false,
-                billDetails: res.data[0]
-            }, () => {
-                handlePrint();
-            })
-        }).catch(() => {
-            this.setState({
-                ...this.state,
-                isLoading: false,
-                localNotification: "Something went wrong!",
-                notificationType: ALERT_TYPES.ERROR
-            })
-        })
-
-    }*/
 
     createNewOrder() {
         this.setState({
@@ -279,7 +254,8 @@ class ViewOrders extends Component {
                                     </div>
                                     <div style={{ flexGrow: "1" }}>
                                         <Fragment>
-                                            <div style={{ display: "none" }}>
+                                            <div style={{ display: "none" }}
+                                            >
                                                 <style type="text/css">
                                                     {"@media print{@page {size: landscape; margin: 10mm;}}"}
                                                 </style>
@@ -293,7 +269,7 @@ class ViewOrders extends Component {
                                             <ReactToPrint
                                                 copyStyles={true}
                                                 content={() => this.componentRef}
-                                                documentTitle={"Report"}
+                                                documentTitle={"Beverage Management Monthly Report"}
                                                 removeAfterPrint
                                             >
                                                 <PrintContextConsumer>
