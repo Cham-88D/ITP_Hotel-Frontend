@@ -18,6 +18,21 @@ import ViewMenuItem from './components/menuItems/ViewMenuItem';
 import AddOrder from './components/menuOrder/AddOrder';
 import DiscountPolicy from "./components/policy/index";
 
+import AddAttendForm from './components/AddAttendFormIT19964638';
+import UpdateSalaryDetail from './components/UpdateSalaryDetailIT19964638';
+import ViewSalary from './components/ViewSalaryIT19964638';
+import AddSalDetailForm from './components/AddSalDetailFormIT19964638';
+import ViewAttendance from './components/ViewAttendanceIT19964638';
+import UpdateAttendanceDetail from './components/UpdateAttendanceDetailIT19964638';
+import ViewMonthlyAttendance from './components/ViewMonthlyAttendanceIT19964638';
+import UpdatemonthlyAttendance from './components/UpdatemonthlyAttendanceIT19964638';
+import AddMonthlyAttendFrom from './components/AddMonthlyAttendFromIT19964638';
+import GenerateReport from './components/GenerateReportIT19964638';
+import Payroll from './components/PayrollIT19964638';
+import ViewPayslip from './components/ViewPayslipIT19964638';
+import AttendanceReportGenarate from './components/AttendanceReportGenarateIT19964638';
+
+
 
 function App() {
   return (
@@ -41,6 +56,20 @@ function App() {
             <Route path="/viewMenuItem/:id" component={ViewMenuItem}></Route>
             <Route path="/ViewOrder" component={AddOrder}></Route>
             <Route path="/policy" component={DiscountPolicy}></Route>
+
+            <Route path='/manageAttendance' component={ViewAttendance} />
+            <Route path='/addAttendance' component={AddAttendForm} />
+            <Route path='/manageSalary'  component={ViewSalary} />
+            <Route path='/updateMonthlyAttendance/:id'  component={UpdatemonthlyAttendance} />
+            <Route path='/addSalary'  component={AddSalDetailForm} />
+            <Route path='/updateAttendance/:id'  component={UpdateAttendanceDetail} />
+            <Route path='/updateSalary/:id'  component={UpdateSalaryDetail} />
+            <Route path='/monthlyAttendance'  component={ViewMonthlyAttendance} />
+            <Route path='/monthlyAttendanceAdd'  component={AddMonthlyAttendFrom} />
+            <Route path='/generateReport'  component={GenerateReport} />
+            <Route path='/attendancereport'  component={AttendanceReportGenarate} />
+            <Route path='/payroll'  component={Payroll} />
+            <Route path='/viewPalslip/:id'  component={ViewPayslip} />
           </Switch>
 
         </div>

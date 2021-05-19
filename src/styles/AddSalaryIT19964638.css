@@ -1,0 +1,421 @@
+.salary{
+  list-style-type: none;
+  
+}
+
+.salary li{
+  float: left;
+}
+
+.formcontainer {
+    /* margin: 100px auto; */
+    margin-left: 600px;
+    margin-top: 30px;
+    width: 300px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+    height: 640px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+  .formcontainer1 {
+    /* margin: 100px auto; */
+    margin-left: 600px;
+    margin-top: 30px;
+    width: 300px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+    height: 530px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+  .closebtn {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    font-size: 1.5rem;
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  
+  .formsuccess {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 80px;
+    color: #fff;
+  }
+  
+  .formcontentright {
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
+  }
+  
+  .form {
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .caption {
+    font-size: 1.5rem;
+    text-align: start;
+    border-radius: 5px;
+    font-family: ' Calibri';
+    font-weight: bold;
+    width: 92%;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+    margin-left: 30px;
+    color: rgb(36, 23, 23);
+    background: linear-gradient(
+        90deg,
+        rgb(190, 167, 63) 0%,
+        rgb(207, 201, 201) 100%
+      );
+  }
+  
+  .forminputs {
+    margin-bottom: 4px;
+    width: 80%;
+  }
+  
+  .forminputs p {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    color: #f00e0e;
+  }
+  
+  .formlabel {
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    color: rgb(3, 3, 3);
+  }
+  
+  .forminput {
+    display: block;
+    padding-left: 10px;
+    border: 1px solid black;
+    /* outline: 1px; */
+    border-radius: 2px;
+    height: 30px;
+    width: 250px;
+    /* border: none; */
+  }
+  .forminput:hover{
+    border-color: rgb(20, 20, 165);
+  } 
+  
+  .forminput::placeholder {
+    color: #595959;
+    font-size: 12px;
+  }
+  .input_Error{
+    color:red;
+    font-size: 11px;
+  }
+  .forminputbtn1 {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right:15px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      rgb(197, 161, 60) 0%,
+        rgb(190, 167, 63) 100%
+    );
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .forminputbtn1:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgb(221, 147, 9) 0%,
+      rgb(216, 163, 48) 100%
+    );
+    transition: all 0.4s ease-out;
+  }
+  
+  .forminputbtn2 {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      rgb(250, 32, 32) 0%,
+      rgb(233, 106, 106) 100%
+    );
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .forminputbtn2:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgb(189, 28, 28) 0%,
+      rgb(199, 4, 4) 100%
+    );
+    transition: all 0.4s ease-out;
+  }
+
+  .salarytable {
+   border-collapse: collapse;
+   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+   margin-left: 50px;
+   font-size: 0.9em;
+   min-width: 450px;
+  }
+  .salarytable thead tr{
+    background-color: #969090;
+    color:#ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  .salarytable th,
+  .salarytable td{
+    padding: 12px 15px;
+
+  }
+  .textcenter{
+    margin-left: 20%;
+  }
+    .salarytable tbody tr{
+      border-bottom: 1px solid #dddddd;
+    }
+    .salarytable tbody tr:nth-of-type(even){
+      background-color: #f3f3f3;
+
+    }
+    .salarytable tbody tr:last-of-type{
+      border-bottom: 2px solid #969090;
+    }
+
+    .btnbtninfo{
+      background-color: #60a0dd;
+      border-radius: 4px;
+      border-color:#3b7ebd ;
+      color: #ffffff;
+      height: 30px;
+      width: 70px;
+    }
+    .btnbtndanger{
+      background-color: #e60e0e;
+      border-radius: 4px;
+      border-color: #e60e0e;
+      color: #ffffff;
+      height: 30px;
+      width: 70px;
+    }
+    .tableheading {
+      font-size: 1.5rem;
+      text-align: start;
+      font-family: ' Calibri';
+      font-weight: bold;
+      width: 840px;
+      border-radius: 5px;
+      padding-left: 10px;
+      margin-bottom: 1rem;
+      margin-top: 60px;
+      margin-left: 32px;
+      color: rgb(36, 23, 23);
+      background: linear-gradient(
+          90deg,
+          rgb(190, 167, 63) 0%,
+          rgb(207, 201, 201) 100%
+        );
+    }
+    .tableinputbtn1 {
+      width: 70px;
+      height: 30px;
+      margin-top: 10px;
+      margin-right:1px;
+      border-radius: 2px;
+      background: linear-gradient(
+        90deg,
+        rgb(250, 32, 32) 0%,
+      rgb(233, 106, 106) 100%
+      );
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+    }
+      .tableinputbtn2{
+        width: 70px;
+        height: 30px;
+        margin-top: 10px;
+        margin-right:1px;
+        border-radius: 2px;
+        background: linear-gradient(
+          90deg,
+          rgb(197, 161, 60) 0%,
+          rgb(190, 167, 63) 100%
+        );
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+      }
+      .tableinputbtn1:hover {
+        cursor: pointer;
+        background: linear-gradient(
+          90deg,
+          rgb(189, 28, 28) 0%,
+          rgb(199, 4, 4) 100%
+        );
+        transition: all 0.4s ease-out;
+      }
+      .tableinputbtn2:hover {
+        cursor: pointer;
+        background: linear-gradient(
+          90deg,
+          rgb(221, 147, 9) 0%,
+          rgb(216, 163, 48) 100%
+        );
+        transition: all 0.4s ease-out;
+      }
+  /* .form-input-login {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: #fff;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .form-input-login a {
+    text-decoration: none;
+    color: #27cdff;
+    font-weight: 600;
+  } */
+
+
+  .salnav {
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .caption1 {
+    font-size: 1.5rem;
+    text-align: start;
+    border-radius: 5px;
+    font-family: ' Calibri';
+    font-weight: bold;
+    width: 230px;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: rgb(36, 23, 23);
+    background: linear-gradient(
+        90deg,
+        rgb(190, 167, 63) 0%,
+        rgb(207, 201, 201) 100%
+      );
+  }
+
+  .salnavcontainer {
+    /* margin: 100px auto; */
+    margin-left: 330px;
+    margin-top: 50px;
+    width: 280px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 2px;
+    height: 150px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #ccdfd9;
+  }
+
+  .salnavbtn1 {
+    width: 90px;
+    height: 30px;
+    margin-top: 40px;
+    margin-left: 165px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      rgb(197, 161, 60) 0%,
+      rgb(190, 167, 63) 100%
+    );
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .salnavbtn1:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgb(221, 147, 9) 0%,
+      rgb(216, 163, 48) 100%
+    );
+    transition: all 0.4s ease-out;
+  }
+  .tableinputbtn3{
+    width: 70px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right:1px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      rgb(60, 108, 197) 0%,
+      rgb(102, 125, 201) 100%
+    );
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+  }
+  .tableinputbtn3:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgb(56, 8, 228) 0%,
+      rgb(60, 43, 219) 100%
+    );
+    transition: all 0.4s ease-out;
+  }

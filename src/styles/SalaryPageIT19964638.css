@@ -1,0 +1,8 @@
+.salary{
+    list-style-type: none;
+    
+}
+
+.salary li{
+    float: left;
+}
