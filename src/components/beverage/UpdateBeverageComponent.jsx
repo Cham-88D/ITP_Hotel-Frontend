@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BeverageService from '../../services/BeverageService';
+import BeverageService from '../../adapters/BeverageService';
 import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";

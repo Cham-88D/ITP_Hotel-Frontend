@@ -6,8 +6,8 @@ import OrderPDF from "./orderDetailsPdf";
 import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
-import BarRoomOrderService from "../../services/BarRoomOrderService";
-import BillService from "../../services/BillService";
+import BarRoomOrderService from "../../adapters/BarRoomOrderService";
+import BillService from "../../adapters/BillService";
 
 class ViewOrders extends Component {
     constructor(props) {

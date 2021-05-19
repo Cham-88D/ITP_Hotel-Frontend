@@ -24,6 +24,24 @@ export const SidebarData = [
         cName:'nav-text'
     },
     {
+        title: ' Menu  Managment',
+        path:'/menuItems',
+        icon: <IoIcon.IoFastFoodSharp/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Restaurant Order Managment',
+        path:'/ViewOrder',
+        icon: <FaIcon.FaMoneyBillAlt/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Policy Managment',
+        path:'/policy',
+        icon: <FaIcon.FaMoneyBillAlt/>,
+        cName:'nav-text'
+    },
+    {
         title: 'Sign Out',
         path:'/',
         icon: <GoIcon.GoSignOut/>,

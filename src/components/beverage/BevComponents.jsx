@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BeverageService from '../../services/BeverageService';
+import BeverageService from '../../adapters/BeverageService';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import userRoles from "../../constants/UserRole";
