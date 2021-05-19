@@ -7,6 +7,8 @@ import* as BsIcons from "react-icons/bs";
 import* as MdIcons from "react-icons/md";
 import* as BiIcons from "react-icons/bi";
 import* as CgIcons from "react-icons/cg";
+import* as FaIcons from "react-icons/fa";
+import* as IoIcons  from "react-icons/io5";
 
 export const SidebarData = [
     {
@@ -54,7 +56,6 @@ export const SidebarData = [
         icon:<CgIcons.CgProfile/>,
         cName:'nav-text'
     },
-
     {
         title:'Manage Employee',
         path:'/manageEmployee',
@@ -80,11 +81,37 @@ export const SidebarData = [
         icon:<MdIcons.MdPayment/>,
         cName:'nav-text'
     },
-   
     {
         title:'View Salary',
         path:'/payroll',
         icon:<BiIcons.BiDetail/>,
+        cName:'nav-text'
+    },
+    //supplier management
+    {
+        title:'Supplier List',
+        path:'/view-supplier',
+        icon:<BsIcons.BsFillPersonLinesFill/>,
+        cName:'nav-text'
+        
+    },
+    {
+        title:'Add Supplier ',
+        path:'/supplier',
+        icon:<IoIcons.IoPersonAdd/>,
+        cName:'nav-text'
+        
+    },
+    {
+        title:'Purchased Item List',
+        path:'/view-purchaseditem',
+        icon:<FaIcons.FaTruck/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Add Purchased Item',
+        path:'/purchaseditem',
+        icon:<BsIcons.BsCardList/>,
         cName:'nav-text'
     },
     {
