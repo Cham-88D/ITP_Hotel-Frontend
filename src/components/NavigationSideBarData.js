@@ -153,6 +153,31 @@ export const SidebarData = [
         icon: <FaIcon.FaMoneyBillAlt/>,
         cName:'nav-text'
     },
+    //Room reservation management
+    {
+        title: ' Room Management',
+        path:'/rooms',
+        icon: <FaIcon.FaHotel/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Reservation Managment',
+        path:'/reservations',
+        icon: <FaIcon.FaAddressBook/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Reservation Modification Request Managment',
+        path:'/res_modification_requests',
+        icon: <FaIcon.FaEdit/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Room Reservation Payment',
+        path:'/payments',
+        icon: <FaIcon.FaMoneyBillAlt/>,
+        cName:'nav-text'
+    },
     {
         title: 'Sign Out',
         path:'/',
