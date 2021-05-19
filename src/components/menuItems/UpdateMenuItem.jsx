@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import MenuItemService from '../../adapters/MenuItemService';
 import { isValidName ,isValidDescription} from '../shared/utils';
-
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
 
@@ -34,7 +35,7 @@ class UpdateMenuItem extends Component {
         this.changeDescriptionHandler = this.changeDescriptionHandler.bind(this);
         this.changeDiscountHandler = this.changeDiscountHandler.bind(this);
         this.updateMenuItem = this.updateMenuItem.bind(this);
-           
+        this.onSuccessUpdate = this.onSuccessUpdate.bind(this);
     }
 
     componentDidMount(){
@@ -49,6 +50,18 @@ class UpdateMenuItem extends Component {
         });
 
         
+    }
+
+    onSuccessUpdate() {
+        confirmAlert({
+            title: 'Successfully Updated!',
+            buttons: [
+                {
+                    label: 'OK',
+                    onClick: () => { this.props.history.push('/menuItems'); }
+                }
+            ]
+        });
     }
 
     validateUpdateMenuItemForm =() =>{
@@ -88,7 +101,8 @@ class UpdateMenuItem extends Component {
         
 
         MenuItemService.updateMenu(menuItem, this.state.id).then(res =>{
-            this.props.history.push('/menuItems');
+            //this.props.history.push('/menuItems');
+            this.onSuccessUpdate()
         });
          
     }
