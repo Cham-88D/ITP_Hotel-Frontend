@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router'
 
-import BeverageService from '../../services/BeverageService';
-import BarRoomOrderService from "../../services/BarRoomOrderService";
+import BeverageService from '../../adapters/BeverageService';
+import BarRoomOrderService from "../../adapters/BarRoomOrderService";
 import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";

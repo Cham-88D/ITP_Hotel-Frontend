@@ -6,7 +6,7 @@ import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
 import USER_ROLE from "../../constants/UserRole";
 import { isValidUsername } from "../util";
-import AuthService from "../../services/AuthService";
+import AuthService from "../../adapters/AuthService";
 
 class SignUp extends Component {
     constructor(props) {

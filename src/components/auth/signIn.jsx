@@ -5,7 +5,7 @@ import Loader from "react-loader-spinner";
 import Alert from "../alert";
 import ALERT_TYPES from "../../constants/AlertTypes";
 import { isValidUsername } from "../util";
-import AuthService from "../../services/AuthService";
+import AuthService from "../../adapters/AuthService";
 
 class SignIn extends Component {
     constructor(props) {

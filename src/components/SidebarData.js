@@ -15,9 +15,7 @@ export const SidebarData = [
         title: ' Beverage Management',
         path:'/beverages',
         icon: <IoIcon.IoFastFoodSharp/>,
-       
         cName:'nav-text'
-
     },
     {
         title: 'Beverage Order Managment',
@@ -26,8 +24,19 @@ export const SidebarData = [
         cName:'nav-text'
     },
     {
+        title: ' Menu  Managment',
+        path:'/menuItems',
+        icon: <IoIcon.IoFastFoodSharp/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Restaurant Order Managment',
+        path:'/ViewOrder',
+        icon: <FaIcon.FaMoneyBillAlt/>,
+        cName:'nav-text'
+    },
+    {
         title: 'Policy Managment',
-        // path:'/restaurant order',
         path:'/policy',
         icon: <FaIcon.FaMoneyBillAlt/>,
         cName:'nav-text'
