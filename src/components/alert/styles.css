@@ -1,0 +1,21 @@
+.success-alter-wrapper{
+    width: 100%;
+    background-color: rgb(108, 207, 160);
+    border: 1px solid green;
+    color: green;
+}
+
+.success-alter-wrapper .msg-wrapper{
+    padding-left: 5px;
+}
+
+.failure-alert-wrapper{
+    width: 100%;
+    background-color: rgb(240, 166, 166);
+    border: 1px solid red;
+    color: red;
+}
+
+.failure-alert-wrapper .msg-wrapper{
+    padding-left: 5px;
+}
