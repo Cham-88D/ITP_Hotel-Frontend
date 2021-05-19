@@ -44,7 +44,7 @@ class BevComponents extends Component {
 
             let filteredBeverages = [];
             beverages.map((item) => {
-                if (item.b_Name.includes(searchKey)) {
+                if (item.b_Name.toLowerCase().includes(searchKey.toLowerCase())) {
                     filteredBeverages.push(item);
                 }
                 return null;

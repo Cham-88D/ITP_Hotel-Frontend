@@ -11,7 +11,7 @@ class AuthService{
     }
 
     checkUserUniquenessExists(username){
-        return axios.post("http://localhost:8080/api/v1/isUserExist",username);
+        return axios.get(`http://localhost:8080/api/v1/isUserExist/${username}`);
     }
 }
 

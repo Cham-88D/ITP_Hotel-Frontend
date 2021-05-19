@@ -166,8 +166,8 @@ class SignUp extends Component {
                             </div>
                         </form>
                         <div style={{ display: "flex", flexDirection: "row" }}>
-                            <div style={{ display: "flex", justifyContent: "flex-start", width: "10%" }}>
-                                <button className="btn btn-success" style={{ background: "#bd9660" }} onClick={this.submit} disabled={role === "" || username === "" || password === "" || usernameError !== null}>Sign Up</button>
+                            <div style={{ display: "flex", justifyContent: "flex-start", width: "10%", marginRight:"5px"  }}>
+                                <button className="btn btn-success" style={{ background: "#bd9660"}} onClick={this.submit} disabled={role === "" || username === "" || password === "" || usernameError !== null}>Sign Up</button>
                             </div>
                             <div style={{ display: "flex", justifyContent: "flex-start", width: "10%" }}>
                                 <button className="btn btn-danger" onClick={this.resetFrom} >Reset</button>
