@@ -32,6 +32,17 @@ import Payroll from './components/PayrollIT19964638';
 import ViewPayslip from './components/ViewPayslipIT19964638';
 import AttendanceReportGenarate from './components/AttendanceReportGenarateIT19964638';
 
+import ViewSupplier from './pages/ViewSupplierIT19989242';
+import SupplierNavBar from './components/SupplierNavBarIT19989242';
+import UpdateSupplier from './pages/UpdateSupplierIT19989242';
+import ViewPurchasedItemDetail from './pages/ViewPurchasedItemDetailIT19989242';
+import ViewSupplierComponent from './pages/ViewSupplierComponentIT19989242';
+import UpdatePurchasedItemDetail from './pages/UpdatePurchasedItemDetailIT19989242';
+import ViewPurchasedItemDetailComponent from './pages/ViewPurchasedItemDetailComponentIT19989242';
+import AddNewSupplier from './pages/AddNewSupplierIT19989242';
+import AddNewPurchasedItem from './pages/AddNewPurchasedItemIT19989242';
+import GenatePdfReport from './pages/GenatePdfReportIT19989242';
+import GeneratePdfReportItem from './pages/GeneratePdfReportItemIT19989242';
 
 
 function App() {
@@ -70,6 +81,17 @@ function App() {
             <Route path='/attendancereport'  component={AttendanceReportGenarate} />
             <Route path='/payroll'  component={Payroll} />
             <Route path='/viewPalslip/:id'  component={ViewPayslip} />
+
+            <Route path = "/view-purchaseditem"  component = {ViewPurchasedItemDetail}></Route> 
+            <Route path = "/update-purchaseditem/:id"  component = {UpdatePurchasedItemDetail}></Route>
+            <Route path = "/view-allpurchaseditem/:id"  component = {ViewPurchasedItemDetailComponent}></Route>
+            <Route path = "/view-supplier"  component = {ViewSupplier}></Route>
+            <Route path = "/supplier" component = {AddNewSupplier}></Route>
+            <Route path = "/view-allsupplier/:id"  component = {ViewSupplierComponent}></Route>
+            <Route path = "/update-supplier/:id"  component = {UpdateSupplier}></Route>
+            <Route path = "/purchaseditem"  component = {AddNewPurchasedItem}></Route>
+            <Route path = "/generatepdfreport" component = {GenatePdfReport}></Route>
+            <Route path = "/generatepdfreportitem" component = {GeneratePdfReportItem}></Route>
           </Switch>
 
         </div>
@@ -77,6 +99,7 @@ function App() {
         <FooterComponent></FooterComponent>
       </Router>
     </div>
+  
   );
 }
 
