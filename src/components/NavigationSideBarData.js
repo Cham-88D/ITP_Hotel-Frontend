@@ -127,6 +127,32 @@ export const SidebarData = [
         icon:<IoIcons.IoFastFoodOutline/>,
         cName:'nav-text'
     },
+    //event management
+    {
+        title: ' Events',
+        path:'/events',
+        icon: <FaIcon.FaCalendarWeek/>,
+        cName:'nav-text'
+
+    },
+    {
+        title: 'Event Bookings',
+        path:'/bookings',
+        icon: <FaIcon.FaAddressBook/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Event Modification Request',
+        path:'/event-modification-request',
+        icon: <FaIcon.FaEdit/>,
+        cName:'nav-text'
+    },
+    {
+        title: 'Payment',
+        path:'/payments',
+        icon: <FaIcon.FaMoneyBillAlt/>,
+        cName:'nav-text'
+    },
     {
         title: 'Sign Out',
         path:'/',
