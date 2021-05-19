@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BevComponents from './components/beverage/BevComponents';
 import CreateBeverageComponent from './components/beverage/CreateBeverageComponent';
 import UpdateBeverageComponent from './components/beverage/UpdateBeverageComponent';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavigationBar';
 import OrderManagement from "./components/order/index";
 import Bill from "./components/bill/index";
 import BevOrderComponent from "./components/order/BevOrderComponent";
 import Auth from "./components/auth/index";
 
 import MenuItemList from './components/menuItems/MenuItemList';
-import FooterComponent from './components/FooterComponent';
+import FooterComponent from './components/CommonFooter';
 import AddMenuItem from './components/menuItems/AddMenuItem';
 import UpdateMenuItem from './components/menuItems/UpdateMenuItem';
 import AddOrderForm from './components/menuOrder/AddOrder';
@@ -33,7 +33,6 @@ import ViewPayslip from './components/ViewPayslipIT19964638';
 import AttendanceReportGenarate from './components/AttendanceReportGenarateIT19964638';
 
 import ViewSupplier from './pages/ViewSupplierIT19989242';
-import SupplierNavBar from './components/SupplierNavBarIT19989242';
 import UpdateSupplier from './pages/UpdateSupplierIT19989242';
 import ViewPurchasedItemDetail from './pages/ViewPurchasedItemDetailIT19989242';
 import ViewSupplierComponent from './pages/ViewSupplierComponentIT19989242';
@@ -44,6 +43,13 @@ import AddNewPurchasedItem from './pages/AddNewPurchasedItemIT19989242';
 import GenatePdfReport from './pages/GenatePdfReportIT19989242';
 import GeneratePdfReportItem from './pages/GeneratePdfReportItemIT19989242';
 
+import FoodCountComponent from './components/FoodCountTable-IT19176116';
+import CreateFoodCountComponent from './components/CreateFoodCountForm-IT19176116';
+import ViewFoodCountComponent from './components/ViewFoodCountComponent-IT19176116';
+import FoodDetailsComponent from './components/FoodDetailsTable-IT19176116';
+import CreateFoodDetailComponent from './components/CreateFoodDetailForm-IT19176116';
+import FoodReport from './components/FoodDetailsReport-IT19176116';
+import FoodCountReport from './components/FoodCountReport-IT19176116';
 
 function App() {
   return (
@@ -92,6 +98,15 @@ function App() {
             <Route path = "/purchaseditem"  component = {AddNewPurchasedItem}></Route>
             <Route path = "/generatepdfreport" component = {GenatePdfReport}></Route>
             <Route path = "/generatepdfreportitem" component = {GeneratePdfReportItem}></Route>
+
+            <Route path = "/foodCount" component = {FoodCountComponent}></Route>
+            <Route path = "/add-foodCount/:count_id" component = {CreateFoodCountComponent}></Route>
+            <Route path = "/view-foodCount/:count_id" component = {ViewFoodCountComponent}></Route>
+            <Route path = "/foodDetails" component = {FoodDetailsComponent}></Route>
+            <Route path = "/navbar" component = {Navbar}></Route>
+            <Route path = "/add-foodDetails/:food_Id" component = {CreateFoodDetailComponent}></Route>
+            <Route path = "/generateReport" component = {FoodReport}></Route>
+            <Route path = "/generateFoodCountReport" component = {FoodCountReport}></Route>
           </Switch>
 
         </div>
