@@ -3,6 +3,10 @@ import * as FaIcon from "react-icons/fa";
 import * as AiIcon from "react-icons/ai";
 import * as IoIcon from "react-icons/io5";
 import * as GoIcon from "react-icons/go";
+import* as BsIcons from "react-icons/bs";
+import* as MdIcons from "react-icons/md";
+import* as BiIcons from "react-icons/bi";
+import* as CgIcons from "react-icons/cg";
 
 export const SidebarData = [
     {
@@ -11,6 +15,7 @@ export const SidebarData = [
         icon: <AiIcon.AiFillHome/>,
         cName:'nav-text'
     },
+    //beverageManagement
     {
         title: ' Beverage Management',
         path:'/beverages',
@@ -23,6 +28,7 @@ export const SidebarData = [
         icon: <FaIcon.FaMoneyBillAlt/>,
         cName:'nav-text'
     },
+    //Restaurant management
     {
         title: ' Menu  Managment',
         path:'/menuItems',
@@ -41,11 +47,50 @@ export const SidebarData = [
         icon: <FaIcon.FaMoneyBillAlt/>,
         cName:'nav-text'
     },
+    //attendance and salary management
+    {
+        title:'Main',
+        path:'/main',
+        icon:<CgIcons.CgProfile/>,
+        cName:'nav-text'
+    },
+
+    {
+        title:'Manage Employee',
+        path:'/manageEmployee',
+        icon:<BsIcons.BsFillPersonLinesFill/>,
+        cName:'nav-text'
+        
+    },
+    {
+        title:'Daily Attendance',
+        path:'/manageAttendance',
+        icon:<BsIcons.BsCardList/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Monthly Attendance',
+        path:'/monthlyAttendance',
+        icon:<BiIcons.BiCalculator/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Manage Salary',
+        path:'/manageSalary',
+        icon:<MdIcons.MdPayment/>,
+        cName:'nav-text'
+    },
+   
+    {
+        title:'View Salary',
+        path:'/payroll',
+        icon:<BiIcons.BiDetail/>,
+        cName:'nav-text'
+    },
     {
         title: 'Sign Out',
         path:'/',
         icon: <GoIcon.GoSignOut/>,
         cName:'nav-text'
-    }
-
+    },
 ]
