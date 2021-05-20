@@ -1,4 +1,4 @@
-import React, { Component,Fragment } from "react";
+import React, { Component, Fragment } from "react";
 
 class OrderPDF extends Component {
     constructor(props) {
@@ -15,10 +15,10 @@ class OrderPDF extends Component {
         const { billDetails } = this.props;
         return (
             <Fragment>
-               {/*} <div>
-                    <img src="/hote-icon.jpeg" alr="main-icon" style={{height:"40px"}}/>
-        </div>*/}
                 <table className="table table-striped table-bordered" style={{ background: "#ebebe0" }}>
+                    <tr style={{ backgroundColor: "white", textAlign: "center",border:"none" }}>
+                        <img src="/hote-icon.jpeg" alr="main-icon" style={{ height: "40px" }} />
+                    </tr>
                     <tr>
                         <th style={{ color: 'red' }}>Order ID</th>
                         <th style={{ color: 'red' }}>Order Status</th>

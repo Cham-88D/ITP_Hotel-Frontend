@@ -12,7 +12,7 @@ class CommonFooter extends Component {
     render() {
         return (
             <div>
-                <footer className="footer" >
+                <footer className="common-footer" >
 
                     <span className="text-muted"></span>
 

@@ -254,7 +254,7 @@ class ViewOrders extends Component {
                                     </div>
                                     <div style={{ flexGrow: "1" }}>
                                         <Fragment>
-                                            <div style={{ display: "none" }}
+                                            <div style={{ display: "none"}}
                                             >
                                                 <style type="text/css">
                                                     {"@media print{@page {size: landscape; margin: 10mm;}}"}
